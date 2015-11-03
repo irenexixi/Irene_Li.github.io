@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Html5 | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qqli的技术博客">
+<meta property="og:url" content="http://yoursite.com/categories/Html5/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qqli的技术博客">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-html5-form-attr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/09/html5-form-attr/" class="article-date">
+  <time datetime="2015-03-09T01:22:17.000Z" itemprop="datePublished">Mar 9 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/09/html5-form-attr/">html5-form-attr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、表单内元素的form属性">1、表单内元素的form属性</h4>
+<p>HTML4中，表单的从属元素必须写在表单内部，而HTML5中，可以书写在页面上任何地方，然后为该元素指定一个form属性，属性值为该表单的id值，这样就可以声明该元素从属于指定表单了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">"testForm"</span> method=<span class="string">"post"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"name"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"Submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;textarea form=<span class="string">"testForm"</span> name=<span class="string">"desc"</span>&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong><br>Safari 5+， Google Chrome 10+， Firefox 4+， Opera 10+</p>
+<h4 id="2、表单内元素的formaction属性">2、表单内元素的formaction属性</h4>
+<p>HTML4中，表单内的所有元素只能通过表单的action属性被统一提交到另一个页面，而HTML5中可以给提交按钮增加不同的formaction属性，使单击不同的按钮时可以提交到不同的页面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">"testForm2"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s1"</span> value=<span class="string">"v1"</span> formaction=<span class="string">"s1.jsp"</span> value=<span class="string">"提交到S1"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s2"</span> value=<span class="string">"v2"</span> formaction=<span class="string">"s2.jsp"</span> value=<span class="string">"提交到S2"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s3"</span> value=<span class="string">"v3"</span> formaction=<span class="string">"s3.jsp"</span> value=<span class="string">"提交到S3"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 10+， Firefox 4+， Opera 10.50+，IE 10</p>
+<h4 id="3、表单内元素的formmethod属性">3、表单内元素的formmethod属性</h4>
+<p>HTML4中，表单内只有一个method属性来统一指定提交方法，HTML5中可以使用formmethod属性对每个表单元素分别指定不同的提交方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">"testForm3"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"name"</span> /&gt;&lt;br/&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s2"</span> value=<span class="string">"post方式提交"</span> formmethod=<span class="string">"post"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s3"</span> value=<span class="string">"get方式提交"</span> formmethod=<span class="string">"get"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 10+， Firefox 4+， Opera 10.50+，IE 10</p>
+<h4 id="4、表单内元素的formenctype属性">4、表单内元素的formenctype属性</h4>
+<p>HTML4中，有一个enctype属性用于指定在表单发送到服务器之前应该对表单内数据进行编码，HTML5中可以使用formmethod属性表单元素分别指定不同的编码方式。</p>
+<p>编码方式有以下3种：</p>
+<ul>
+<li><p>multipart/form-data</p>
+<blockquote>
+<p>不对字符串编码，对使用包含文件上传控件的表单时必须使用该值。</p>
+</blockquote>
+</li>
+<li><p>text/plain</p>
+<blockquote>
+<p>对表单数据中的空格被转换成“+”， 不对表单中的特殊字符进行编码。</p>
+</blockquote>
+</li>
+<li><p>application/x-www-form-urlencoded</p>
+<blockquote>
+<p>enctype属性的默认值，在发送前编码所有字符。当提交方法为get时，会把数据转换成字符串（？name1=value1&amp;name2=value2···），然后把这个字符串添加到url地址之后，成为新的目标url地址。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">"#"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"name"</span> value=<span class="string">"test"</span> /&gt;&lt;br/&gt;</div><div class="line">    文件： &lt;input <span class="built_in">type</span>=<span class="string">"file"</span> name=<span class="string">"files"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> formenctype=<span class="string">"multipart/form-data"</span> value=<span class="string">"上传"</span> formaction=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 10+， Firefox 4+， Opera 10.50+，IE 10</p>
+<h4 id="5、表单内元素的formtarget属性">5、表单内元素的formtarget属性</h4>
+<p>HTML4中，target属性用于指定在何处打开表单提交后所需要加载的页面，HTML5中可以使用formtarget属性可以对多个提交按钮分别指定formtarget值。</p>
+<p>formtarget属性值有以下3种：</p>
+<ul>
+<li><p>_blank: 在新的窗口中打开。</p>
+</li>
+<li><p>_self： 默认值。在相同的框架中打开。</p>
+</li>
+<li><p>_parent： 在当前框架的父框架中打开。</p>
+</li>
+<li><p>_top： 在当前浏览器窗口中打开。</p>
+</li>
+<li><p>framename： 在指定的框架中打开。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">"testForm4"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s1"</span> value=<span class="string">"target_self"</span> formaction=<span class="string">"s1.jsp"</span> formtarget=<span class="string">"_self"</span> &gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s2"</span> value=<span class="string">"target_blank"</span> formaction=<span class="string">"s2.jsp"</span> formtarget=<span class="string">"_blank"</span> &gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 10+， Firefox 4+， Opera 10.50+，IE 10</p>
+<h4 id="6、表单内元素的autofocus属性">6、表单内元素的autofocus属性</h4>
+<p>HTML5中新增属性，为文本框，选择框，按钮控件加上autofocus属性时，页面在打开时该控件会自动获得光标。目前要实现这个功能需要使用js，例如：$input.focus()。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> autofocus &gt;</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>一个页面中只能有一个控件具有autofocus属性，建议一个页面以一个控件为主要目的时，才使用autofucs属性，例如搜索页面的搜索框。</p>
+</blockquote>
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 6+， Firefox 4+， Opera 10+，IE 10</p>
+<h4 id="7、表单内元素的required属性">7、表单内元素的required属性</h4>
+<p>HTML5中新增属性，可以应用在大多数输入元素上（除了隐藏元素，图片元素按钮上）,提交时，如果元素内容为空，则不允许提交，同时显示用户提示信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">"testForm5"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> required&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> name=<span class="string">"s1"</span> value=<span class="string">"required"</span> formaction=<span class="string">"s1.jsp"</span> formtarget=<span class="string">"_self"</span> &gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 6+， Firefox 4+， Opera 10+，IE 10</p>
+<h4 id="8、表单内元素的labels属性">8、表单内元素的labels属性</h4>
+<p>HTML5中新增属性，对可以使用标签元素（label元素）的表单元素input（除了type为hidden的元素）、textarea、select、button、meter、output、progress、keygen等定义一个labels属性，属性值为一个Nodelist对象，代表该元素所绑定的标签元素的所构成的集合。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function <span class="function"><span class="title">Validate</span></span>() {</div><div class="line">        var txtName = document.getElementById(<span class="string">'txt_name'</span>);</div><div class="line">        var form = document.getElementById(<span class="string">'testForm6'</span>);</div><div class="line">        var btn = document.getElementById(<span class="string">'btnValidate'</span>);</div><div class="line">        <span class="keyword">if</span> (txtName.value.trim() == <span class="string">''</span>) {</div><div class="line">            <span class="keyword">if</span> (txtName.labels.length == <span class="number">1</span>) {</div><div class="line">                var label = document.createElement(<span class="string">'label'</span>);</div><div class="line">                label.setAttribute(<span class="string">"for"</span>, <span class="string">"txt_name"</span>);</div><div class="line">                form.insertBefore(label, btn);</div><div class="line">                console.log(txtName.labels);</div><div class="line">                txtName.labels[<span class="number">1</span>].innerHTML = <span class="string">"请输入姓名"</span>;</div><div class="line">                txtName.labels[<span class="number">1</span>].setAttribute(<span class="string">"style"</span>,<span class="string">"font-size:9px; color:#f00"</span>);</div><div class="line">            }</div><div class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (txtName.labels.length &gt; <span class="number">1</span>) {</div><div class="line">            form.removeChild(txtName.labels[<span class="number">1</span>]);</div><div class="line">        }</div><div class="line">    }</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;form id=<span class="string">"testForm6"</span> action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;label id=<span class="string">"label"</span> <span class="keyword">for</span>=<span class="string">"txt_name"</span>&gt;姓名：&lt;/label&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"txt_name"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> id=<span class="string">"btnValidate"</span> value=<span class="string">"validate"</span> onclick=<span class="string">"Validate()"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 6+， Opera 10+</p>
+<h4 id="9、表单内元素的control属性">9、表单内元素的control属性</h4>
+<p>HTML5中新增属性，在标签label内部放置一个表单元素，可以通过control属性访问这个表单元素，即把control属性的值设置成元素元素的value。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function <span class="function"><span class="title">setValue</span></span>() {</div><div class="line">        var label = document.getElementById(<span class="string">'label1'</span>);</div><div class="line">        var textbox =label.control;</div><div class="line">        textbox.value = <span class="string">"568898"</span>;</div><div class="line">    }</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;form  action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;label id=<span class="string">"label1"</span>&gt;</div><div class="line">        姓名：</div><div class="line">        &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"txt_zip"</span> maxlength=<span class="string">"6"</span>&gt;</div><div class="line">        &lt;small&gt;请输入<span class="number">6</span>位数字&lt;/small&gt;</div><div class="line">    &lt;/label&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"设置默认值"</span> onclick=<span class="string">"setValue()"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>一个页面中只能有一个控件具有autofocus属性，建议一个页面以一个控件为主要目的时，才使用autofucs属性，例如搜索页面的搜索框。</p>
+</blockquote>
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 18+，Firefox 10+, Opera 12+</p>
+<h4 id="10、表单内元素的placeholder属性">10、表单内元素的placeholder属性</h4>
+<p>HTML5中新增属性，可以设置表单元素input、textarea处于未输入状态时的提示文字。</p>
+<p>可以通过css设置提示文字的样式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    /*<span class="keyword">set</span> placeholder text color*/</div><div class="line">    input::-webkit-input-placeholder{</div><div class="line">        color: blue;</div><div class="line">    }</div><div class="line">    input::-moz-placeholder{</div><div class="line">        color: blue;</div><div class="line">    }</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> placeholder=<span class="string">"Please input"</span>&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+， Google Chrome 6+，Firefox 4+, Opera 11+、IE 10+</p>
+<h4 id="11、表单内元素的list属性">11、表单内元素的list属性</h4>
+<p>HTML5中新增属性，该属性的值为某个datalist元素的id。当输入框获取焦点并输入内容时若有匹配则显示datalist的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">text:&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> list=<span class="string">"greeting"</span>&gt;</div><div class="line">&lt;datalist id=<span class="string">"greeting"</span> style=<span class="string">"display: none;"</span>&gt;</div><div class="line">    &lt;option value=<span class="string">"Good Morning"</span>&gt;Good Morning&lt;/option&gt;</div><div class="line">    &lt;option value=<span class="string">"Hello"</span>&gt;Hello&lt;/option&gt;</div><div class="line">    &lt;option value=<span class="string">"Good Afternoon"</span>&gt;Good Afternoon&lt;/option&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Google Chrome 20+，Firefox 10+, Opera 10+、IE 10+</p>
+<h4 id="12、表单内元素的autocomplete属性">12、表单内元素的autocomplete属性</h4>
+<p>HTML5中新增属性，有三个值on/off/“ “， on时可以显示指定候补输入的数据列表。当不指定值时，使用浏览器的默认值（取决于各浏览器）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> list=<span class="string">"greeting"</span> autocomplete=<span class="string">"on"</span></div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 6.0+，Google Chrome 14+，Firefox 4+, Opera 10+、IE 10+</p>
+<h4 id="13、表单内元素的pattern属性">13、表单内元素的pattern属性</h4>
+<p>HTML5中新增属性，对input元素使用pattern属性，属性值设置为某个格式正则表达式，表单提交时会检验输入元素内容是否符合给定格式，如果不符合则不允许提交，并且会弹出相应的提示信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">"#"</span>&gt;</div><div class="line">    &lt;label <span class="keyword">for</span>=<span class="string">"txt_name"</span>&gt;请输入指定格式的内容：&lt;/label&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> pattern=<span class="string">"[0-9][A-Z]{3}"</span> name=<span class="string">"part"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"Submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5.0+，Google Chrome 6+，Firefox 4+, Opera 10+、IE 10+</p>
+<h4 id="14、表单内元素的selectionDirection属性">14、表单内元素的selectionDirection属性</h4>
+<p>HTML5中新增属性，针对input和textarea元素，可以获取选取元文本框中文字的方向。</p>
+<p>默认值和正向选取值为”forward”, 反向选取值为”backward”.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function <span class="function"><span class="title">AlertSelectionDirection</span></span>(){</div><div class="line">        var ipt = document.getElementById(<span class="string">'iptSelectionDirection'</span>);</div><div class="line">        var direction = ipt.selectionDirection;</div><div class="line">        console.log(direction);  //forward</div><div class="line">    }</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;form&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"iptSelectionDirection"</span> name=<span class="string">"text"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"点击我"</span> onclick=<span class="string">"AlertSelectionDirection()"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5.2+，Google Chrome 16+，Firefox 8+</p>
+<h4 id="15、表单内元素的indeterminate属性">15、表单内元素的indeterminate属性</h4>
+<p>HTML5中新增属性，在Js中使用，true时表示复选框处于“尚未明确选中状态”。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"checkbox"</span> name=<span class="string">"text"</span> indeterminate id=<span class="string">"indeterminate"</span>&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var indeterminate = document.getElementById(<span class="string">"indeterminate"</span>);</div><div class="line">    indeterminate.indeterminate = <span class="literal">true</span>;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>indeterminate和checked属于两个不同的属性，两者结合使用时应该先判断复选框的indeterminate值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(checkbox.indeterminate){</div><div class="line">    ...</div><div class="line">}<span class="keyword">else</span>{</div><div class="line">    <span class="keyword">if</span>(checkbox.checked){</div><div class="line">        。。。</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        。。。</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Safari 5+，Google Chrome 6+，Opera 11.50+，Firefox 3.6+，IE6</p>
+<h4 id="16、image提交按钮的height和width属性">16、image提交按钮的height和width属性</h4>
+<p>HTML5中新增属性，在Js中使用，true时表示复选框处于“尚未明确选中状态”。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">"123.jsp"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">    姓名： &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"name"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"image"</span> src=<span class="string">"../img/scrollup.png"</span> name=<span class="string">"img"</span> alt=<span class="string">"image button"</span> width=<span class="string">"20px"</span> height=<span class="string">"20"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>indeterminate和checked属于两个不同的属性，两者结合使用时应该先判断复选框的indeterminate值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(checkbox.indeterminate){</div><div class="line">    ...</div><div class="line">}<span class="keyword">else</span>{</div><div class="line">    <span class="keyword">if</span>(checkbox.checked){</div><div class="line">        。。。</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        。。。</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>Google Chrome 10+，Opera 12+，IE9，Firefox</p>
+<h4 id="17、textarea、input元素的maxlenght属性与textarea元素的wrap属性">17、textarea、input元素的maxlenght属性与textarea元素的wrap属性</h4>
+<p>maxlenght：限制输入元素中的最大字符数。</p>
+<p>wrap属性：默认值（or“soft”）时，提交表单时不会换行，“hard”时，提交表单会换行，和看到的一致，使用hard时需要与cols属性配合使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">"123.jsp"</span> method=<span class="string">"post"</span>&gt;</div><div class="line">    textarea元素的maxlenght属性与wrap属性：</div><div class="line">    &lt;textarea name=<span class="string">"name"</span> maxlength=<span class="string">"20"</span> rows=<span class="string">"5"</span> cols=<span class="string">"4"</span> wrap=<span class="string">"hard"</span>&gt;&lt;/textarea&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"submit"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>兼容性</strong></p>
+<p>maxlenght: Google Chrome 6+，Opera 10+，Firefox 4+, Safari 5+, IE 10</p>
+<p>wrap:  Google Chrome 16+，Opera 10+，IE9，Firefox 4+, Safari 5.2+, IE 6</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/09/html5-form-attr/" data-id="z1vv3oops3p50p24" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html5-form-attr/">Html5 form attr</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html5-attr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/06/html5-attr/" class="article-date">
+  <time datetime="2015-03-06T06:08:30.000Z" itemprop="datePublished">Mar 6 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Html5/">Html5</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/06/html5-attr/">html5-attr</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="全局属性:_指可以对任何元素都使用的属性">全局属性: 指可以对任何元素都使用的属性</h3>
+<h4 id="1-_contentEditable属性">1. contentEditable属性</h4>
+<p>主要功能是允许用户<strong>编辑元素中的内容</strong>，所以该元素必须是可以获得鼠标焦点的元素<br>点击鼠标后会向用户提供一个插入符号，提示该元素中的内容是允许编辑的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;h2&gt;可编辑列表&lt;/h2&gt;</div><div class="line">&lt;ul id=<span class="string">"box1"</span> contenteditable=<span class="string">"true"</span>&gt;</div><div class="line">    &lt;li&gt;列表元素<span class="number">1</span>&lt;/li&gt;</div><div class="line">    &lt;li&gt;列表元素<span class="number">2</span>&lt;/li&gt;</div><div class="line">    &lt;li&gt;列表元素<span class="number">3</span>&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+
+<p>contentEditable属性是一个<strong>布尔值属性，true/false/inherit</strong>。<br>想要保存编辑后的内容，只能把该元素的innerHtml发送到服务端，目前还没有特定的API来保存编辑后的元素的内容。</p>
+<blockquote>
+<p>元素还存在一个属性，<strong>isContentEditable</strong>,当元素可编辑时，该属性为true，当元素不可编辑时，为false。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var isContentEditable = document.getElementById(<span class="string">'box1'</span>).isContentEditable;</div><div class="line">console.log(isContentEditable); //<span class="literal">true</span></div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>使用contenteditable属性时需要注意，他的实现原理类似于编辑器，在复制内容到指定元素时，会连同内容的style也会复制，可能达不到开发人员预期想要的结果。</p>
+</blockquote>
+<h4 id="2-_designMode属性">2. designMode属性</h4>
+<p>designMode属性用来指定整个页面是否可编辑，当页面可编辑时，页面中所有支持contentEditable属性的元素都变成可编辑状态。只能在js脚本里被编辑修改。<br>designMode属性有两个值<strong>on/off</strong>。on，页面可编辑，off页面不可编辑</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.designMode=<span class="string">"on"</span>;</div></pre></td></tr></table></figure>
+
+<p><strong>兼容性</strong></p>
+<ul>
+<li>ie8: 出于安全考虑，不允许使用</li>
+<li>Chrome 3和Safari: 使用内嵌frame的方式，该内嵌frame是可编辑的</li>
+<li>ie9/Firefox/Opera/Chrome3+: 允许</li>
+</ul>
+<p><strong>hidden属性</strong></p>
+<p>功能是通知浏览器不渲染该元素，使该元素处于不可见状态，类似于input元素中的hidden元素</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"box2"</span> hidden=<span class="string">"true"</span>&gt;hidden 属性显示啦&lt;/div&gt;</div><div class="line">document.getElementById(<span class="string">'box2'</span>).removeAttribute(<span class="string">'hidden'</span>);</div></pre></td></tr></table></figure>
+
+
+
+<p>页面加载后可以使用js脚本取消该值，取消后该元素变成可见状态，显示元素的内容。</p>
+<p>hidden属性的值：true/false，true元素不可见，false，元素可见。</p>
+<h4 id="3-_spellcheck属性">3. spellcheck属性</h4>
+<p>功能是对用户输入的文本内容进行拼写和语法检查。 针对input、textarea元素有效。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">正确的写法</div><div class="line">&lt;textarea spellcheck=<span class="string">"true"</span>&gt;&lt;/textarea&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> spellcheck=<span class="string">"false"</span>&gt;</div><div class="line"></div><div class="line">错误的写法</div><div class="line">&lt;textarea spellcheck&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>
+
+<p>spellcheck属性的值：true/false，他在书写时有个特殊的地方，必须明确声明属性值是true或false</p>
+<blockquote>
+<p>如果元素的readonly属性或disable属性为true时，不会执行检查</p>
+</blockquote>
+<p><strong>兼容性</strong></p>
+<p>除了IE，其他浏览器都支持</p>
+<h4 id="3-_spellcheck属性-1">3. spellcheck属性</h4>
+<p>参阅《HTML5与CSS3权威指南》</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/06/html5-attr/" data-id="2gt1o9gvzp94imb2" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5属性/">html5属性</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

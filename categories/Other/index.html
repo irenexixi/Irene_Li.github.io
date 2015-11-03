@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Other | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qqli的技术博客">
+<meta property="og:url" content="http://yoursite.com/categories/Other/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qqli的技术博客">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-commonly-used-in-work-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/31/commonly-used-in-work-javascript/" class="article-date">
+  <time datetime="2015-08-31T06:07:52.000Z" itemprop="datePublished">Aug 31 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/commonly-used-in-work-javascript/">commonly-used-in-work-javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、JavaScript_indexOf()">1、JavaScript indexOf()</h2>
+<p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.indexOf(searchvalue,fromindex)</div></pre></td></tr></table></figure>
+
+<p>该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 searchvalue。<br>开始检索的位置在字符串的 fromindex 处或字符串的开头（没有指定 fromindex 时）。如果找到一个 searchvalue，则返回 searchvalue 的第一次出现的位置。<br>stringObject 中的字符位置是从 0 开始的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Hello world!"</span></div><div class="line">document.write(str.indexOf(<span class="string">"Hello"</span>) + <span class="string">"&lt;br /&gt;"</span>)  //<span class="number">0</span></div><div class="line">document.write(str.indexOf(<span class="string">"World"</span>) + <span class="string">"&lt;br /&gt;"</span>)  //-<span class="number">1</span></div><div class="line">document.write(str.indexOf(<span class="string">"world"</span>))             //<span class="number">6</span></div></pre></td></tr></table></figure>
+
+
+
+<p>注释：indexOf() 方法对大小写敏感！<br>注释：如果要检索的字符串值没有出现，则该方法返回 -1。</p>
+<h2 id="2、JavaScript_join()">2、JavaScript join()</h2>
+<p>join() 方法用于把数组中的所有元素放入一个字符串。将数组转换成字符串<br>元素是通过指定的分隔符进行分隔的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.join(separator)</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>separator    可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。</p>
+</blockquote>
+<p>返回一个字符串。该字符串是通过把 arrayObject 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入 separator 字符串而生成的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(<span class="number">3</span>)</div><div class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></div><div class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></div><div class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></div><div class="line">document.write(arr.join(<span class="string">"."</span>)) //George.John.Thomas</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、JavaScript_split()">3、JavaScript split()</h2>
+<p>split() 方法用于把一个字符串分割成字符串数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.split(separator,howmany)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>separator    必需。字符串或正则表达式，从该参数指定的地方分割 stringObject。<br>howmany    可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</p>
+</blockquote>
+<p>返回一个字符串数组。该数组是通过在 separator 指定的边界处将字符串 stringObject 分割成子串创建的。返回的数组中的字串不包括 separator 自身。<br>但是，如果 separator 是包含子表达式的正则表达式，那么返回的数组中包括与这些子表达式匹配的字串（但不包括与整个正则表达式匹配的文本）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">var str=<span class="string">"How are you doing today?"</span></div><div class="line">document.write(str.split(<span class="string">" "</span>) + <span class="string">"&lt;br /&gt;"</span>)  //How,are,you,doing,today?</div><div class="line">document.write(str.split(<span class="string">""</span>) + <span class="string">"&lt;br /&gt;"</span>)   //H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?</div><div class="line">document.write(str.split(<span class="string">" "</span>,<span class="number">3</span>))           //How,are,you</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>字符串为null时会报错</strong><br>注释：如果把空字符串 (“”) 用作 separator，那么 stringObject 中的每个字符之间都会被分割。<br>注释：String.split() 执行的操作与 Array.join 执行的操作是相反的。</p>
+<h2 id="4、删除值为”string”的数组元素">4、删除值为”string”的数组元素</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(var <span class="keyword">in</span> arr){</div><div class="line"> <span class="keyword">if</span>(arr[i]==<span class="string">"string"</span>){</div><div class="line">    arr.splice(i,<span class="number">1</span>);</div><div class="line"> }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、JavaScript_splice()">5、JavaScript splice()</h2>
+<p>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br>注释：该方法会改变原始数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.splice(index,howmany,item1,.....,itemX)</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>index    必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。<br>howmany    必需。要删除的项目数量。如果设置为 0，则不会删除项目。<br>item1, …, itemX    可选。向数组添加的新项目。</p>
+</blockquote>
+<p>返回值是Array，包含被删除项目的新数组，如果有的话。<br>splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。<br>如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">var arr = new Array(<span class="number">6</span>)</div><div class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></div><div class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></div><div class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></div><div class="line">arr[<span class="number">3</span>] = <span class="string">"James"</span></div><div class="line">arr[<span class="number">4</span>] = <span class="string">"Adrew"</span></div><div class="line">arr[<span class="number">5</span>] = <span class="string">"Martin"</span></div><div class="line">document.write(arr + <span class="string">"&lt;br /&gt;"</span>) //George,John,Thomas,James,Adrew,Martin</div><div class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"William"</span>)</div><div class="line">document.write(arr)      //George,John,William,James,Adrew,Martin</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="6、iframe">6、iframe</h2>
+<h4 id="刷新当前iframe">刷新当前iframe</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.location.reload();</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="重定向当前iframe">重定向当前iframe</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.location.href = url;</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="7、for_in_循环遍历对象">7、for in 循环遍历对象</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj={</div><div class="line">  age:<span class="number">12</span>,</div><div class="line">  height:<span class="number">170</span>,</div><div class="line">  name:<span class="string">'小华'</span></div><div class="line">};</div><div class="line"><span class="keyword">for</span> (var i <span class="keyword">in</span> obj) { //i将会被列举为键名,就是所说的字符串的下标</div><div class="line">    alert(i+<span class="string">"\n"</span>+obj[i]);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="8、JavaScript_Date-parse()_函数">8、JavaScript Date.parse() 函数</h3>
+<p>Date.parse(datestring) — 解析一个日期的字符串，并返回该日期距1970年1月1日午夜之间的毫秒数(时间戳)<br>返回一个整数<br>整数值为datestring表示日期距1970年1月1日午夜之间的毫秒数(时间戳)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Date.parse(new Date())</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="9、JavaScript_Math对象的方法">9、JavaScript Math对象的方法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. Math.ceil()用作向上取整。</div><div class="line"><span class="number">2</span>. Math.floor()用作向下取整。</div><div class="line"><span class="number">3</span>. Math.round() 我们数学中常用到的四舍五入取整。</div><div class="line"><span class="number">4</span>. parseInt(<span class="number">5</span>/<span class="number">2</span>) 丢弃小数部分,保留整数部分</div><div class="line"></div><div class="line"><span class="number">5</span>. Math.abs(x)   返回数的绝对值</div><div class="line"><span class="number">6</span>. Math.acos(x) 返回数的反余弦值</div><div class="line"><span class="number">7</span>. Math.asin(x) 返回数的反正弦值  </div><div class="line"><span class="number">8</span>. Math.atan(x) 以介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间的数值来返回 x 的反正切值</div><div class="line"><span class="number">10</span>. Math.atan2(y,x) 返回从 x 轴到点 (x,y) 的角度（介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间）</div><div class="line"><span class="number">11</span>. Math.ceil(x) 对一个数进行上舍入。</div><div class="line"><span class="number">12</span>. Math.cos(x) 返回数的余弦</div><div class="line"><span class="number">13</span>. Math.exp(x) 返回 e 的指数。</div><div class="line"><span class="number">14</span>. Math.floor(x) 对一个数进行下舍入。</div><div class="line"><span class="number">15</span>. Math.log(x) 返回数的自然对数（底为e）</div><div class="line"><span class="number">16</span>. Math.max(x,y) 返回 x 和 y 中的最高值</div><div class="line"><span class="number">17</span>. Math.min(x,y) 返回 x 和 y 中的最低值</div><div class="line"><span class="number">18</span>. Math.pow(x,y) 返回 x 的 y 次幂</div><div class="line"><span class="number">19</span>. Math.random() 返回 <span class="number">0</span> ~ <span class="number">1</span> 之间的随机数</div><div class="line"><span class="number">20</span>. Math.round(x) 把一个数四舍五入为最接近的整数</div><div class="line"><span class="number">21</span>. Math.sin(x) 返回数的正弦</div><div class="line"><span class="number">22</span>. Math.sqrt(x) 返回数的平方根</div><div class="line"><span class="number">23</span>. Math.tan(x) 返回一个角的正切</div><div class="line"><span class="number">24</span>. Math.toSource() 代表对象的源代码</div><div class="line"><span class="number">25</span>. Math.valueOf() 返回一个 Math 对象的原始值</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="10、Window_History对象">10、Window History对象</h3>
+<p>window.history 对象包含浏览器的历史</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history.back() 方法加载历史列表中的前一个 URL。</div><div class="line">history.forward() 方法加载历史列表中的下一个 URL。</div><div class="line">history.go(i) 方法去指定的某页</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="11、JavaScript_slice()">11、JavaScript slice()</h3>
+<p>slice() 方法可从已有的数组中返回选定的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.slice(start,end)</div></pre></td></tr></table></figure>
+
+
+
+<p>返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素</p>
+<blockquote>
+<p>请注意，该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。<br>您可使用负值从数组的尾部选取元素。<br>如果 end 未被规定，那么 slice() 方法会选取从 start 到数组结尾的所有元素。</p>
+</blockquote>
+<h3 id="12、JavaScript_exec()_方法">12、JavaScript exec() 方法</h3>
+<p>exec() 方法用于检索字符串中的正则表达式的匹配。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RegExpObject.exec(string)</div></pre></td></tr></table></figure>
+
+
+
+<p>返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var str = <span class="string">"Visit W3School, I love W3School"</span>;</div><div class="line">var patt = new RegExp(<span class="string">"W3School"</span>,<span class="string">"g"</span>);</div><div class="line">var result;</div><div class="line"></div><div class="line"><span class="keyword">while</span> ((result = patt.exec(str)) != null)  {</div><div class="line">    console.log(result);</div><div class="line">    console.log(patt.lastIndex);</div><div class="line">}</div><div class="line">//[<span class="string">"W3School"</span>, index: <span class="number">6</span>, input: <span class="string">"Visit W3School, I love W3School"</span>]</div><div class="line">//<span class="number">14</span></div><div class="line">//[<span class="string">"W3School"</span>, index: <span class="number">23</span>, input: <span class="string">"Visit W3School, I love W3School"</span>]</div><div class="line">//<span class="number">31</span></div></pre></td></tr></table></figure>
+
+
+
+<p>如果 exec() 找到了匹配的文本，则返回一个结果数组。否则，返回 null。此数组的第 0 个元素是与正则表达式相匹配的文本，第 1 个元素是与 RegExpObject 的第 1 个子表达式相匹配的文本（如果有的话），第 2 个元素是与 RegExpObject 的第 2 个子表达式相匹配的文本（如果有的话），以此类推。除了数组元素和 length 属性之外，exec() 方法还返回两个属性。index 属性声明的是匹配文本的第一个字符的位置。input 属性则存放的是被检索的字符串 string。我们可以看得出，在调用非全局的 RegExp 对象的 exec() 方法时，返回的数组与调用方法 String.match() 返回的数组是相同的。<br>但是，当 RegExpObject 是一个全局正则表达式时，exec() 的行为就稍微复杂一些。它会在 RegExpObject 的 lastIndex 属性指定的字符处开始检索字符串 string。当 exec() 找到了与表达式相匹配的文本时，在匹配后，它将把 RegExpObject 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。这就是说，您可以通过反复调用 exec() 方法来遍历字符串中的所有匹配文本。当 exec() 再也找不到匹配的文本时，它将返回 null，并把 lastIndex 属性重置为 0。</p>
+<blockquote>
+<p>重要事项：如果在一个字符串中完成了一次模式匹配之后要开始检索新的字符串，就必须手动地把 lastIndex 属性重置为 0。<br>提示：请注意，无论 RegExpObject 是否是全局模式，exec() 都会把完整的细节添加到它返回的数组中。这就是 exec() 与 String.match() 的不同之处，后者在全局模式下返回的信息要少得多。因此我们可以这么说，在循环中反复地调用 exec() 方法是唯一一种获得全局模式的完整模式匹配信息的方法。</p>
+</blockquote>
+<h3 id="13、JavaScript_shift()_方法">13、JavaScript shift() 方法</h3>
+<p>shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.shift()</div></pre></td></tr></table></figure>
+
+
+
+<p>数组原来的第一个元素的值。<br>如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。请注意，该方法不创建新数组，而是直接修改原有的 arrayObject。</p>
+<blockquote>
+<p>注释：该方法会改变数组的长度。<br>提示：要删除并返回数组的最后一个元素，请使用 pop() 方法。</p>
+</blockquote>
+<h3 id="14、JavaScript_replace()_方法">14、JavaScript replace() 方法</h3>
+<p>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.replace(regexp/substr,replacement)</div></pre></td></tr></table></figure>
+
+
+
+<p>一个新的字符串，是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Visit Microsoft!"</span></div><div class="line">document.write(str.replace(/Microsoft/, <span class="string">"W3School"</span>))； //Visit W3School!</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="15、JavaScript_reverse()_方法">15、JavaScript reverse() 方法</h3>
+<p>reverse() 方法用于颠倒数组中元素的顺序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.reverse()</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>注释：</strong>该方法会改变原来的数组，而不会创建新的数组。</p>
+<h3 id="16、HTML_DOM中几个容易常用的属性">16、HTML DOM中几个容易常用的属性</h3>
+<h4 id="nodeName_属性含有某个节点的名称。">nodeName 属性含有某个节点的名称。</h4>
+<p>元素节点的 nodeName 是标签名称<br>属性节点的 nodeName 是属性名称<br>文本节点的 nodeName 永远是 #text<br>文档节点的 nodeName 永远是 #document </p>
+<h4 id="nodeValue">nodeValue</h4>
+<p>对于文本节点，nodeValue 属性包含文本。<br>对于属性节点，nodeValue 属性包含属性值。<br>nodeValue 属性对于文档节点和元素节点是不可用的。</p>
+<h4 id="nodeType_属性可返回节点的类型。">nodeType 属性可返回节点的类型。</h4>
+<p>值-元素类型<br>1-ELEMENT 元素element<br>2-ATTRIBUTE 属性attr<br>3-TEXT 文本text<br>4-CDATA<br>5-ENTITY REFERENCE<br>6-ENTITY<br>7-PI (processing instruction)<br>8-COMMENT 注释comments<br>9-DOCUMENT 文档document<br>10-DOCUMENT TYPE<br>11-DOCUMENT FRAGMENT<br>12-NOTATION </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/31/commonly-used-in-work-javascript/" data-id="gjmupay12uw983m2" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commonly-used-in-work-javascript/">commonly-used-in-work-javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-commonly-used-in-work-angularJs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/commonly-used-in-work-angularJs/" class="article-date">
+  <time datetime="2015-05-20T02:23:26.000Z" itemprop="datePublished">May 20 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/20/commonly-used-in-work-angularJs/">commonly-used-in-work-angularJs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、Directive中的compile_&amp;_link">1、Directive中的compile &amp; link</h2>
+<p>先从directive是如何在angular下生效的说起吧~</p>
+<h3 id="编译三阶段：">编译三阶段：</h3>
+<p><strong>1. 标准浏览器API转化</strong></p>
+<p>将html转化成dom，所以自定义的html标签必须符合html的格式</p>
+<p><strong>2. Angular compile</strong></p>
+<p>搜索匹配directive，按照priority(优先)排序，并执行directive上的compile方法</p>
+<p><strong>3. Angular link</strong></p>
+<p>执行directive上的link方法，进行scope绑定及事件绑定</p>
+<h3 id="为什么编译的过程要分成compile和link?">为什么编译的过程要分成compile和link?</h3>
+<p>简单的说就是为了解决性能问题，特别是那种model变化会影响dom结构变化的，而变化的结构还会有新的scope绑定及事件绑定，比如ng-repeat</p>
+<h3 id="compile和link的形式">compile和link的形式</h3>
+<p><strong>compile</strong></p>
+<blockquote>
+<p>function compile(element, attrs, transclude) { … }<br>在compile阶段要执行的函数，返回的function就是link时要执行的function<br>常用参数为element和attrs，分别是dom元素和元素上的属性们，其它的以后细说<br>较少使用，因为大部分directive是处理dom元素的行为绑定，而不是改变它们</p>
+</blockquote>
+<p><strong>link</strong></p>
+<blockquote>
+<p>function link(scope, element, attrs, controller) { … }<br>在link阶段要执行的函数，这个属性只有当compile属性没有设置时才生效<br>常用参数为scope，element和attrs，分别是当前元素所在的scope，dom元素和元素上的属性们，其它的以后细说<br>directive基本上都会有此函数，可以注册事件，并与scope相绑</p>
+</blockquote>
+<h3 id="compile和link的使用时机">compile和link的使用时机</h3>
+<p><strong>compile</strong></p>
+<blockquote>
+<p>想在dom渲染前对它进行变形，并且不需要scope参数<br>想在所有相同directive里共享某些方法，这时应该定义在compile里，性能会比较好<br>返回值就是link的function，这时就是共同使用的时候</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.directive(<span class="string">'addHost'</span>, <span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">return</span> {</div><div class="line">        restrict: <span class="string">'A'</span>,</div><div class="line">        compile: function (tElem, attr) {</div><div class="line">            tElem.attr(<span class="string">'href'</span>, HOST + tElem.attr(<span class="string">'href'</span>));</div><div class="line">        }</div><div class="line">    };</div><div class="line">})</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>link</strong></p>
+<blockquote>
+<p>对特定的元素注册事件<br>需要用到scope参数来实现dom元素的一些行为</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.directive(<span class="string">'lastRepeat'</span>, <span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">return</span> {</div><div class="line">        restrict: <span class="string">'A'</span>,</div><div class="line">        link: function (scope, tElem, attr) {</div><div class="line">            <span class="keyword">if</span> (scope.<span class="variable">$last</span>) {</div><div class="line">                scope.publishApp.hideChkbox();</div><div class="line">            }</div><div class="line">        }</div><div class="line">    };</div><div class="line">})</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、$scope-$apply()">2、$scope.$apply()</h2>
+<p>在写AngularJs代码时，通常会遇到$scope.$apply()方法，表面上看起来是在模型有更新时执行，我确实是这样做的,实际上是有很深的意义在里面的。<br>在网上看到一篇文章，不知道怎样用中文来表达，还是附上地址吧<a href="http://jimhoskins.com/2012/12/17/angularjs-and-apply.html" title="$scope.$apply()" target="_blank" rel="external">$scope.$apply()</a></p>
+<h4 id="$apply_and_$digest">$apply and $digest</h4>
+<blockquote>
+<p>That step that checks to see if any binding values have changed actually has a method, $scope.$digest(). That’s actually where the magic happens, but we almost never call it directly, instead we use $scope.$apply() which will call $scope.$digest() for you.</p>
+<p>$scope.$apply() takes a function or an Angular expression string, and executes it, then calls $scope.$digest() to update any bindings or watchers.</p>
+</blockquote>
+<h4 id="$scope-$apply()_vs_$scope-$apply(fn)">$scope.$apply() vs $scope.$apply(fn)</h4>
+<blockquote>
+<p>Sometimes I see examples where data is updated, and then $scope.$apply() is called with no arguments. This achieves the desired result, but misses some opportunities.</p>
+<p>If your code isn’t wrapped in a function passed to $apply, and it throws an error, that error is thrown outside of AngularJS, which means any error handling being used in your application is going to miss it. $apply not only runs your code, but it runs it in a try/catch so your error is always caught, and the $digest call is in a finally clause, meaning it will run regardless of an error being thrown. That’s pretty nice.</p>
+<p>Hopefully now you understand what $apply is and when to use it. If you only use what AngularJS provides you, you shouldn’t need to use it often. But if you begin writing directives where you are observing DOM elements directly, it is going to become necessary.</p>
+</blockquote>
+<p>使用$scope.$apply(fn)更好。</p>
+<h2 id="3、angular-bindonce">3、angular-bindonce</h2>
+<p><a href="https://github.com/Pasvaz/bindonce" target="_blank" rel="external">github angular-bindonce</a></p>
+<p>在ng-repeat时使用较多，需要在使用的地方加上 <strong>bindonce</strong>，否则会找不到依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li bindonce ng-repeat=<span class="string">"person in Persons"</span>&gt;</div><div class="line">        &lt;a bo-href=<span class="string">"'#/people/' + person.id"</span>&gt;&lt;img bo-src=<span class="string">"person.imageUrl"</span>&gt;&lt;/a&gt;</div><div class="line">        &lt;a bo-href=<span class="string">"'#/people/' + person.id"</span> bo-text=<span class="string">"person.name"</span>&gt;&lt;/a&gt;</div><div class="line">        &lt;p bo-class=<span class="string">"{'cycled':person.generated}"</span> bo-html=<span class="string">"person.description"</span>&gt;&lt;/p&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+
+
+<p>Now this example uses 0 watches per person and renders exactly the same result as the above that uses ng-. *(Angular still uses 1 watcher for ngRepeatWatch)</p>
+<p>在初始化页面时使用可以减少监听，但想要在操作过程成更新表格的数据，实现双向绑定，则不能使用bo-*，只有在初始化时可行，可重新请求表格数据来解决这个问题；</p>
+<h4 id="使用方法">使用方法</h4>
+<p>1、download, clone or fork it or install it using bower bower install <strong>angular-bindonce</strong><br>2、Include the <strong>bindonce.js</strong> script provided by this component into your app.<br>3、Add ‘pasvaz.bindonce’ as a module dependency to your <strong>app: angular.module(‘app’, [‘pasvaz.bindonce’])</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/05/20/commonly-used-in-work-angularJs/" data-id="fcg49bk2dj02dh92" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-commonly-used-in-work-jquery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/commonly-used-in-work-jquery/" class="article-date">
+  <time datetime="2015-05-20T02:23:26.000Z" itemprop="datePublished">May 20 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/20/commonly-used-in-work-jquery/">commonly-used-in-work-jquery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、jQuery_prop_&amp;_jQuery_attr">1、jQuery prop &amp; jQuery  attr</h2>
+<h3 id="attr用法">attr用法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(selector).attr(attribute);         //返回被选元素的属性值.</div><div class="line">$(selector).attr(attribute,value);   //设置被选元素的属性和值。</div><div class="line">$(selector).attr(attribute,function(index,oldvalue));       //使用函数来设置属性/值</div><div class="line">$(selector).attr({attribute:value, attribute:value ...})；  //设置多个属性/值对</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="attr用法之_使用函数来设置属性/值">attr用法之 使用函数来设置属性/值</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).attr(attribute,function(index,oldvalue));</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>function(index,oldvalue)<br>规定返回属性值的函数。<br>该函数可接收并使用选择器的 index 值和当前属性值。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).attr(<span class="string">"width"</span>,function(n,v){</div><div class="line">  <span class="keyword">return</span> v-<span class="number">50</span>;</div><div class="line">})</div></pre></td></tr></table></figure>
+
+<h4 id="attr用法之_设置多个属性/值对">attr用法之 设置多个属性/值对</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).attr({</div><div class="line">    width:<span class="string">"50"</span>,</div><div class="line">    height:<span class="string">"80"</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+<h3 id="prop用法">prop用法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.prop( propertyName );           //Get the value of a property <span class="keyword">for</span> the first element <span class="keyword">in</span> the <span class="keyword">set</span> of matched elements.</div><div class="line">.prop( propertyName, value );    //Set one or more properties <span class="keyword">for</span> the <span class="keyword">set</span> of matched elements.</div><div class="line">.prop( properties );             //An object of property-value pairs to set.</div><div class="line">.prop( propertyName, function ); //A function returning the value to set.</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>The .prop() method gets the property value for only the <strong>first element</strong> in the matched set.<br>It returns <strong>undefined</strong> for the value of a property that has not been set, or if the matched set has no elements.<br>To get the value for each element individually, use a looping construct such as jQuery’s <strong>.each() or .map()</strong> method.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">elem.checked	<span class="literal">true</span> (Boolean) Will change with checkbox state</div><div class="line">$( elem ).prop( <span class="string">"checked"</span> )	<span class="literal">true</span> (Boolean) Will change with checkbox state</div><div class="line">elem.getAttribute( <span class="string">"checked"</span> )	<span class="string">"checked"</span> (String) Initial state of the checkbox; does not change</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (<span class="number">1.6</span>)	<span class="string">"checked"</span> (String) Initial state of the checkbox; does not change</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (<span class="number">1.6</span>.<span class="number">1</span>+)	<span class="string">"checked"</span> (String) Will change with checkbox state</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (pre-<span class="number">1.6</span>)	<span class="literal">true</span> (Boolean) Changed with checkbox state</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( elem.checked )</div><div class="line"><span class="keyword">if</span> ( $( elem ).prop( <span class="string">"checked"</span> ) )</div><div class="line"><span class="keyword">if</span> ( $( elem ).is( <span class="string">":checked"</span> ) )</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>The same is true for other dynamic attributes, such as <strong>selected 、disabled、value</strong>.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"input[type='checkbox']"</span> ).prop( <span class="string">"checked"</span>, function( i, val ) {</div><div class="line">  <span class="keyword">return</span> !val;</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()</p>
+<h2 id="2、jQuery_filter">2、jQuery filter</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.filter(selector)</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>selector：字符串值，包含供匹配当前元素集合的选择器表达式。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).css(<span class="string">"background"</span>, <span class="string">"#c8ebcc"</span>)</div><div class="line">    .filter(<span class="string">".middle"</span>)</div><div class="line">    .css(<span class="string">"border-color"</span>, <span class="string">"red"</span>);</div></pre></td></tr></table></figure>
+
+
+<p>filter() 方法将匹配元素集合缩减为匹配指定选择器的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">1</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">2</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">3</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">4</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">5</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">6</span>&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).filter(<span class="string">':even'</span>).css(<span class="string">'background-color'</span>, <span class="string">'red'</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>如果给定表示 DOM 元素集合的 jQuery 对象，.filter() 方法会用匹配元素的子集构造一个新的 jQuery 对象。所使用的选择器会测试每个元素；所有匹配该选择器的元素都会包含在结果中</p>
+</blockquote>
+<p>使用过滤函数</p>
+<blockquote>
+<p>通过函数而不是选择器来筛选元素。对于每个元素，如果该函数返回 true，则元素会被包含在已筛选集合中；否则，会排除这个元素。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item <span class="number">1</span> - one strong tag&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item &lt;strong&gt;<span class="number">2</span>&lt;/strong&gt;</div><div class="line">   - two &lt;span&gt;strong tags&lt;/span&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">3</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">4</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">5</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">6</span>&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).filter(function(index) {</div><div class="line">  <span class="keyword">return</span> $(<span class="string">'strong'</span>, this).length == <span class="number">1</span>;</div><div class="line">}).css(<span class="string">'background-color'</span>, <span class="string">'red'</span>);</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$form</span>.find(<span class="string">".setBoxRequired"</span>).filter(<span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">return</span> $(this).hasClass(<span class="string">"appManager"</span>) ? <span class="string">""</span> : $(this);</div><div class="line">}).textbox(<span class="string">"setValue"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div"</span> ).filter( document.getElementById( <span class="string">"unique"</span> ) );</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div"</span> ).filter( $( <span class="string">"#unique"</span> ) );</div><div class="line"></div><div class="line"><span class="variable">$appListTable</span>.find(<span class="string">".check-item"</span>).filter(<span class="string">"[value='"</span> + result[i] + <span class="string">"']"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、jQuery_：visible">3、jQuery ：visible</h2>
+<p>Selects all elements that are visible</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div:visible"</span> ).click(<span class="function"><span class="title">function</span></span>() {</div><div class="line">  $( this ).css( <span class="string">"background"</span>, <span class="string">"yellow"</span> );</div><div class="line">});</div><div class="line">$( <span class="string">"button"</span> ).click(<span class="function"><span class="title">function</span></span>() {</div><div class="line">  $( <span class="string">"div:hidden"</span> ).show( <span class="string">"fast"</span> );</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>Elements are considered visible if they consume space in the document. Visible elements have a width or height that is greater than zero.<br>Elements with visibility: hidden or opacity: 0 are considered visible, since they still consume space in the layout.<br>Elements that are not in a document are considered hidden; </p>
+</blockquote>
+<h2 id="4、jQuery_:lt_选择器">4、jQuery :lt 选择器</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":lt(index)"</span>)</div></pre></td></tr></table></figure>
+
+
+
+<p>定义和用法<br>:lt 选择器选取带有小于指定 index 值的元素。<br>index 值从 0 开始。<br>经常与其他元素/选择器一起使用，来选择指定的组中特定序号之前的元素（如上面的例子）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:lt(2)"</span>)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>选择前 2 个 <tr> 元素;<br>不包括当前索引值对应的元素;</tr></p>
+</blockquote>
+<h2 id="5、jQuery_:gt_选择器">5、jQuery :gt 选择器</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":gt(index)"</span>)</div></pre></td></tr></table></figure>
+
+
+
+<p>定义和用法<br>:gt 选择器选取 index 值高于指定数的元素。<br>index 值从 0 开始。<br>经常与其他元素/选择器一起使用，来选择指定的组中特定序号之后的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:gt(2)"</span>)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>选择前 3 个之后的所有 <tr> 元素;<br>不包括当前索引值对应的元素;</tr></p>
+</blockquote>
+<h2 id="6、jQuery操作">6、jQuery操作<input type="radio"></h2>
+<p>1、获取选中的radio的值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:checked"</span>).val();</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>使用元素选择器，再使用属性过滤器name=’city’，最后使用:checked选取被选中的元素。</p>
+</blockquote>
+<p>2、给指定值的radio设置选中状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city'][value='YangZhou']"</span>).attr(<span class="string">"checked"</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>给name=”city”而且value=”YangZhou”的radio设置选中状态。</p>
+</blockquote>
+<p>3、取消name=”city”的radio的选中状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input[name="city"]:checked'</span>).attr(<span class="string">"checked"</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+
+
+
+<p>4、获取name=”city”的radio的个数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).length;</div></pre></td></tr></table></figure>
+
+
+
+<p>5、获取name=”city”而且索引是偶数的radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:even"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>索引是从0开始的。</p>
+</blockquote>
+<p>6、获取name=”city”而且索引是奇数的radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:odd"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>索引是从0开始的。</p>
+</blockquote>
+<p>7、迭代radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).each(function(i,obj){</div><div class="line">    //i,迭代的下标，从<span class="number">0</span>开始</div><div class="line">    //obj,当前的对象(HTMLInputElement),可以使用obj.value格式获取属性值</div><div class="line">    //$(this);当前jQuery对象,可以使用$(this).val()获取属性值</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>迭代name=”city”的radio。</p>
+</blockquote>
+<p>8、禁用radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).attr(<span class="string">"disabled"</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+
+
+<p>　　</p>
+<blockquote>
+<p>禁用name=”city”的radio。</p>
+</blockquote>
+<p>9、启用radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).attr(<span class="string">"disabled"</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>启用name=”city”的radio。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/05/20/commonly-used-in-work-jquery/" data-id="wcldt6jxl2y111l4" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-summary-safePhone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/27/summary-safePhone/" class="article-date">
+  <time datetime="2015-04-27T02:01:40.000Z" itemprop="datePublished">Apr 27 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/27/summary-safePhone/">safePhone_summary</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做这个项目的我。名义上还是公司的员工，实际上已经算半个外包人员了，哈哈，不要太当真，吐槽下啦！</p>
+<p>这个项目是北京的安全手机项目，由于他们人员不够，就由我们协助他们开发，据开会了解，服务端的数据库、技术框架等都是由北京同事搭建好，成都同事负责部分模块，虽然不太懂他们服务端是事情，但凭我作为一个女人的第六感，知道这样的协作有些蛋～，哈哈哈；光在那里得瑟，我也是一样的遭遇啊。</p>
+<p>现在就着重说说前端的事情，项目发版的时间已经给定出来了，但是前端的UI、所使用的框架技术完全没有定下来（他们给了两个网站demo，一个是用angularJs+bootstrap开发的，比较新的技术，也是UI最好看的，本来打算用这种组合的，另外一个貌似是jQueryUI+bootstrap），还需要等待下周某某确定后给这边回复，没有原型图，只有一个大概的Excel图标，上面有备注说明等，还要慢慢理清里面的逻辑， 那叫一个担忧啊，但是表面上还是要保持冷静呢，呵呵，（这其实是从一个大学同学那里学来的，印象尤为深刻，记得我配电脑那次。明明她自己也不懂电脑，但装出来很懂的样子，我想这样的目的是为了不被老板讹吧，哎，我就经常表现出一无所知的样子，需要反思啊！扯得有点远了···）。时间已经过去好几天了，终于确定界面风格和前端技术了，据说北京同事对easyUI较熟悉，于是乎他们也要求我这边也用easyUI，保持一致性，ok，只好用呗，对于没有用过easyUI的前端小白来说，赶紧学阿学····，就这样开始了。前端的框架也是北京那边搭建的，头部、左边菜单栏我都不需要管，只需要做相应模块对应的页面即可，页面是嵌入在iframe里面显示在页面内容区域的。那行吧，就这样吧，easyUI的css等北京同事已经在公共头部里面引用了，考虑到美观行，我选了bootstrap主题，但为了一致性以及不用再加多余的css库，就没有引用bootstrap的css。</p>
+<h2 id="开发中遇到的坑：">开发中遇到的坑：</h2>
+<h3 id="1、需要在js中初始化easyui组件；">1、需要在js中初始化easyui组件；</h3>
+<p><strong>问题描述：</strong> 系统中有注册设备、注册用户等，使用的是弹窗，由于弹窗比较多，就把弹窗的内容单独写在一个页面，用异步加载页面的方式显示页面，页面会闪现布局错乱的情况。<br><strong>问题解答：</strong>异步加载的jsp页面里面没有重新引入easyuicss、js，而是使用父窗口中引入的文件；试了重新引入easyui.css文件是不行的、没有尝试引入easyui.js文件； easyui 的组件初始化有两种方式，一种是将class加载元素上，另一种是在js中对元素设置对应的方法，例如：</p>
+<p>方法一：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=<span class="string">"easyui-textbox width-200 networkMacAddress"</span> <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"networkMacAddress"</span> validType=<span class="string">"mac"</span>&gt;</div></pre></td></tr></table></figure>
+
+<p>方法二：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input class=<span class="string">"setTextbox width-200 networkMacAddress"</span> <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"networkMacAddress"</span> validType=<span class="string">"mac"</span>&gt;</div><div class="line"><span class="variable">$registerDeviceWrap</span>.find(<span class="string">".setTextbox"</span>).textbox();</div></pre></td></tr></table></figure>
+
+
+<p>使用方法二就可以完美解决闪现的问题。</p>
+<h3 id="2、console-log()-">2、console.log().</h3>
+<p><strong>问题描述：</strong>项目需要兼容到IE8及以上，因为有大量的交互，所以我在js里面写了console.log(); 当提交一个表单时，完全没有反应，网页的左下侧还显示“网页上有错误”，F12打开控制台，错误的地方又没有断点。<br><strong>问题解答：</strong>IE8只有在开启调试窗口(F12)的时候，console.log 才能出结果，不然就报错。<br>可以这样复写console.log()方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//log</div><div class="line">var DEBUG = <span class="literal">true</span>;</div><div class="line">function log(message) {</div><div class="line">    <span class="keyword">if</span> (DEBUG) {</div><div class="line">        <span class="keyword">if</span> (window.console) {</div><div class="line">                window.console.log(message);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+<p>开发的时候总是会忘记，切记啊，因为这个问题都被测试提了2个bug，泪奔···</p>
+<h3 id="3、css超出字符换行-">3、css超出字符换行.</h3>
+<p><strong>问题描述：</strong>弹窗左边是一个表格，右边是一个表格，内容是apk的包名，存在很长的情况，有字母、下划线、数字等，表格的宽度设置的百分比，td包含的span的css设置的是word-wrap: break-word;word-break: break-all;强制任何情况下都换行。chrome下可以实现、但在Firefox、IE下都不行，会被撑开。<br><strong>问题解答：</strong>一直在找word-wrap、word-break的用法，都没有找到问题的所在，span是行内元素，给它设置宽度是不能生效的，所以需要将span设置成display：block；</p>
+<h3 id="4、IE8下异步上传apk的选择按钮不能触发input_file_change事件。">4、IE8下异步上传apk的选择按钮不能触发input file change事件。</h3>
+<p><strong>问题描述：</strong>现在做上传功能都不会用type=“file”元素的外观，太丑啦，一般都会有自定义设置的样式，easyui有专门的filebox组件，外观当然要借用，但是用ajaxuploadfile插件上传文件会无效，于是选用方案一：file控件设置成display:none，写js在点击选择按钮的时候触发file控件，可惜IE8下面不支持呀<br><strong>问题解答：</strong>网上到了下解决方案，将file设置成透明的，覆盖在“选择文件”按钮上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.pr { position: relative; }</div><div class="line"><span class="comment">#file { position: absolute; width: 100%; height: 100%; top: 0; right: 0; opacity: 0; filter: alpha(opacity=0); }</span></div></pre></td></tr></table></figure>
+
+
+<p><strong>最后还是总结一下：</strong> 不管是什么项目，也还是要认真做啦，还要做好，做出水平，做出风度，哈哈哈···</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/04/27/summary-safePhone/" data-id="gqzc8v30hsmvy3gi" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/safePhone-总结/">safePhone 总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-summary-app-market-cms" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/27/summary-app-market-cms/" class="article-date">
+  <time datetime="2015-04-27T02:01:40.000Z" itemprop="datePublished">Apr 27 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/27/summary-app-market-cms/">summary-app-market-cms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开发中遇到的坑：">开发中遇到的坑：</h2>
+<h3 id="1、ajaxfileupload_plugin_；">1、ajaxfileupload plugin ；</h3>
+<p><strong>问题描述：</strong>上传apk，在IE11下弹出保存/打开/取消框，返回的是一个json文件, 实际应该执行ajaxfileupload success回调函数。<br><strong>问题解答：</strong>经过调试，返回结果并未执行success回调函数，而是执行error回调函数（语法错误），服务端需要修改响应content-Type。</p>
+<p>网上的解决方案:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">response.setContentType(<span class="string">"text/html"</span>);</div><div class="line">response.getWriter().write(json.toJSONString());</div><div class="line">因为ajaxfileupload 只支持ContentType(<span class="string">"text/html"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>ajaxfileupload不支持响应头ContentType为application/json设置，不支持原因可能是为了浏览器兼容，因为ie不支持application/json格式, 另外firefox, chrome浏览器iframe在接收application/json格式的时候会自动将其转化为html格式，自动在json数据前后加上pre标签导致ajaxfileupload插件取json数据错误</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;pre style=<span class="string">"word-wrap: break-word; white-space: pre-wrap;"</span>&gt;{<span class="string">"message"</span>:<span class="string">"上传成功"</span>,<span class="string">"code"</span>:<span class="number">200</span>}&lt;/pre&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><a href="http://www.oschina.net/question/107380_151555" target="_blank" rel="external">参考</a></p>
+<h3 id="2、异步请求数据，但用户登录已失效，需要跳转到登录界面">2、异步请求数据，但用户登录已失效，需要跳转到登录界面</h3>
+<p><strong>问题描述：</strong>异步请求数据，但用户登录已失效，需要跳转到登录界面。<br><strong>问题解答：</strong></p>
+<p><a href="http://www.cnblogs.com/dudu/p/ajax_302_found.html" target="_blank" rel="external">参考1</a><br><a href="http://stackoverflow.com/questions/199099/how-to-manage-a-redirect-request-after-a-jquery-ajax-call/304654#304654" target="_blank" rel="external">参考2</a></p>
+<h3 id="3、trigger事件不能触发click事件">3、trigger事件不能触发click事件</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;p id=<span class="string">"clickDemo"</span>&gt;clickDemo&lt;/p&gt;</div><div class="line"></div><div class="line">$(<span class="function"><span class="title">function</span></span>(){</div><div class="line">    $(<span class="string">"#clickDemo"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="title">function</span></span> () {</div><div class="line">        alert(<span class="string">"click"</span>);</div><div class="line">    });</div><div class="line">    $(<span class="string">"#clickDemo"</span>).trigger(<span class="string">"click"</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>需要先注册click事件，才能使用trigger方法，否则无法调用</p>
+<h3 id="4、form表单reset()">4、form表单reset()</h3>
+<p>reset()方法不能对type=”hidden”的元素生效，对其他表单元素均有效，包括display: “none”; &amp; visibility:”hidden” 的元素。</p>
+<h3 id="5、ajaxfileupload_plugin_2">5、ajaxfileupload plugin 2</h3>
+<p><strong>问题描述：</strong>上传img，第一次能触发file的change事件，第二次便不能。<br><strong>问题解答：</strong>经过调试，上传第一张图片后，在回调函数中查看file元素，id已经被更改成jUpload33334534545435这样的值，接的应该是时间戳。因为我是在jquery的扩展对象中写的，第二次上传图片时并没有重新获取dom元素，而是之前暂存的dom元素。在触发click事件后，重新获取dom元素，重新绑定change事件即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var <span class="variable">$chooseImgBtn</span> = $(this),</div><div class="line">    <span class="variable">$parent</span> = <span class="variable">$chooseImgBtn</span>.parent(),</div><div class="line">    domObj = $.getUploadImgRelateDom(<span class="variable">$chooseImgBtn</span>);</div><div class="line"></div><div class="line"><span class="variable">$chooseImgBtn</span>.on(<span class="string">"click"</span>, <span class="function"><span class="title">function</span></span> () {</div><div class="line">    domObj = $.getUploadImgRelateDom(<span class="variable">$chooseImgBtn</span>);</div><div class="line">    domObj.<span class="variable">$file</span>.trigger(<span class="string">"click"</span>);</div><div class="line"></div><div class="line">    domObj.<span class="variable">$file</span>.on(<span class="string">"change"</span>, <span class="function"><span class="title">function</span></span> () {</div><div class="line">       ....</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/04/27/summary-app-market-cms/" data-id="8ak4ei3crktz5fdh" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app-market-cms-总结/">app-market-cms 总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

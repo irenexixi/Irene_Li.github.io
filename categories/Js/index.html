@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: Js | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qqli的技术博客">
+<meta property="og:url" content="http://yoursite.com/categories/Js/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qqli的技术博客">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-trap-backbone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/26/trap-backbone/" class="article-date">
+  <time datetime="2015-08-26T08:08:36.000Z" itemprop="datePublished">Aug 26 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/trap-backbone/">backbone-trap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、Backbone-Events（事件）;">1、Backbone.Events（事件）;</h4>
+<p>   Events容易被写成event而不能触发事件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var ShiftView = Backbone.View.extend({</div><div class="line">   tagName: <span class="string">"tr"</span>,</div><div class="line">   template: _.template(ShiftTdTpl),</div><div class="line">   events: {</div><div class="line">       <span class="string">"click .modify"</span>: <span class="string">"setModifyModel"</span>,</div><div class="line">       <span class="string">"click .del"</span>: <span class="string">"clear"</span></div><div class="line">   }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、on_object-on(event,_callback,_[context])别名:_bind">2、on  object.on(event, callback, [context])别名: bind</h4>
+<p>在 object 上绑定一个callback回调函数。 只要event触发，该回调函数就会调用。</p>
+<p>在View 里，当model change 时会调用this.render方法，render方法里面的this.model值是undefined，此时就需要传this作为上下文；  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">model.on(<span class="string">'change'</span>, this.render, this)</div><div class="line"></div><div class="line">render: <span class="function"><span class="title">function</span></span> () {</div><div class="line">    this.<span class="variable">$el</span>.html(this.template(this.model.toJSON()));</div><div class="line">    <span class="keyword">return</span> this;</div><div class="line">},</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当回调函数被调用时，通过可选的第三个参数可以为this提供一个context（上下文）值：model.on(‘change’, this.render, this) （愚人码头注：即回调函数中的This，指向传递的第三个参数）。</p>
+</blockquote>
+<h4 id="3、乱码">3、乱码</h4>
+<p>给model设置的defaults参数是中文的，render到页面后就出现乱码了。检查html页面是utf-8，找不出问题在哪里了。</p>
+<p>这时需要看看model文件的编码格式，WebStorm IED右下角可以查看更改编码，结果model文件的编码是GBK···· </p>
+<h4 id="4、给集合添加数据对象时，总是报错：_cannot_read_property_“idAttribute”_of_undefined">4、给集合添加数据对象时，总是报错： cannot read property “idAttribute” of undefined</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">aList.add({</div><div class="line">    title: <span class="string">"title added"</span>,</div><div class="line">    description: <span class="string">"description added"</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>帮同事看了半天都没有找到问题在哪里，另一个同事发现问题是： 扩展Backbone.Collection 创建一个 Collection 类时，设置的model属性的值不是Backbone.Model的扩展，而是Backbone.Model的扩展的实例对象;<br>这个实例对象就是一个活生生的model了，类似于使用model的add方法添加一组属性值 model.add({title: “title”}); So， 不能给实例化对象model调用add方法。</p>
+<p>错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testModel = new TestModel();</div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: testModel</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>正确：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: TestModel</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）">5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）</h4>
+<p>解决方法： 在子View中自定义一个事件customEvent，当交互成功后trigger事件customEvent, 父View中listenTo事件customEvent….</p>
+<h4 id="6、视图中查询数据增加条件，url相应改变，并重新加载页面">6、视图中查询数据增加条件，url相应改变，并重新加载页面</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">e.g. http://localhost:<span class="number">63342</span>/backbone/schedulingSystem/src/page/index.html?<span class="comment">#shiftReport/name/9</span></div><div class="line"></div><div class="line"><span class="string">"folder/:name"</span>: <span class="string">"openFolder"</span>,</div><div class="line">app.navigate(<span class="string">"help/troubleshooting"</span>, {trigger: <span class="literal">true</span>});</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/26/trap-backbone/" data-id="bf7nhfs92ly7mtkm" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backboneTrap/">backboneTrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-event" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/06/js-event/" class="article-date">
+  <time datetime="2015-03-06T03:14:39.000Z" itemprop="datePublished">Mar 6 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/06/js-event/">js-event</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述">概述</h3>
+<p>JavaScript和HTML的交互是通过<strong>事件</strong>实现的。JavaScript采用异步事件驱动编程模型，当<strong>文档、浏览器、元素或与之相关对象发生特定事情</strong>时，浏览器会<strong>产生事件</strong>。如果JavaScript关注特定类型事件，那么它可以注册当这类事件发生时要调用的句柄。</p>
+<h3 id="事件流">事件流</h3>
+<p>事件流描述的是从页面中接收事件的顺序，比如有两个嵌套的div，点击了内层的div，这时候是内层的div先出发click事件还是外层先触发？目前主要有三种模型</p>
+<ol>
+<li>IE的事件冒泡：事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的元素</li>
+<li>Netscape的事件捕获：不太具体的节点更早接收事件，而最具体的元素最后接收事件，和事件冒泡相反</li>
+<li>DOM事件流：DOM2级事件规定事件流包括三个阶段，事件捕获阶段，处于目标阶段，事件冒泡阶段，首先发生的是事件捕获，为截取事件提供机会，然后是实际目标接收事件，最后是冒泡句阶段。</li>
+</ol>
+<blockquote>
+<p>Opera、Firefox、Chrome、Safari都支持DOM事件流，IE不支持事件流，只支持事件冒泡</p>
+</blockquote>
+<p>参考：<a href="http://www.cnblogs.com/dolphinX/archive/2012/11/23/2783859.html" target="_blank" rel="external">Javascript与Html交互-事件</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/06/js-event/" data-id="bz7t5vb81cz0cfo2" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/event/">event</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-function-throttle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/06/js-function-throttle/" class="article-date">
+  <time datetime="2015-03-06T01:26:30.000Z" itemprop="datePublished">Mar 6 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/06/js-function-throttle/">js-function-throttle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景">背景</h3>
+<p>在前端开发中，有时会为页面绑定resize事件，或者为一个页面元素绑定拖拽事件（其核心就是绑定mousemove），这种事件有一个特点，他在一个正常的操作中，有可能在一个短的时间内触发非常多次事件绑定程序。而大家知道，DOM操作时很消耗性能，这个时候，如果你为这些事件绑定一些操作DOM节点的操作的话，那就会引发大量的计算，在用户看来，页面可能就一时间没有响应，这个页面一下子变卡了变慢了。甚至在IE下，如果你绑定的resize事件进行较多DOM操作，其高频率可能直接就使得浏览器崩溃。</p>
+<h3 id="简述">简述</h3>
+<p>函数节流，就是让一个函数无法在很短的时间间隔内连续调用，只有当上一次函数执行后过了定时器设置的时间间隔，才能进行下一次该函数的调用。以resize的例子讲，就是让缩放内容的操作在你不断改变窗口大小的时候不会执行，只有你停下来一会儿，才会开始执行。</p>
+<h3 id="原理">原理</h3>
+<p>函数节流的原理挺简单的，那就是定时器。当我触发一个时间时，先setTimout让这个事件延迟一会再执行，如果在这个时间间隔内又触发了事件，那我们就clear掉原来的定时器，再setTimeout一个新的定时器延迟一会执行。</p>
+<blockquote>
+<p>在《JavaScript高级程序设计》中有专门应对此问题的函数节流</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function throttle(method,context){</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId=<span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span>(){</div><div class="line">        method.call(context);</div><div class="line">    },<span class="number">500</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="Demo1">Demo1</h3>
+<p>利用定时器，让函数执行延迟200毫秒，在200毫秒内如果有函数又被调用则删除上一次调用，这次调用500毫秒后执行，如此往复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var n=<span class="number">0</span>;</div><div class="line">function <span class="function"><span class="title">resizehandler</span></span>(){</div><div class="line">    console.log(new Date().getTime());</div><div class="line">    console.log(++n);</div><div class="line">}</div><div class="line">function throttle(method,context){</div><div class="line">    clearTimeout(method.tId);</div><div class="line">    method.tId=<span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span>(){</div><div class="line">        method.call(context);</div><div class="line">    },<span class="number">200</span>);</div><div class="line">}</div><div class="line">window.onresize=<span class="function"><span class="title">function</span></span>(){</div><div class="line">    throttle(resizehandler,window);</div><div class="line">};</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>还有另一种做法</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function throttle(method,delay){</div><div class="line">    var timer=null;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="title">function</span></span>(){</div><div class="line">        var context=this, args=arguments;</div><div class="line">        clearTimeout(timer);</div><div class="line">        timer=<span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span>(){</div><div class="line">            method.apply(context,args);</div><div class="line">        },delay);</div><div class="line">    }</div><div class="line">}</div><div class="line">它使用闭包的方法形成一个私有的作用域来存放定时器变量timer。而调用方法为</div><div class="line">window.onresize = throttle(myFunc, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+
+<h3 id="Demo2">Demo2</h3>
+<p>上面的例子换一种实现方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var n=<span class="number">0</span>;</div><div class="line">function <span class="function"><span class="title">resizehandler</span></span>(){</div><div class="line">    console.log(new Date().getTime());</div><div class="line">    console.log(++n);</div><div class="line">}</div><div class="line">function throttle(method,delay){</div><div class="line">    var timer=null;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="title">function</span></span>(){</div><div class="line">        var context=this, args=arguments;</div><div class="line">        clearTimeout(timer);</div><div class="line">        timer=<span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span>(){</div><div class="line">            method.apply(context,args);</div><div class="line">        },delay);</div><div class="line">    }</div><div class="line">}</div><div class="line">window.onresize=throttle(resizehandler,<span class="number">200</span>);//因为返回函数句柄，不用包装函数了</div></pre></td></tr></table></figure>
+
+
+
+<p>两种方法各有优劣，前一个封装函数的优势在把上下文变量当做函数参数，直接可以定制执行函数的this变量；后一个函数优势在于把延迟时间当做变量（当然，前一个函数很容易做这个拓展），而且个人觉得使用闭包代码结构会更优，且易于拓展定制其他私有变量，缺点就是虽然使用apply把调用throttle时的this上下文传给执行函数，但毕竟不够灵活。</p>
+<h3 id="拓展">拓展</h3>
+<p>函数节流让一个函数只有在你不断触发后停下来歇会才开始执行，中间你操作得太快它直接无视你。这样做就有点太绝了。resize一般还好，但假如你写一个拖拽元素位置的程序，然后直接使用函数节流，你会发现你拖动时元素是不动的，你拖完了，它直接闪到终点去。</p>
+<p>其实函数节流的出发点，就是让一个函数不要执行得太频繁，减少一些过快的调用来节流。当你改变浏览器大小，浏览器触发resize事件的时间间隔是多少？我不清楚，个人猜测是16ms（每秒64次），反正跟mousemove一样非常太频繁，一个很小的时间段内必定执行，这是浏览器设好的，你无法直接改。而真正的节流应该是在可接受的范围内尽量延长这个调用时间，也就是我们自己控制这个执行频率，让函数减少调用以达到减少计算、提升性能的目的。假如原来是16ms执行一次，我们如果发现resize时每50ms一次也可以接受，那肯定用50ms做时间间隔好一点。</p>
+<p>而上面介绍的函数节流，它这个频率就不是50ms之类的，它就是无穷大，只要你能不间断resize，刷个几年它也一次都不执行处理函数。我们可以对上面的节流函数做拓展：</p>
+<h3 id="Deom3">Deom3</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var n=<span class="number">0</span>;</div><div class="line">function <span class="function"><span class="title">resizehandler</span></span>(){</div><div class="line">    console.log(new Date().getTime());</div><div class="line">    console.log(++n);</div><div class="line">}</div><div class="line">function throttle(method,delay,duration){</div><div class="line">    var timer=null, begin=new Date();</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="title">function</span></span>(){</div><div class="line">        var context=this, args=arguments, current=new Date();;</div><div class="line">        clearTimeout(timer);</div><div class="line">        <span class="keyword">if</span>(current-begin&gt;=duration){</div><div class="line">             method.apply(context,args);</div><div class="line">             begin=current;</div><div class="line">        }<span class="keyword">else</span>{</div><div class="line">            timer=<span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span>(){</div><div class="line">                method.apply(context,args);</div><div class="line">            },delay);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line">window.onresize=throttle(resizehandler,<span class="number">100</span>,<span class="number">200</span>);</div><div class="line">这样每次我们判断间隔了多久，要是超过设置时间则立即执行一次</div></pre></td></tr></table></figure>
+
+
+<p>参考：<a href="http://www.cnblogs.com/dolphinX/p/3403821.html" title="色拉油" target="_blank" rel="external">函数节流</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/06/js-function-throttle/" data-id="6be34ne4uba9b1hd" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数节流/">函数节流</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-call" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/05/call/" class="article-date">
+  <time datetime="2015-03-05T09:32:43.000Z" itemprop="datePublished">Mar 5 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/05/call/">call()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简述">简述</h3>
+<p>call() 方法在使用一个指定的this值和若干个指定的参数值的前提下<strong>调用某个函数或方法</strong>. 也可以这样理解：调用一个对象的一个方法，以另一个对象替换当前对象。 </p>
+<blockquote>
+<p>注:该方法的作用和 apply() 方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。</p>
+</blockquote>
+<h3 id="语法">语法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fun.call(thisArg[, arg1[, arg2[, ...]]])</div><div class="line">根据定义： 即调用thisArg对象的call()方法，以fun对象替换thisArg，arg1，arg2是传入fun()的实参</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="参数">参数</h3>
+<p><strong>thisArg</strong></p>
+<p>在fun函数运行时指定的this值。需要注意的是，指定的this值并不一定是该函数执行时真正的this值，如果这个函数处于非严格模式下，则指定为null和undefined的this值会自动指向全局对象(浏览器中就是window对象)，同时值为原始值(数字，字符串，布尔值)的this会指向该原始值的自动包装对象。</p>
+<p><strong>arg1, arg2, …</strong></p>
+<p>指定的参数列表。</p>
+<h3 id="描述">描述</h3>
+<p>当调用一个函数时，可以赋值一个不同的 this 对象。this 引用当前对象，即 call 方法的第一个参数。</p>
+<blockquote>
+<p>通过 call 方法，你可以在一个对象上借用另一个对象上的方法，比如Object.prototype.toString.call([])，就是一个Array对象借用了Object对象上的方法。</p>
+</blockquote>
+<h3 id="Demo1_使用call方法调用父构造函数">Demo1 使用call方法调用父构造函数</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Product(name, price) {</div><div class="line">    this.name = name;</div><div class="line">    this.price = price;</div><div class="line">    <span class="keyword">if</span> (price &lt; <span class="number">0</span>)</div><div class="line">        throw RangeError(<span class="string">'Cannot create product "'</span> + name + <span class="string">'" with a negative price'</span>);</div><div class="line">    <span class="keyword">return</span> this;</div><div class="line">}</div><div class="line">function Food(name, price) {</div><div class="line">    Product.call(this, name, price);</div><div class="line">    this.category = <span class="string">'food'</span>;</div><div class="line">    console.log(this);</div><div class="line">}</div><div class="line">function Toy(name, price) {</div><div class="line">    Product.call(this, name, price);</div><div class="line">    this.category = <span class="string">'toy'</span>;</div><div class="line">}</div><div class="line">var cheese = new Food(<span class="string">'feta'</span>, <span class="number">5</span>);</div><div class="line">var fun = new Toy(<span class="string">'robot'</span>, <span class="number">40</span>);</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="Demo2_使用call方法调用匿名函数">Demo2 使用call方法调用匿名函数</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var animals = [</div><div class="line">    {species: <span class="string">'Lion'</span>, name: <span class="string">'King'</span>},</div><div class="line">    {species: <span class="string">'Whale'</span>, name: <span class="string">'Fail'</span>}</div><div class="line">];</div><div class="line"><span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; animals.length; i++) {</div><div class="line">    (function (i) {</div><div class="line">        this.print = <span class="function"><span class="title">function</span></span> () {</div><div class="line">            console.log(<span class="string">'#'</span> + i  + <span class="string">' '</span> + this.species + <span class="string">': '</span> + this.name);</div><div class="line">            //<span class="comment">#0 Lion: King call.html:47</span></div><div class="line">            //<span class="comment">#1 Whale: Fail</span></div><div class="line">        },</div><div class="line">        this.print();</div><div class="line">    }).call(animals[i], i);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call#.E6.A6.82.E8.BF.B0" target="_blank" rel="external">call()</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/05/call/" data-id="85h6o34qkljyjkbf" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/call/">call()</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-arguments" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/05/arguments/" class="article-date">
+  <time datetime="2015-03-05T06:23:25.000Z" itemprop="datePublished">Mar 5 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/05/arguments/">arguments</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很早就知道有这样一个对象的存在，但在实际项目中却没有用过，大概不会用的原因吧，但感觉会挺有用的，所以还是研究下他的基本用法</p>
+<h3 id="简述">简述</h3>
+<p>arguments 是一个类数组对象。是传给一个function的参数列表。</p>
+<h3 id="语法">语法</h3>
+<p>arguments</p>
+<h3 id="描述">描述</h3>
+<p>arguments 对象是可以在所有方法体内获取到的本地变量; 但是不能把arguments当作Function的一个属性，<strong>arguments在函数体内才有效</strong>.</p>
+<p>在方法体内，你可以通过 arguments 对象获取到所有的参数。这个对象为每个传给function的参数建立一个索引，索引号是从0开始。 例如，如果一个function有三个参数，你可能通过以下方式获取参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arguments[<span class="number">0</span>]</div><div class="line">arguments[<span class="number">1</span>]</div><div class="line">arguments[<span class="number">2</span>]</div></pre></td></tr></table></figure>
+
+
+<p>参数也可以被重新赋值:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arguments[<span class="number">1</span>] = <span class="string">'new value'</span>;</div></pre></td></tr></table></figure>
+
+
+<p>arguments 对象并<strong>不是一个真正的数组。 类似于数组</strong>，但并没有数组所特有的属性和方法，除了length。例如，它没有pop方法。</p>
+<h4 id="Demo1">Demo1</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function test(num1, num2, num3) {</div><div class="line">    var args = arguments;</div><div class="line">    console.log(args); //<span class="comment">#[1, 2, 3]</span></div><div class="line">    console.log(args.length); //<span class="comment">#3</span></div><div class="line">    args.push(<span class="number">4</span>); //<span class="comment">#Uncaught TypeError: Object #&lt;Object&gt; has no method 'push'</span></div><div class="line">}</div><div class="line">test(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div></pre></td></tr></table></figure>
+
+<p>然而它可以被<strong>强制转换成数组</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var args = Array.prototype.slice.call(arguments);</div></pre></td></tr></table></figure>
+
+<h4 id="Demo2">Demo2</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function myConcat(separator) {</div><div class="line">    var args = Array.prototype.slice.call(arguments, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> args.join(separator);</div><div class="line">}</div><div class="line"></div><div class="line">// returns <span class="string">"red, orange, blue"</span></div><div class="line">myConcat(<span class="string">", "</span>, <span class="string">"red"</span>, <span class="string">"orange"</span>, <span class="string">"blue"</span>);</div></pre></td></tr></table></figure>
+
+<h3 id="属性">属性</h3>
+<p><strong>1. arguments.callee 指向当前正在执行的函数</strong></p>
+<p>在该函数的函数体内，它可以指向当前正在执行的函数。当函数是匿名函数时(没有名字的函数表达式)，这是很有用的。</p>
+<blockquote>
+<p>注意：在给函数表达式一个名称或者使用函数声明而该函数必须调用自己时，禁止使用 arguments.callee()。</p>
+</blockquote>
+<h4 id="Demo3">Demo3</h4>
+<p>在匿名递归函数中使用 arguments.callee, 也是一个闭包函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function <span class="function"><span class="title">create</span></span>() {</div><div class="line">    <span class="keyword">return</span> function(n) {</div><div class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>){</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        }<span class="keyword">else</span>{</div><div class="line">            <span class="keyword">return</span> n * arguments.callee(n - <span class="number">1</span>);</div><div class="line">        }</div><div class="line">    };</div><div class="line">}</div><div class="line">var result = create()(<span class="number">5</span>);</div><div class="line">document.write(result); //<span class="number">120</span></div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>arguments.callee 从 ES5 严格模式中移除掉 ?</p>
+</blockquote>
+<p><strong>2. arguments.caller 返回调用当前正在执行的函数的函数.</strong></p>
+<p>已经被废除</p>
+<p><strong>3. arguments.length 本次函数调用时传入函数的实参数量</strong></p>
+<p>arguments.length表示的是实际上向函数传入了多少个参数,这个数字可以比形参数量大,也可以比形参数量小(形参数量的值可以通过Function.length获取到).</p>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments" title="developer.mozilla.org" target="_blank" rel="external">arguments</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/05/arguments/" data-id="ij8ntjfsd2dfr5bi" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arguments/">arguments</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js-dom-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/04/js-dom-function/" class="article-date">
+  <time datetime="2015-03-04T09:45:08.000Z" itemprop="datePublished">Mar 4 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/04/js-dom-function/">js操作元素的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在用得较多的是jQuery库，对于原生Js用得较少，偶尔用到原生js的一些方法却想不起，只有漫天找度娘，最近常用<a href="&quot;http://cn.bing.com/&quot;">cn.bing.com</a>;</p>
+<h3 id="设置/获取元素的html：innerHtml">设置/获取元素的html：innerHtml</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div.innerText = <span class="string">"innerHtml"</span>;</div></pre></td></tr></table></figure>
+
+<h3 id="创建元素：createElement">创建元素：createElement</h3>
+<h3 id="追加元素：appendChild">追加元素：appendChild</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var br = document.createElement(<span class="string">'br'</span>);</div><div class="line">div.appendChild(br);</div></pre></td></tr></table></figure>
+
+<h3 id="创建文本节点：createTextNode">创建文本节点：createTextNode</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var time = document.createTextNode(date.getMinutes() + <span class="string">':'</span></div><div class="line">        + date.getSeconds() + <span class="string">':'</span> + date.getMilliseconds());</div><div class="line">div.appendChild(time);</div></pre></td></tr></table></figure>
+
+<h3 id="设置元素属性">设置元素属性</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.getElementById(<span class="string">'box2'</span>).setAttribute(<span class="string">'hidden'</span>,<span class="string">'false);</span></div></pre></td></tr></table></figure>
+
+<h3 id="获取元素属性">获取元素属性</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.getElementById(<span class="string">'box2'</span>).getAttribute(<span class="string">'hidden'</span>);</div></pre></td></tr></table></figure>
+
+<h3 id="移除元素属性">移除元素属性</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.getElementById(<span class="string">'box2'</span>).removeAttribute(<span class="string">'hidden'</span>);</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/04/js-dom-function/" data-id="9ijj8gpe003a7ajo" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js元素操作/">js元素操作</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-setTimeout-setInterval-works" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/04/setTimeout-setInterval-works/" class="article-date">
+  <time datetime="2015-03-04T06:36:02.000Z" itemprop="datePublished">Mar 4 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/04/setTimeout-setInterval-works/">setTimeout()和setInterval()执行原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>来自于w3school的阐述:</p>
+<p><a href="http://www.w3school.com.cn/jsref/met_win_setinterval.asp" target="_blank" rel="external">setInterval</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span>Interval(code,millisec) </div><div class="line">code	必需。要调用的函数后要执行的 JavaScript 代码串（函数或表达式）</div><div class="line">millise 必需。在执行代码前需等待的毫秒数。</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。<br> setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。<br> 由 setInterval() 返回的 <strong>ID 值</strong>可用作 clearInterval() 方法的参数。</p>
+<blockquote>
+<p>var s = setInterval(code,millisec)<br>       clearInterval(s)<br>       返回值s： 一个可以传递给 Window.clearInterval() 从而取消对 code 的周期性执行的值。</p>
+</blockquote>
+</blockquote>
+<p><strong>Demo1：倒计时</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;p id=<span class="string">"demo1"</span>&gt;<span class="keyword">set</span>Timeout()和<span class="keyword">set</span>Interval()执行原理&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">    var demo1 = document.getElementById(<span class="string">'demo1'</span>),</div><div class="line">        skipTimmer,</div><div class="line">        count = <span class="number">10</span>;</div><div class="line"></div><div class="line">    demo1.innerText = count;</div><div class="line"></div><div class="line">    skipTimmer = <span class="keyword">set</span>Interval(<span class="function"><span class="title">function</span></span> () {</div><div class="line">        count--;</div><div class="line">        pText.innerText = count;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (count == <span class="number">0</span>) {</div><div class="line">            clearInterval(skipTimmer);</div><div class="line">            demo1.innerText = <span class="string">"over"</span>;</div><div class="line">        }</div><div class="line">    }, <span class="number">1000</span>)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+<p><a href="http://www.w3school.com.cn/jsref/met_win_settimeout.asp" target="_blank" rel="external">setTimeout</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span>Timeout(code,millisec)</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>setTimeout() 只执行 code 一次。如果要多次调用，可使用 setInterval() 或者让 code 自身再次调用 setTimeout().</p>
+</blockquote>
+<p><strong>Demo2：调用自身函数实现sevInterval功能</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;form&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"开始计时"</span> onClick=<span class="string">"timedCount()"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"demo2"</span>&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"停止计时"</span> onClick=<span class="string">"stopCount()"</span>&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;p&gt;请点击上面的“开始计时”按钮。输入框会从 <span class="number">0</span> 开始一直进行计时。点击“停止计时”可停止计时。&lt;/p&gt;</div><div class="line"></div><div class="line">var c = <span class="number">0</span>, t;</div><div class="line">function <span class="function"><span class="title">timedCount</span></span>() {</div><div class="line">    document.getElementById(<span class="string">'demo2'</span>).value = c;</div><div class="line">    c = c + <span class="number">1</span>;</div><div class="line">    t = <span class="keyword">set</span>Timeout(<span class="string">"timedCount()"</span>, <span class="number">1000</span>);</div><div class="line">}</div><div class="line"></div><div class="line">function <span class="function"><span class="title">stopCount</span></span>() {</div><div class="line">    clearTimeout(t)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p><strong>Demo3: 输出当前时间</strong></p>
+<p>来源：<a href="http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html" target="_blank" rel="external">http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html</a></p>
+<p>页面每隔1秒记录一次当前时间（分钟：秒：毫秒），记录十次后清除。考虑到代码执行时间可能记录的不是执行时间，但时间间隔应该是一样的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"Demo3"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  var num = <span class="number">0</span>, date;</div><div class="line">      var i = <span class="keyword">set</span>Interval(<span class="function"><span class="title">function</span></span> () {</div><div class="line">          num++;</div><div class="line">          date = new Date();</div><div class="line">          var time = document.createTextNode(date.getMinutes() + <span class="string">':'</span></div><div class="line">                  + date.getSeconds() + <span class="string">':'</span> + date.getMilliseconds());</div><div class="line">          document.getElementById(<span class="string">'Demo3'</span>).appendChild(time);</div><div class="line">          var br = document.createElement(<span class="string">'br'</span>);</div><div class="line">          document.getElementById(<span class="string">'Demo3'</span>).appendChild(br);</div><div class="line">          <span class="keyword">if</span> (num &gt; <span class="number">10</span>)</div><div class="line">              clearInterval(i);</div><div class="line">      }, <span class="number">1000</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+<p>看看结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="number">36</span>:<span class="number">54</span>:<span class="number">23</span></div><div class="line"><span class="number">36</span>:<span class="number">55</span>:<span class="number">24</span></div><div class="line"><span class="number">36</span>:<span class="number">56</span>:<span class="number">25</span></div><div class="line"><span class="number">36</span>:<span class="number">57</span>:<span class="number">25</span></div><div class="line"><span class="number">36</span>:<span class="number">58</span>:<span class="number">26</span></div><div class="line"><span class="number">36</span>:<span class="number">59</span>:<span class="number">26</span></div><div class="line"><span class="number">37</span>:<span class="number">0</span>:<span class="number">26</span></div><div class="line"><span class="number">37</span>:<span class="number">1</span>:<span class="number">27</span></div><div class="line"><span class="number">37</span>:<span class="number">2</span>:<span class="number">27</span></div><div class="line"><span class="number">37</span>:<span class="number">3</span>:<span class="number">28</span></div><div class="line"><span class="number">37</span>:<span class="number">4</span>:<span class="number">29</span></div></pre></td></tr></table></figure>
+
+<p>从结果可看出，时间间隔几乎是1000毫秒，但不精确，这是为什么呢？</p>
+<blockquote>
+<p>原因在于我们对<strong>JavaScript定时器</strong>存在一个误解，<strong>JavaScript其实是运行在单线程的环境中的</strong>，这就意味着定时器仅仅是<strong>计划</strong>代码在未来的某个时间执行，而<strong>具体执行时间是不能保证的</strong>，因为页面的生命周期中，不同时间可能有其他代码在控制JavaScript进程。在页面加载完成后代码的运行、事件处理程序、Ajax回调函数都是使用同样的线程，实际上浏览器负责进行排序，指派某段程序在某个时间点运行的<strong>优先级</strong>。</p>
+<p>我们可以把JavaScript想象成在时间线上运行。当页面载入的时候首先执行的是页面生命周期后面要用的方法、变量声明、数据处理，在这之后JavaScript进程将等待更多代码执行。当进程空闲的时候，下一段代码会被触发</p>
+<p>除了主JavaScript进程外，还需要一个在进程下一次空闲时执行的代码队列。随着页面生命周期推移，代码会按照执行顺序添加入队列，例如当按钮被按下的时候他的事件处理程序会被添加到队列中，并在<strong>下一个可能时间内</strong>执行。在接到某个Ajax响应时，回调函数的代码会被添加到队列。<strong>JavaScript中没有任何代码是立即执行的，但一旦进程空闲则尽快执行</strong>。定时器对队列的工作方式是当特定时间过去后将代码插入，这并不意味着它会马上执行，只能表示它尽快执行。</p>
+<p>知道了这些后，我们就能明白，如果想要精确的时间控制，是不能依赖于JavaScript的setTimeout函数的。</p>
+</blockquote>
+<p>使用 setInterval() 创建的定时器可以使代码循环执行，达到有指定效果的时候，清除interval就可以，如下例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var my_interval = <span class="keyword">set</span>Interval(<span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">if</span> (condition) {</div><div class="line">        //..........</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">       clearInterval(my_interval);</div><div class="line">    }</div><div class="line">}, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+
+<p>但这个方式的问题在于定时器的代码可能在代码再次被添加到队列之前还没有执行完成，结果导致循环内的判断条件不准确，代码多执行几次，之间没有停顿。不过JavaScript已经解决这个问题，当使用setInterval（）时，仅当没有该定时器的其他代码执行时才将定时器代码插入队列。这样确保了定时器代码加入到队列的最小时间间隔为指定间隔。</p>
+<p>但这样的规则带来两个问题</p>
+<ol>
+<li>某些间隔会被跳过</li>
+<li>多个定时器的代码执行之间的间隔可能比预期要小</li>
+</ol>
+<p>为了避免这两个缺点，我们可以使用setTimeout（）来实现重复的定时器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span> () {</div><div class="line">    //code</div><div class="line">    <span class="keyword">set</span>Timeout(arguments.callee, interval);</div><div class="line">}, interval)</div></pre></td></tr></table></figure>
+
+<p>这样每次函数执行的时候都会创建一个新的定时器，第二个setTimeout（）使用了agrument.callee 来获取当前实行函数的引用，并设置另外一个新定时器。这样做可以保证在代码执行完成前不会有新的定时器插入，并且下一次定时器代码执行之前至少要间隔指定时间，避免连续运行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span>Timeout(<span class="function"><span class="title">function</span></span> () {</div><div class="line">    var div = document.getElementById(<span class="string">'moveDiv'</span>);</div><div class="line">    var left = parseInt(div.style.left) + <span class="number">5</span>;</div><div class="line">    div.style.left = left + <span class="string">'px'</span>;</div><div class="line">    <span class="keyword">if</span> (left &lt; <span class="number">200</span>) {</div><div class="line">        <span class="keyword">set</span>Timeout(arguments.callee, <span class="number">50</span>);</div><div class="line">    }</div><div class="line">}, <span class="number">50</span>);</div></pre></td></tr></table></figure>
+
+<p>这段定时器代码每次执行的时候，把一个div向右移动5px，当坐标大于200的时候停止。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/03/04/setTimeout-setInterval-works/" data-id="86kujhhgxt92g10k" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/setTimeout-setInterval/">setTimeout(), setInterval()</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

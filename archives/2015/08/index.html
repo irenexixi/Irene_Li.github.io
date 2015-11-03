@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2015/8 | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qqli的技术博客">
+<meta property="og:url" content="http://yoursite.com/archives/2015/08/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qqli的技术博客">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-commonly-used-in-work-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/31/commonly-used-in-work-javascript/" class="article-date">
+  <time datetime="2015-08-31T06:07:52.000Z" itemprop="datePublished">Aug 31 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/31/commonly-used-in-work-javascript/">commonly-used-in-work-javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、JavaScript_indexOf()">1、JavaScript indexOf()</h2>
+<p>indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.indexOf(searchvalue,fromindex)</div></pre></td></tr></table></figure>
+
+<p>该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 searchvalue。<br>开始检索的位置在字符串的 fromindex 处或字符串的开头（没有指定 fromindex 时）。如果找到一个 searchvalue，则返回 searchvalue 的第一次出现的位置。<br>stringObject 中的字符位置是从 0 开始的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Hello world!"</span></div><div class="line">document.write(str.indexOf(<span class="string">"Hello"</span>) + <span class="string">"&lt;br /&gt;"</span>)  //<span class="number">0</span></div><div class="line">document.write(str.indexOf(<span class="string">"World"</span>) + <span class="string">"&lt;br /&gt;"</span>)  //-<span class="number">1</span></div><div class="line">document.write(str.indexOf(<span class="string">"world"</span>))             //<span class="number">6</span></div></pre></td></tr></table></figure>
+
+
+
+<p>注释：indexOf() 方法对大小写敏感！<br>注释：如果要检索的字符串值没有出现，则该方法返回 -1。</p>
+<h2 id="2、JavaScript_join()">2、JavaScript join()</h2>
+<p>join() 方法用于把数组中的所有元素放入一个字符串。将数组转换成字符串<br>元素是通过指定的分隔符进行分隔的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.join(separator)</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>separator    可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。</p>
+</blockquote>
+<p>返回一个字符串。该字符串是通过把 arrayObject 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入 separator 字符串而生成的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(<span class="number">3</span>)</div><div class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></div><div class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></div><div class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></div><div class="line">document.write(arr.join(<span class="string">"."</span>)) //George.John.Thomas</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、JavaScript_split()">3、JavaScript split()</h2>
+<p>split() 方法用于把一个字符串分割成字符串数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.split(separator,howmany)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>separator    必需。字符串或正则表达式，从该参数指定的地方分割 stringObject。<br>howmany    可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</p>
+</blockquote>
+<p>返回一个字符串数组。该数组是通过在 separator 指定的边界处将字符串 stringObject 分割成子串创建的。返回的数组中的字串不包括 separator 自身。<br>但是，如果 separator 是包含子表达式的正则表达式，那么返回的数组中包括与这些子表达式匹配的字串（但不包括与整个正则表达式匹配的文本）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">var str=<span class="string">"How are you doing today?"</span></div><div class="line">document.write(str.split(<span class="string">" "</span>) + <span class="string">"&lt;br /&gt;"</span>)  //How,are,you,doing,today?</div><div class="line">document.write(str.split(<span class="string">""</span>) + <span class="string">"&lt;br /&gt;"</span>)   //H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?</div><div class="line">document.write(str.split(<span class="string">" "</span>,<span class="number">3</span>))           //How,are,you</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>字符串为null时会报错</strong><br>注释：如果把空字符串 (“”) 用作 separator，那么 stringObject 中的每个字符之间都会被分割。<br>注释：String.split() 执行的操作与 Array.join 执行的操作是相反的。</p>
+<h2 id="4、删除值为”string”的数组元素">4、删除值为”string”的数组元素</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(var <span class="keyword">in</span> arr){</div><div class="line"> <span class="keyword">if</span>(arr[i]==<span class="string">"string"</span>){</div><div class="line">    arr.splice(i,<span class="number">1</span>);</div><div class="line"> }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、JavaScript_splice()">5、JavaScript splice()</h2>
+<p>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。<br>注释：该方法会改变原始数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.splice(index,howmany,item1,.....,itemX)</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>index    必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。<br>howmany    必需。要删除的项目数量。如果设置为 0，则不会删除项目。<br>item1, …, itemX    可选。向数组添加的新项目。</p>
+</blockquote>
+<p>返回值是Array，包含被删除项目的新数组，如果有的话。<br>splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。<br>如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">var arr = new Array(<span class="number">6</span>)</div><div class="line">arr[<span class="number">0</span>] = <span class="string">"George"</span></div><div class="line">arr[<span class="number">1</span>] = <span class="string">"John"</span></div><div class="line">arr[<span class="number">2</span>] = <span class="string">"Thomas"</span></div><div class="line">arr[<span class="number">3</span>] = <span class="string">"James"</span></div><div class="line">arr[<span class="number">4</span>] = <span class="string">"Adrew"</span></div><div class="line">arr[<span class="number">5</span>] = <span class="string">"Martin"</span></div><div class="line">document.write(arr + <span class="string">"&lt;br /&gt;"</span>) //George,John,Thomas,James,Adrew,Martin</div><div class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"William"</span>)</div><div class="line">document.write(arr)      //George,John,William,James,Adrew,Martin</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="6、iframe">6、iframe</h2>
+<h4 id="刷新当前iframe">刷新当前iframe</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.location.reload();</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="重定向当前iframe">重定向当前iframe</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.location.href = url;</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="7、for_in_循环遍历对象">7、for in 循环遍历对象</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj={</div><div class="line">  age:<span class="number">12</span>,</div><div class="line">  height:<span class="number">170</span>,</div><div class="line">  name:<span class="string">'小华'</span></div><div class="line">};</div><div class="line"><span class="keyword">for</span> (var i <span class="keyword">in</span> obj) { //i将会被列举为键名,就是所说的字符串的下标</div><div class="line">    alert(i+<span class="string">"\n"</span>+obj[i]);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="8、JavaScript_Date-parse()_函数">8、JavaScript Date.parse() 函数</h3>
+<p>Date.parse(datestring) — 解析一个日期的字符串，并返回该日期距1970年1月1日午夜之间的毫秒数(时间戳)<br>返回一个整数<br>整数值为datestring表示日期距1970年1月1日午夜之间的毫秒数(时间戳)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Date.parse(new Date())</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="9、JavaScript_Math对象的方法">9、JavaScript Math对象的方法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. Math.ceil()用作向上取整。</div><div class="line"><span class="number">2</span>. Math.floor()用作向下取整。</div><div class="line"><span class="number">3</span>. Math.round() 我们数学中常用到的四舍五入取整。</div><div class="line"><span class="number">4</span>. parseInt(<span class="number">5</span>/<span class="number">2</span>) 丢弃小数部分,保留整数部分</div><div class="line"></div><div class="line"><span class="number">5</span>. Math.abs(x)   返回数的绝对值</div><div class="line"><span class="number">6</span>. Math.acos(x) 返回数的反余弦值</div><div class="line"><span class="number">7</span>. Math.asin(x) 返回数的反正弦值  </div><div class="line"><span class="number">8</span>. Math.atan(x) 以介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间的数值来返回 x 的反正切值</div><div class="line"><span class="number">10</span>. Math.atan2(y,x) 返回从 x 轴到点 (x,y) 的角度（介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间）</div><div class="line"><span class="number">11</span>. Math.ceil(x) 对一个数进行上舍入。</div><div class="line"><span class="number">12</span>. Math.cos(x) 返回数的余弦</div><div class="line"><span class="number">13</span>. Math.exp(x) 返回 e 的指数。</div><div class="line"><span class="number">14</span>. Math.floor(x) 对一个数进行下舍入。</div><div class="line"><span class="number">15</span>. Math.log(x) 返回数的自然对数（底为e）</div><div class="line"><span class="number">16</span>. Math.max(x,y) 返回 x 和 y 中的最高值</div><div class="line"><span class="number">17</span>. Math.min(x,y) 返回 x 和 y 中的最低值</div><div class="line"><span class="number">18</span>. Math.pow(x,y) 返回 x 的 y 次幂</div><div class="line"><span class="number">19</span>. Math.random() 返回 <span class="number">0</span> ~ <span class="number">1</span> 之间的随机数</div><div class="line"><span class="number">20</span>. Math.round(x) 把一个数四舍五入为最接近的整数</div><div class="line"><span class="number">21</span>. Math.sin(x) 返回数的正弦</div><div class="line"><span class="number">22</span>. Math.sqrt(x) 返回数的平方根</div><div class="line"><span class="number">23</span>. Math.tan(x) 返回一个角的正切</div><div class="line"><span class="number">24</span>. Math.toSource() 代表对象的源代码</div><div class="line"><span class="number">25</span>. Math.valueOf() 返回一个 Math 对象的原始值</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="10、Window_History对象">10、Window History对象</h3>
+<p>window.history 对象包含浏览器的历史</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">history.back() 方法加载历史列表中的前一个 URL。</div><div class="line">history.forward() 方法加载历史列表中的下一个 URL。</div><div class="line">history.go(i) 方法去指定的某页</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="11、JavaScript_slice()">11、JavaScript slice()</h3>
+<p>slice() 方法可从已有的数组中返回选定的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.slice(start,end)</div></pre></td></tr></table></figure>
+
+
+
+<p>返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素</p>
+<blockquote>
+<p>请注意，该方法并不会修改数组，而是返回一个子数组。如果想删除数组中的一段元素，应该使用方法 Array.splice()。<br>您可使用负值从数组的尾部选取元素。<br>如果 end 未被规定，那么 slice() 方法会选取从 start 到数组结尾的所有元素。</p>
+</blockquote>
+<h3 id="12、JavaScript_exec()_方法">12、JavaScript exec() 方法</h3>
+<p>exec() 方法用于检索字符串中的正则表达式的匹配。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RegExpObject.exec(string)</div></pre></td></tr></table></figure>
+
+
+
+<p>返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var str = <span class="string">"Visit W3School, I love W3School"</span>;</div><div class="line">var patt = new RegExp(<span class="string">"W3School"</span>,<span class="string">"g"</span>);</div><div class="line">var result;</div><div class="line"></div><div class="line"><span class="keyword">while</span> ((result = patt.exec(str)) != null)  {</div><div class="line">    console.log(result);</div><div class="line">    console.log(patt.lastIndex);</div><div class="line">}</div><div class="line">//[<span class="string">"W3School"</span>, index: <span class="number">6</span>, input: <span class="string">"Visit W3School, I love W3School"</span>]</div><div class="line">//<span class="number">14</span></div><div class="line">//[<span class="string">"W3School"</span>, index: <span class="number">23</span>, input: <span class="string">"Visit W3School, I love W3School"</span>]</div><div class="line">//<span class="number">31</span></div></pre></td></tr></table></figure>
+
+
+
+<p>如果 exec() 找到了匹配的文本，则返回一个结果数组。否则，返回 null。此数组的第 0 个元素是与正则表达式相匹配的文本，第 1 个元素是与 RegExpObject 的第 1 个子表达式相匹配的文本（如果有的话），第 2 个元素是与 RegExpObject 的第 2 个子表达式相匹配的文本（如果有的话），以此类推。除了数组元素和 length 属性之外，exec() 方法还返回两个属性。index 属性声明的是匹配文本的第一个字符的位置。input 属性则存放的是被检索的字符串 string。我们可以看得出，在调用非全局的 RegExp 对象的 exec() 方法时，返回的数组与调用方法 String.match() 返回的数组是相同的。<br>但是，当 RegExpObject 是一个全局正则表达式时，exec() 的行为就稍微复杂一些。它会在 RegExpObject 的 lastIndex 属性指定的字符处开始检索字符串 string。当 exec() 找到了与表达式相匹配的文本时，在匹配后，它将把 RegExpObject 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。这就是说，您可以通过反复调用 exec() 方法来遍历字符串中的所有匹配文本。当 exec() 再也找不到匹配的文本时，它将返回 null，并把 lastIndex 属性重置为 0。</p>
+<blockquote>
+<p>重要事项：如果在一个字符串中完成了一次模式匹配之后要开始检索新的字符串，就必须手动地把 lastIndex 属性重置为 0。<br>提示：请注意，无论 RegExpObject 是否是全局模式，exec() 都会把完整的细节添加到它返回的数组中。这就是 exec() 与 String.match() 的不同之处，后者在全局模式下返回的信息要少得多。因此我们可以这么说，在循环中反复地调用 exec() 方法是唯一一种获得全局模式的完整模式匹配信息的方法。</p>
+</blockquote>
+<h3 id="13、JavaScript_shift()_方法">13、JavaScript shift() 方法</h3>
+<p>shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.shift()</div></pre></td></tr></table></figure>
+
+
+
+<p>数组原来的第一个元素的值。<br>如果数组是空的，那么 shift() 方法将不进行任何操作，返回 undefined 值。请注意，该方法不创建新数组，而是直接修改原有的 arrayObject。</p>
+<blockquote>
+<p>注释：该方法会改变数组的长度。<br>提示：要删除并返回数组的最后一个元素，请使用 pop() 方法。</p>
+</blockquote>
+<h3 id="14、JavaScript_replace()_方法">14、JavaScript replace() 方法</h3>
+<p>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.replace(regexp/substr,replacement)</div></pre></td></tr></table></figure>
+
+
+
+<p>一个新的字符串，是用 replacement 替换了 regexp 的第一次匹配或所有匹配之后得到的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str=<span class="string">"Visit Microsoft!"</span></div><div class="line">document.write(str.replace(/Microsoft/, <span class="string">"W3School"</span>))； //Visit W3School!</div></pre></td></tr></table></figure>
+
+
+
+<h3 id="15、JavaScript_reverse()_方法">15、JavaScript reverse() 方法</h3>
+<p>reverse() 方法用于颠倒数组中元素的顺序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayObject.reverse()</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>注释：</strong>该方法会改变原来的数组，而不会创建新的数组。</p>
+<h3 id="16、HTML_DOM中几个容易常用的属性">16、HTML DOM中几个容易常用的属性</h3>
+<h4 id="nodeName_属性含有某个节点的名称。">nodeName 属性含有某个节点的名称。</h4>
+<p>元素节点的 nodeName 是标签名称<br>属性节点的 nodeName 是属性名称<br>文本节点的 nodeName 永远是 #text<br>文档节点的 nodeName 永远是 #document </p>
+<h4 id="nodeValue">nodeValue</h4>
+<p>对于文本节点，nodeValue 属性包含文本。<br>对于属性节点，nodeValue 属性包含属性值。<br>nodeValue 属性对于文档节点和元素节点是不可用的。</p>
+<h4 id="nodeType_属性可返回节点的类型。">nodeType 属性可返回节点的类型。</h4>
+<p>值-元素类型<br>1-ELEMENT 元素element<br>2-ATTRIBUTE 属性attr<br>3-TEXT 文本text<br>4-CDATA<br>5-ENTITY REFERENCE<br>6-ENTITY<br>7-PI (processing instruction)<br>8-COMMENT 注释comments<br>9-DOCUMENT 文档document<br>10-DOCUMENT TYPE<br>11-DOCUMENT FRAGMENT<br>12-NOTATION </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/31/commonly-used-in-work-javascript/" data-id="gjmupay12uw983m2" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commonly-used-in-work-javascript/">commonly-used-in-work-javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-trap-requireJs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/28/trap-requireJs/" class="article-date">
+  <time datetime="2015-08-28T03:18:25.000Z" itemprop="datePublished">Aug 28 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/28/trap-requireJs/">requireJs-trap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、无法加载require的文件，404">1、无法加载require的文件，404</h4>
+<p>描述：config文件中定义backbone、underscore都没有被引用到，更改backbone的文件名或者路径，在浏览器控制台查看文件还是404，且路径没有变化，文件名也没有发生变化，真是太奇葩了。</p>
+<p>解答：帮同事找了很久问题， 都没有找到，叫另一个同事来看了一会儿，查了文档，才看到是 path写错了，应该是paths，复数，OH，MY GOD！！</p>
+<h4 id="2、关于配置文件位置的问题">2、关于配置文件位置的问题</h4>
+<p>描述：requireJs 的配置文件config.js，放在任何地方都可以，只要页面能够加载到config.js.  配置文件中baseUrl由两部分组成，一部分是html页面中定义的window.config.staticPath，其值取决于html页面与js文件的相对路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">require.config({</div><div class="line">    baseUrl: window.config.staticPath + <span class="string">'js/'</span>,</div><div class="line">    shim: {</div><div class="line">        underscore: {</div><div class="line">            exports: <span class="string">'_'</span></div><div class="line">        },</div><div class="line">        backbone: {</div><div class="line">            deps: [</div><div class="line">                <span class="string">'underscore'</span>,</div><div class="line">                <span class="string">'jquery'</span></div><div class="line">            ],</div><div class="line">            exports: <span class="string">'Backbone'</span></div><div class="line">        },</div><div class="line">        backboneLocalstorage: {</div><div class="line">            deps: [<span class="string">'backbone'</span>],</div><div class="line">            exports: <span class="string">'Store'</span></div><div class="line">        }</div><div class="line">    },</div><div class="line">    paths: {</div><div class="line">        jquery: <span class="string">'libs/jquery'</span>,</div><div class="line">        mock: <span class="string">'libs/mock'</span>,</div><div class="line">        underscore: <span class="string">'libs/underscore'</span>,</div><div class="line">        backbone: <span class="string">'libs/backbone'</span>,</div><div class="line">        backboneLocalStorage: <span class="string">'libs/backbone.localStorage'</span></div><div class="line">    },</div><div class="line">    urlArgs: <span class="literal">false</span></div><div class="line">});</div><div class="line">require([</div><div class="line">    <span class="string">'backbone'</span>,</div><div class="line">    <span class="string">'views/indexView'</span>,</div><div class="line">    <span class="string">'routers/router'</span></div><div class="line">], function (Backbone, indexView, Workspace) {</div><div class="line">    new Workspace();</div><div class="line">    Backbone.history.start();</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/28/trap-requireJs/" data-id="b12mbdnrt5pbdg8r" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/requireJsTrap/">requireJsTrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-trap-backbone" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/26/trap-backbone/" class="article-date">
+  <time datetime="2015-08-26T08:08:36.000Z" itemprop="datePublished">Aug 26 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Js/">Js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/26/trap-backbone/">backbone-trap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、Backbone-Events（事件）;">1、Backbone.Events（事件）;</h4>
+<p>   Events容易被写成event而不能触发事件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var ShiftView = Backbone.View.extend({</div><div class="line">   tagName: <span class="string">"tr"</span>,</div><div class="line">   template: _.template(ShiftTdTpl),</div><div class="line">   events: {</div><div class="line">       <span class="string">"click .modify"</span>: <span class="string">"setModifyModel"</span>,</div><div class="line">       <span class="string">"click .del"</span>: <span class="string">"clear"</span></div><div class="line">   }</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、on_object-on(event,_callback,_[context])别名:_bind">2、on  object.on(event, callback, [context])别名: bind</h4>
+<p>在 object 上绑定一个callback回调函数。 只要event触发，该回调函数就会调用。</p>
+<p>在View 里，当model change 时会调用this.render方法，render方法里面的this.model值是undefined，此时就需要传this作为上下文；  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">model.on(<span class="string">'change'</span>, this.render, this)</div><div class="line"></div><div class="line">render: <span class="function"><span class="title">function</span></span> () {</div><div class="line">    this.<span class="variable">$el</span>.html(this.template(this.model.toJSON()));</div><div class="line">    <span class="keyword">return</span> this;</div><div class="line">},</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当回调函数被调用时，通过可选的第三个参数可以为this提供一个context（上下文）值：model.on(‘change’, this.render, this) （愚人码头注：即回调函数中的This，指向传递的第三个参数）。</p>
+</blockquote>
+<h4 id="3、乱码">3、乱码</h4>
+<p>给model设置的defaults参数是中文的，render到页面后就出现乱码了。检查html页面是utf-8，找不出问题在哪里了。</p>
+<p>这时需要看看model文件的编码格式，WebStorm IED右下角可以查看更改编码，结果model文件的编码是GBK···· </p>
+<h4 id="4、给集合添加数据对象时，总是报错：_cannot_read_property_“idAttribute”_of_undefined">4、给集合添加数据对象时，总是报错： cannot read property “idAttribute” of undefined</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">aList.add({</div><div class="line">    title: <span class="string">"title added"</span>,</div><div class="line">    description: <span class="string">"description added"</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>帮同事看了半天都没有找到问题在哪里，另一个同事发现问题是： 扩展Backbone.Collection 创建一个 Collection 类时，设置的model属性的值不是Backbone.Model的扩展，而是Backbone.Model的扩展的实例对象;<br>这个实例对象就是一个活生生的model了，类似于使用model的add方法添加一组属性值 model.add({title: “title”}); So， 不能给实例化对象model调用add方法。</p>
+<p>错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testModel = new TestModel();</div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: testModel</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>正确：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: TestModel</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）">5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）</h4>
+<p>解决方法： 在子View中自定义一个事件customEvent，当交互成功后trigger事件customEvent, 父View中listenTo事件customEvent….</p>
+<h4 id="6、视图中查询数据增加条件，url相应改变，并重新加载页面">6、视图中查询数据增加条件，url相应改变，并重新加载页面</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">e.g. http://localhost:<span class="number">63342</span>/backbone/schedulingSystem/src/page/index.html?<span class="comment">#shiftReport/name/9</span></div><div class="line"></div><div class="line"><span class="string">"folder/:name"</span>: <span class="string">"openFolder"</span>,</div><div class="line">app.navigate(<span class="string">"help/troubleshooting"</span>, {trigger: <span class="literal">true</span>});</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/26/trap-backbone/" data-id="bf7nhfs92ly7mtkm" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backboneTrap/">backboneTrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>commonly-used-in-work-jquery | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、jQuery prop &amp; jQuery  attr
+attr用法
+1234$(selector).attr(attribute);         //返回被选元素的属性值.$(selector).attr(attribute,value);   //设置被选元素的属性和值。$(selector).attr(attribute,function(index,oldvalue));">
+<meta property="og:type" content="article">
+<meta property="og:title" content="commonly-used-in-work-jquery">
+<meta property="og:url" content="http://yoursite.com/2015/05/20/commonly-used-in-work-jquery/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description" content="1、jQuery prop &amp; jQuery  attr
+attr用法
+1234$(selector).attr(attribute);         //返回被选元素的属性值.$(selector).attr(attribute,value);   //设置被选元素的属性和值。$(selector).attr(attribute,function(index,oldvalue));">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="commonly-used-in-work-jquery">
+<meta name="twitter:description" content="1、jQuery prop &amp; jQuery  attr
+attr用法
+1234$(selector).attr(attribute);         //返回被选元素的属性值.$(selector).attr(attribute,value);   //设置被选元素的属性和值。$(selector).attr(attribute,function(index,oldvalue));">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-commonly-used-in-work-jquery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/20/commonly-used-in-work-jquery/" class="article-date">
+  <time datetime="2015-05-20T02:23:26.000Z" itemprop="datePublished">May 20 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      commonly-used-in-work-jquery
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、jQuery_prop_&amp;_jQuery_attr">1、jQuery prop &amp; jQuery  attr</h2>
+<h3 id="attr用法">attr用法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(selector).attr(attribute);         //返回被选元素的属性值.</div><div class="line">$(selector).attr(attribute,value);   //设置被选元素的属性和值。</div><div class="line">$(selector).attr(attribute,function(index,oldvalue));       //使用函数来设置属性/值</div><div class="line">$(selector).attr({attribute:value, attribute:value ...})；  //设置多个属性/值对</div></pre></td></tr></table></figure>
+
+
+
+<h4 id="attr用法之_使用函数来设置属性/值">attr用法之 使用函数来设置属性/值</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).attr(attribute,function(index,oldvalue));</div></pre></td></tr></table></figure>
+
+<blockquote>
+<p>function(index,oldvalue)<br>规定返回属性值的函数。<br>该函数可接收并使用选择器的 index 值和当前属性值。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).attr(<span class="string">"width"</span>,function(n,v){</div><div class="line">  <span class="keyword">return</span> v-<span class="number">50</span>;</div><div class="line">})</div></pre></td></tr></table></figure>
+
+<h4 id="attr用法之_设置多个属性/值对">attr用法之 设置多个属性/值对</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).attr({</div><div class="line">    width:<span class="string">"50"</span>,</div><div class="line">    height:<span class="string">"80"</span></div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+<h3 id="prop用法">prop用法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.prop( propertyName );           //Get the value of a property <span class="keyword">for</span> the first element <span class="keyword">in</span> the <span class="keyword">set</span> of matched elements.</div><div class="line">.prop( propertyName, value );    //Set one or more properties <span class="keyword">for</span> the <span class="keyword">set</span> of matched elements.</div><div class="line">.prop( properties );             //An object of property-value pairs to set.</div><div class="line">.prop( propertyName, function ); //A function returning the value to set.</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>The .prop() method gets the property value for only the <strong>first element</strong> in the matched set.<br>It returns <strong>undefined</strong> for the value of a property that has not been set, or if the matched set has no elements.<br>To get the value for each element individually, use a looping construct such as jQuery’s <strong>.each() or .map()</strong> method.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">elem.checked	<span class="literal">true</span> (Boolean) Will change with checkbox state</div><div class="line">$( elem ).prop( <span class="string">"checked"</span> )	<span class="literal">true</span> (Boolean) Will change with checkbox state</div><div class="line">elem.getAttribute( <span class="string">"checked"</span> )	<span class="string">"checked"</span> (String) Initial state of the checkbox; does not change</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (<span class="number">1.6</span>)	<span class="string">"checked"</span> (String) Initial state of the checkbox; does not change</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (<span class="number">1.6</span>.<span class="number">1</span>+)	<span class="string">"checked"</span> (String) Will change with checkbox state</div><div class="line">$( elem ).attr( <span class="string">"checked"</span> ) (pre-<span class="number">1.6</span>)	<span class="literal">true</span> (Boolean) Changed with checkbox state</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( elem.checked )</div><div class="line"><span class="keyword">if</span> ( $( elem ).prop( <span class="string">"checked"</span> ) )</div><div class="line"><span class="keyword">if</span> ( $( elem ).is( <span class="string">":checked"</span> ) )</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>The same is true for other dynamic attributes, such as <strong>selected 、disabled、value</strong>.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"input[type='checkbox']"</span> ).prop( <span class="string">"checked"</span>, function( i, val ) {</div><div class="line">  <span class="keyword">return</span> !val;</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p>根据官方的建议：具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()，其他的使用 attr()</p>
+<h2 id="2、jQuery_filter">2、jQuery filter</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.filter(selector)</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>selector：字符串值，包含供匹配当前元素集合的选择器表达式。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).css(<span class="string">"background"</span>, <span class="string">"#c8ebcc"</span>)</div><div class="line">    .filter(<span class="string">".middle"</span>)</div><div class="line">    .css(<span class="string">"border-color"</span>, <span class="string">"red"</span>);</div></pre></td></tr></table></figure>
+
+
+<p>filter() 方法将匹配元素集合缩减为匹配指定选择器的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">1</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">2</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">3</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">4</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">5</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">6</span>&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).filter(<span class="string">':even'</span>).css(<span class="string">'background-color'</span>, <span class="string">'red'</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>如果给定表示 DOM 元素集合的 jQuery 对象，.filter() 方法会用匹配元素的子集构造一个新的 jQuery 对象。所使用的选择器会测试每个元素；所有匹配该选择器的元素都会包含在结果中</p>
+</blockquote>
+<p>使用过滤函数</p>
+<blockquote>
+<p>通过函数而不是选择器来筛选元素。对于每个元素，如果该函数返回 true，则元素会被包含在已筛选集合中；否则，会排除这个元素。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item <span class="number">1</span> - one strong tag&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item &lt;strong&gt;<span class="number">2</span>&lt;/strong&gt;</div><div class="line">   - two &lt;span&gt;strong tags&lt;/span&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">3</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">4</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">5</span>&lt;/li&gt;</div><div class="line">  &lt;li&gt;list item <span class="number">6</span>&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).filter(function(index) {</div><div class="line">  <span class="keyword">return</span> $(<span class="string">'strong'</span>, this).length == <span class="number">1</span>;</div><div class="line">}).css(<span class="string">'background-color'</span>, <span class="string">'red'</span>);</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$form</span>.find(<span class="string">".setBoxRequired"</span>).filter(<span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">return</span> $(this).hasClass(<span class="string">"appManager"</span>) ? <span class="string">""</span> : $(this);</div><div class="line">}).textbox(<span class="string">"setValue"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div"</span> ).filter( document.getElementById( <span class="string">"unique"</span> ) );</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div"</span> ).filter( $( <span class="string">"#unique"</span> ) );</div><div class="line"></div><div class="line"><span class="variable">$appListTable</span>.find(<span class="string">".check-item"</span>).filter(<span class="string">"[value='"</span> + result[i] + <span class="string">"']"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、jQuery_：visible">3、jQuery ：visible</h2>
+<p>Selects all elements that are visible</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$( <span class="string">"div:visible"</span> ).click(<span class="function"><span class="title">function</span></span>() {</div><div class="line">  $( this ).css( <span class="string">"background"</span>, <span class="string">"yellow"</span> );</div><div class="line">});</div><div class="line">$( <span class="string">"button"</span> ).click(<span class="function"><span class="title">function</span></span>() {</div><div class="line">  $( <span class="string">"div:hidden"</span> ).show( <span class="string">"fast"</span> );</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>Elements are considered visible if they consume space in the document. Visible elements have a width or height that is greater than zero.<br>Elements with visibility: hidden or opacity: 0 are considered visible, since they still consume space in the layout.<br>Elements that are not in a document are considered hidden; </p>
+</blockquote>
+<h2 id="4、jQuery_:lt_选择器">4、jQuery :lt 选择器</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":lt(index)"</span>)</div></pre></td></tr></table></figure>
+
+
+
+<p>定义和用法<br>:lt 选择器选取带有小于指定 index 值的元素。<br>index 值从 0 开始。<br>经常与其他元素/选择器一起使用，来选择指定的组中特定序号之前的元素（如上面的例子）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:lt(2)"</span>)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>选择前 2 个 <tr> 元素;<br>不包括当前索引值对应的元素;</tr></p>
+</blockquote>
+<h2 id="5、jQuery_:gt_选择器">5、jQuery :gt 选择器</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">":gt(index)"</span>)</div></pre></td></tr></table></figure>
+
+
+
+<p>定义和用法<br>:gt 选择器选取 index 值高于指定数的元素。<br>index 值从 0 开始。<br>经常与其他元素/选择器一起使用，来选择指定的组中特定序号之后的元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"tr:gt(2)"</span>)</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>选择前 3 个之后的所有 <tr> 元素;<br>不包括当前索引值对应的元素;</tr></p>
+</blockquote>
+<h2 id="6、jQuery操作">6、jQuery操作<input type="radio"></h2>
+<p>1、获取选中的radio的值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:checked"</span>).val();</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>使用元素选择器，再使用属性过滤器name=’city’，最后使用:checked选取被选中的元素。</p>
+</blockquote>
+<p>2、给指定值的radio设置选中状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city'][value='YangZhou']"</span>).attr(<span class="string">"checked"</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>给name=”city”而且value=”YangZhou”的radio设置选中状态。</p>
+</blockquote>
+<p>3、取消name=”city”的radio的选中状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'input[name="city"]:checked'</span>).attr(<span class="string">"checked"</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+
+
+
+<p>4、获取name=”city”的radio的个数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).length;</div></pre></td></tr></table></figure>
+
+
+
+<p>5、获取name=”city”而且索引是偶数的radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:even"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>索引是从0开始的。</p>
+</blockquote>
+<p>6、获取name=”city”而且索引是奇数的radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']:odd"</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>索引是从0开始的。</p>
+</blockquote>
+<p>7、迭代radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).each(function(i,obj){</div><div class="line">    //i,迭代的下标，从<span class="number">0</span>开始</div><div class="line">    //obj,当前的对象(HTMLInputElement),可以使用obj.value格式获取属性值</div><div class="line">    //$(this);当前jQuery对象,可以使用$(this).val()获取属性值</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>迭代name=”city”的radio。</p>
+</blockquote>
+<p>8、禁用radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).attr(<span class="string">"disabled"</span>,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+
+
+<p>　　</p>
+<blockquote>
+<p>禁用name=”city”的radio。</p>
+</blockquote>
+<p>9、启用radio:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[name='city']"</span>).attr(<span class="string">"disabled"</span>,<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>启用name=”city”的radio。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/05/20/commonly-used-in-work-jquery/" data-id="wcldt6jxl2y111l4" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/26/trap-backbone/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          backbone-trap
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/20/commonly-used-in-work-angularJs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">commonly-used-in-work-angularJs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

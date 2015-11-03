@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>essence-loose | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="阅读JavaScript语言精粹一书 —— 毒瘤
+以下是Javascript中一些难以避免的问题特性，必须知道这些问题并准备好应对的措施
+1. 全局变量
+在Javascript所有最糟糕的特性之中，最为糟糕的一个特性就是它对全局变量的依赖。全局变量是在所有作用域中可见的变量。在微型程序中可能会带来很多方便，但随着程序越来越复杂，它们很快就变得难以管理。在程序中使用全局变量降低了程序的可靠性。
+全局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="essence-loose">
+<meta property="og:url" content="http://yoursite.com/2015/10/19/essence-8-loose/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description" content="阅读JavaScript语言精粹一书 —— 毒瘤
+以下是Javascript中一些难以避免的问题特性，必须知道这些问题并准备好应对的措施
+1. 全局变量
+在Javascript所有最糟糕的特性之中，最为糟糕的一个特性就是它对全局变量的依赖。全局变量是在所有作用域中可见的变量。在微型程序中可能会带来很多方便，但随着程序越来越复杂，它们很快就变得难以管理。在程序中使用全局变量降低了程序的可靠性。
+全局">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="essence-loose">
+<meta name="twitter:description" content="阅读JavaScript语言精粹一书 —— 毒瘤
+以下是Javascript中一些难以避免的问题特性，必须知道这些问题并准备好应对的措施
+1. 全局变量
+在Javascript所有最糟糕的特性之中，最为糟糕的一个特性就是它对全局变量的依赖。全局变量是在所有作用域中可见的变量。在微型程序中可能会带来很多方便，但随着程序越来越复杂，它们很快就变得难以管理。在程序中使用全局变量降低了程序的可靠性。
+全局">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-essence-8-loose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/19/essence-8-loose/" class="article-date">
+  <time datetime="2015-10-19T07:14:01.000Z" itemprop="datePublished">Oct 19 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essence/">Essence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      essence-loose
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读JavaScript语言精粹一书 —— 毒瘤</p>
+<p><strong>以下是Javascript中一些难以避免的问题特性，必须知道这些问题并准备好应对的措施</strong></p>
+<p><strong>1. 全局变量</strong></p>
+<p>在Javascript所有最糟糕的特性之中，最为糟糕的一个特性就是它对全局变量的依赖。全局变量是在所有作用域中可见的变量。在微型程序中可能会带来很多方便，但随着程序越来越复杂，它们很快就变得难以管理。在程序中使用全局变量降低了程序的可靠性。</p>
+<p>全局变量使得在同一个程序中运行独立的子程序变得更难。如果有些全局变量的名称恰巧和子程序的变量名相同，那么他们将会发生冲突，可能导致程序无法运行，而且通常难以调试。</p>
+<p>定义全局变量的3种方法：</p>
+<p>a. 在任何函数之外放置一个var语句；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var foo = value;</div></pre></td></tr></table></figure>
+
+<p>b. 直接给全局对象加一个属性，全局对象是所有全局变量的容器；在web浏览器里全局对象是window。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.foo = value;</div></pre></td></tr></table></figure>
+
+<p>c. 直接使用未经声明的变量。这被称为隐式的全局变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">foo = value;</div></pre></td></tr></table></figure>
+
+<p><strong>2. 作用域</strong></p>
+<p>Javascript采用了块语法，却没有提供块级作用域：代码块中声明的变量在包含此代码块的函数的任何位置都是可见的。</p>
+<p>一般来说，声明变量的最好的地方是在第一次用到它的地方。但这种做法在Javascript里面反而是一种坏习惯，因为它没有块级作用域。更好的方式是在每个函数的开头部分声明所有的变量。</p>
+<p><strong>3. 自动插入分号</strong></p>
+<p>Javascript有一个自动修复机制，它试图通过自动插入分号来修正有缺损的程序。但千万别指望它，它可能会带来更严重、更可怕的错误。</p>
+<p>有时他会不合适宜的插入分号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> </div><div class="line">{</div><div class="line">    status: <span class="literal">true</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>本意是要返回一个包含status属性的对象，遗憾的是，自动插入分号让它变成了返回undefined。自动插入分号会导致程序被误解，却没有任何警告提醒。只要把{放在一行的尾部而不是下一含的开头就可以避免该问题了。</p>
+<p><strong>4. 保留字</strong></p>
+<p>下面的单词在JavaScript里被保留：</p>
+<p>abstract boolean break byte case catch char class const continue debugger default delete do double else enum<br>export false final finally float for function goto if implement import in instanceof int interface long native<br>new null package private protected public return short static super switch synchronized this throw throws transient<br>true try typeof var volatile void while with</p>
+<p>这些单词中的大部分并没有在Javascript中使用。</p>
+<p>它们不能被用来命名参数或变量。当保留字被用做对象字面量的键值时，它必须被引号括起来。他们不能被用在点表示法中，所以有时必须使用括号表示法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var method; //ok</div><div class="line">var class;  //error</div><div class="line">object = { box: value }; //ok</div><div class="line">object = { <span class="keyword">case</span>: value } //非法</div><div class="line">object = { <span class="string">'case'</span>: value } //ok</div><div class="line">object.box = value; //ok</div><div class="line">object.case = value; //非法</div><div class="line">object[<span class="string">'case'</span>] = value; //ok</div></pre></td></tr></table></figure>
+
+<p><strong>5. Unicode（没明白）</strong></p>
+<p>JavaScript设计之初，Unicode预期最多会有65536个字符。但从那以后它的容量慢慢增长到拥有一百万个字符。</p>
+<p>JavaScript的字符是16位的，足以覆盖原有的65536个字符（现被称为基本多文种平面）剩下的百万字符中的每一个都可以用一对字符来表示。Unicode把一对字符视为一个单一的字符。而JavaScript认为一对字符是两个不同的字符。</p>
+<p><strong>6. typeof</strong></p>
+<p>typeof运算符返回一个用于识别其运算数类型的字符串。所以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof <span class="number">98.6</span>  //<span class="string">"number"</span></div></pre></td></tr></table></figure>
+
+<p>遗憾的是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof null  //<span class="string">"object"</span>, 不是“null”; 有个更简单也更好检测null的方式：my_value === null;(没懂)</div></pre></td></tr></table></figure>
+
+<p>一个更大的问题是检测对象的值。typeof不能辨别出null与对象，但你可以像下面这样做，因为null值为假，而所有对象值为真：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var my_value = {};</div><div class="line"><span class="keyword">if</span> (my_value && typeof my_value === <span class="string">'object'</span>) {</div><div class="line">    console.log(<span class="string">'object'</span>);  //object</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>在对正则表达式的类型识别上，各种JavaScript的实现不太一致。对于下面的代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof /a/  //chrome下， <span class="string">"object"</span></div></pre></td></tr></table></figure>
+
+<p>一些实现会返回‘object’，而其他的返回‘function’。如果返回‘regexp’可能会更有用些，但标准不允许这样做。</p>
+<p><strong>7. parseInt</strong></p>
+<p>parseInt是一个把字符串转换成为整数的函数。它在遇到非数字时会被停止解析，所以parseInt(“16”)与parseInt(“16 tons”)产生相同的结果。如果该函数会提醒我们出现了额外文本就好了，但它不会这么做。</p>
+<p>如果该字符串第一个字符是0，那么该字符串会基于八进制二不是十进制来求值。在八进制中，8和9不是数组，所以parseInt(“08”)和parseIny(“09”)都产生0作为结果。这个错误会导致程序解析日期和时间出现问题。幸运的是，parseInt可以接收一个基数作为参数，如此一来parseInt(“08”)的结果是8。建议总是加上这个基本参数。</p>
+<p><strong>8. +</strong></p>
+<p>+运算符可以用于加法运算符或字符串连接。它究竟会如何执行取决于其参数的类型。如果其中一个运算数是一个空字符串，它会把另一个运算数转换成字符串并返回。</p>
+<p>如果两个运算数都是数字，它返回两者之和，否则，它把两个运算数都转换成字符串并连接起来。这个复杂的行为是bug的常见来源。如果你打算用+去坐加法运算，请确保两个运算数都是整数。</p>
+<p><strong>9. 浮点数</strong></p>
+<p>二进制的浮点数不能正确的处理十进制的小数。因此0.1+0.2不等于0.3，这是JavaScript中经常报的bug，并且它是遵循二进制浮点数算数标准而有意导致的结果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">0.1</span>+<span class="number">0.2</span>     //<span class="number">0.30000000000000004</span></div><div class="line"><span class="number">1.1</span>+<span class="number">2.3</span>     //<span class="number">3.4</span></div></pre></td></tr></table></figure>
+
+<p>幸运的是浮点数中的整数是精确的，所以小数表现的错误可以通过指定精度来避免。</p>
+<p>e.g. 美元可以通过乘以100转换成美分，然后就可以准确的将美分相加。他们的和可以除以100转换成美元。</p>
+<p><strong>10. NaN</strong></p>
+<p>NaN是IEEE754中定义的一个特殊的数量值。它表示不是一个数字，尽管下面的表达式返回的是true：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typeof NaN === <span class="string">'number'</span>;  //<span class="literal">true</span></div></pre></td></tr></table></figure>
+
+<p>Null可能会在试图将非数字形式的字符串转换为数字时产生。e.g.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+ <span class="string">'0'</span>;     //<span class="number">0</span></div><div class="line">+ <span class="string">'oops'</span>;  //NaN</div></pre></td></tr></table></figure>
+
+<p>如果NaN是数学运算中的一个运算数，那么结果回事NaN。所以，如果一个公式链产生出NaN结果，那么至少有一个输入项是NaN，或者在某个地方产生了NaN。</p>
+<p>你可以对NaN进行检测，正如我们之前所见，typeof并不能辨别数字和NaN，并且事实NaN不等于它自己，令人惊讶：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NaN === NaN;  //<span class="literal">false</span></div><div class="line">NaN !== NaN;  //<span class="literal">true</span></div></pre></td></tr></table></figure>
+
+<p>JavaScript提供了一个isNaN函数可以辨识数字和NaN。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">isNaN(NaN);      //<span class="literal">true</span></div><div class="line">isNaN(<span class="number">0</span>);        //<span class="literal">false</span></div><div class="line">isNaN(<span class="string">'oops'</span>);   //<span class="literal">true</span></div></pre></td></tr></table></figure>
+
+<p>判断一个值是否可以做数字的最佳方法是使用isFinite函数，因为它会筛除掉NaN和Infinity。不幸的是，isFinite会视图把它的运算数转换成一个数字，如果值事实上不是一个数字，它就不是一个好的测试。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function isNumber(value){</div><div class="line">    <span class="keyword">return</span> typeof value === <span class="string">'number'</span> && isFinite(value);</div><div class="line">}</div><div class="line">isNumber(<span class="number">1</span>);      //<span class="literal">true</span></div><div class="line">isNumber(<span class="string">'oops'</span>); //<span class="literal">false</span></div></pre></td></tr></table></figure>
+
+<p><strong>11. 伪数组</strong></p>
+<p>JavaScript没有真正的数组。这也不全是坏事，JavaScript数组很容易使用。不必给他们设置维度，永远不用担心会出现越界错误。但他们的性能相比真正的数组可能相当糟糕。</p>
+<p>typeof运算符不能识别数组和对象。要判断一个值是否为数组，还必须要检查它的constructor属性:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var my_value = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">if</span>(my_value && typeof my_value === <span class="string">'object'</span> && my_value.constructor === Array){</div><div class="line">    //my_value是一个数组</div><div class="line">    console.log(<span class="string">'array'</span>); //array</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>上面的检测对于在不同帧或窗口创建的数组会给出false，当数组有可能在其他帧中被创建时，下面的检测更可靠：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var my_value = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">if</span>(my_value && typeof my_value === <span class="string">'object'</span> && typeof my_value.length === <span class="string">'number'</span> && !(my_value.propertyIsEnumerable(<span class="string">'length'</span>))){</div><div class="line">    //my_value是一个数组</div><div class="line">    console.log(<span class="string">'array'</span>); //array</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>arguments数组不是一个数组，它是一个带有length成员元素的对象。上面的检测方法会将arguments识别成一个数组。</p>
+<p><strong>12. 假值</strong></p>
+<p>JavaScript拥有一大组令人惊讶的假值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">值             类型</div><div class="line"><span class="number">0</span>              Number</div><div class="line">NaN（非数字）   Number</div><div class="line"><span class="string">' '</span>（空字符串） String</div><div class="line"><span class="literal">false</span>         Boolean</div><div class="line">null          Object</div><div class="line">undefined     Undefined</div></pre></td></tr></table></figure>
+
+<p>这些值全都等同于假，但他们是不可互换的，e.g.这是一种错误的方式去确定一个对象是否缺少一个成员元素：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var value = myObject[name];</div><div class="line"><span class="keyword">if</span> (value == null){</div><div class="line">    alert(value + <span class="string">" not found"</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>undefiend是缺失的成员元素的值</p>
+<p><strong>13. hasOwnProperty</strong></p>
+<p>hasOwnProperty方法被用做一个过滤器去避开for in语句的遍历。不幸的是，hasOwnProperty是一个方法，不是一个运算符，所以在任何对象中，它可能会被一个不同的函数甚至一个非法函数的值所替换。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var name;</div><div class="line">another_stooge.hasOwnProperty = null;  //地雷</div><div class="line"><span class="keyword">for</span> (name <span class="keyword">in</span> another_stooge){ </div><div class="line">    <span class="keyword">if</span> (another_stooge.hasOwnProperty(name)) { //触雷</div><div class="line">        document.write(name + <span class="string">": "</span> + another_stooge[name]);    </div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p><strong>14. 对象</strong></p>
+<p>JavaScript的对象永远不会有真的空对象，因为它可以从原型链对象中取得成员元素。有时候这会带来一些麻烦。</p>
+<p>e.g.假设你正在编写一个程序去计算一段文本中每个单词出现的次数。我们可以利用toLowerCase方法统一转换文本为小写格式，并接着使用split方法以一个正在表达式为参数去产生出一个单词数组。然后可以遍历该数组单词并计算我们看到的每一个单词的次数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var i;</div><div class="line">var word;</div><div class="line">var text = <span class="string">"This oracle of comfort has no pleased me, That when I am in heaven I shall desire to see what this child dose, and praise my Constructor"</span>;</div><div class="line"></div><div class="line">var words = text.toLowerCase( ).split(/[\s,.]+/);</div><div class="line">var count = {};</div><div class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; words.length; i++){</div><div class="line">    word = words[i];</div><div class="line">    <span class="keyword">if</span> (count[word]) {</div><div class="line">        count[word] += <span class="number">1</span>;</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        count[word] = <span class="number">1</span>;</div><div class="line">    }</div><div class="line">} //count输出Object {this: <span class="number">2</span>, oracle: <span class="number">1</span>, of: <span class="number">1</span>, comfort: <span class="number">1</span>, has: <span class="number">1</span>…}</div></pre></td></tr></table></figure>
+
+<p>让我们来研究结果，count[‘this’]的值为2，count.heavy的值是1，但是count.constructor却包含着一个令人不可思议的字符串（constructor: “function Object() { [native code] }1”）。其原因在于，count对象继承自Object.property，而Object.property包含着一个名为constructor的成员对象，它的值是一个Object。因为该对象是一个函数，所以+=运算符将其转换成一个奇怪的字符串，然后再把1个数字1加在它的后面。</p>
+<p>我们可以这样来避免：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (typeof count[word] === <span class="string">'number'</span>) { }</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/19/essence-8-loose/" data-id="to1jbpgnqwv3e6b6" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-loose/">essence-loose</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/19/essence-7-graceful-characteristic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          essence-graceful-characteristic
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/19/essence-9-chicken-ribs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">essence-chicken-ribs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>

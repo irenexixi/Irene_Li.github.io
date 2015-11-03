@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2015/10 | qqli的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qqli的技术博客">
+<meta property="og:url" content="http://yoursite.com/archives/2015/10/page/2/">
+<meta property="og:site_name" content="qqli的技术博客">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="qqli的技术博客">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="qqli的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qqli的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-essence-5-3-number-fn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/16/essence-5-3-number-fn/" class="article-date">
+  <time datetime="2015-10-16T01:56:02.000Z" itemprop="datePublished">Oct 16 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essence/">Essence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/16/essence-5-3-number-fn/">essence-number-fn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读JavaScript语言精粹一书 ——函数方法。</p>
+<p>Javascript包含了一套小型的可用在标准类型上的标准方法集。</p>
+<p><strong>1. number.toExponential(fractionDigits)</strong></p>
+<p>toExponential方法把这个number转换成一个指数形式的字符串。fraction控制其小数点后的数字位数，它的值必须在0-20之间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Math.PI.toExponential(<span class="number">0</span>);  //<span class="string">"3e+0"</span></div><div class="line">Math.PI.toExponential(<span class="number">1</span>)   //<span class="string">"3.1e+0"</span></div><div class="line"></div><div class="line">(<span class="number">10</span>).toExponential(<span class="number">1</span>); //<span class="string">"1.0e+1"</span></div><div class="line">(<span class="number">10</span>).toExponential(<span class="number">2</span>)  //<span class="string">"1.00e+1"</span></div></pre></td></tr></table></figure>
+
+
+
+<p><strong>2. number.toFixed(fractionDigits)</strong></p>
+<p>toFixed方法把数字number转换成一个十进制数形式的字符串。fraction控制其小数点后的数字位数，它的值必须在0-20之间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Math.PI.toFixed(<span class="number">0</span>);  //<span class="string">"3"</span></div><div class="line">Math.PI.toFixed(<span class="number">1</span>);  //<span class="string">"3.1"</span></div><div class="line">Math.PI.toFixed(<span class="number">2</span>);  //<span class="string">"3.14"</span></div><div class="line">Math.PI.toFixed(<span class="number">16</span>); //<span class="string">"3.1415926535897931"</span></div><div class="line"></div><div class="line">(<span class="number">10</span>).toFixed(<span class="number">1</span>);  //<span class="string">"10.0"</span></div><div class="line">(<span class="number">10</span>).toFixed(<span class="number">2</span>);  //<span class="string">"10.00"</span></div><div class="line">(<span class="number">10</span>).toFixed(<span class="number">10</span>); //<span class="string">"10.0000000000"</span></div></pre></td></tr></table></figure>
+
+
+
+<p><strong>3. number.toPrecision(precision)</strong></p>
+<p>toPrecision方法把数字number转换成一个十进制数形式的字符串。precision控制数字的精度，它的值必须在1-21之间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Math.PI.toPrecision(<span class="number">1</span>); //<span class="string">"3"</span></div><div class="line">Math.PI.toPrecision(<span class="number">2</span>); //<span class="string">"3.1"</span></div><div class="line">Math.PI.toPrecision(<span class="number">3</span>); //<span class="string">"3.14"</span></div><div class="line">Math.PI.toPrecision(<span class="number">4</span>); //<span class="string">"3.142"</span></div><div class="line"></div><div class="line">//precision, n.精确度，准确（性）; [语]精确; adj.精确的，准确的，细致的; 严守标准的; 行动精确的;</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>3. number.toString(radix)</strong></p>
+<p>toString方法把数字number转换成一个字符串。radix控制基数，它的值必须在2-36之间。默认的radix是以10为基数。radix是最常用的整数，但是它可以用任意的数字。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Math.PI.toString(<span class="number">10</span>);   //<span class="string">"3.141592653589793"</span></div><div class="line">Math.PI.toString();    //<span class="string">"3.141592653589793"</span></div><div class="line">Math.PI.toString(<span class="number">2</span>);   //<span class="string">"11.001001000011111101101010100010001000010110100011"</span></div><div class="line">Math.PI.toString(<span class="number">8</span>);   //<span class="string">"3.1103755242102643"</span></div><div class="line">Math.PI.toString(<span class="number">16</span>);  //<span class="string">"3.243f6a8885a3"</span></div><div class="line"></div><div class="line">(<span class="number">10</span>).toString();   //<span class="string">"10"</span></div><div class="line">(<span class="number">10</span>).toString(<span class="number">2</span>);  //<span class="string">"1010"</span></div><div class="line">(<span class="number">10</span>).toString(<span class="number">8</span>);  //<span class="string">"12"</span></div><div class="line">(<span class="number">10</span>).toString(<span class="number">16</span>); //<span class="string">"a"</span></div><div class="line"></div><div class="line">//radix n. 根，基数;</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/16/essence-5-3-number-fn/" data-id="vx4dus1kd5cf3jdx" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-number-fn/">essence-number-fn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-essence-5-2-function-fn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/12/essence-5-2-function-fn/" class="article-date">
+  <time datetime="2015-10-12T13:20:00.000Z" itemprop="datePublished">Oct 12 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essence/">Essence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/12/essence-5-2-function-fn/">essence-function-fn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读JavaScript语言精粹一书 ——函数方法。</p>
+<p>Javascript包含了一套小型的可用在标准类型上的标准方法集。</p>
+<p><strong>1. function.apply(thisArg, argArray)</strong></p>
+<p>apply方法调用function，传递一个会被绑定到this上的对象和一个可选的数组作为参数。apply方法被用在apply调用模式中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Function.method(<span class="string">'bind'</span>,<span class="function"><span class="title">function</span></span>(){</div><div class="line">    var method = this, </div><div class="line">        slice = Array.prototype.slice,</div><div class="line">        args = slice.apply(arguments, [<span class="number">1</span>]);</div><div class="line">        </div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="title">function</span></span>(){</div><div class="line">        <span class="keyword">return</span> method.apply(that, args.concat(slice.apply(arguments, [<span class="number">0</span>])));</div><div class="line">    }</div><div class="line">});</div><div class="line"></div><div class="line">var x = <span class="function"><span class="title">function</span></span> () {</div><div class="line">    <span class="keyword">return</span> this.value;</div><div class="line">}.bind({value: <span class="number">666</span>});</div><div class="line"></div><div class="line">console.log(x()); //<span class="number">666</span></div></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/12/essence-5-2-function-fn/" data-id="lsijtp48bv8nt367" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-function-fn/">essence-function-fn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-essence-5-1-arrays-fn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/12/essence-5-1-arrays-fn/" class="article-date">
+  <time datetime="2015-10-12T07:40:32.000Z" itemprop="datePublished">Oct 12 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essence/">Essence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/12/essence-5-1-arrays-fn/">essence-arrays-fn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读JavaScript语言精粹一书 —— 数组方法。</p>
+<p>Javascript包含了一套小型的可用在标准类型上的标准方法集。</p>
+<p><strong>1. array.concat(item…)</strong></p>
+<p>concat方法产生一个新的数组。它包含一份array的浅复制并把一个或多个参数item附加在其后。如果参数item是一个数组，那么它的每个元素会被分别添加。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var b = [<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>];</div><div class="line">var c = a.concat(b, <span class="literal">true</span>);   //[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>,<span class="literal">true</span>]</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>2. array.join(separator)</strong></p>
+<p>join方法把一个array构造成一个字符串。它先把array中的每个元素构造成一个字符串，接着用一个separator分隔符把他们连接在一起。默认的separator是逗号’,’。</p>
+<p>如果想要把大量的字符串片段组装成一个字符串，把这些片段放到一个数组中并用join方法连接起来通常比+元素运算符连接这些片段要快（IE6/7是这样，ie8+，chrome等不是这样）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">a.push(<span class="string">'d'</span>);</div><div class="line">var c = a.join(<span class="string">''</span>);  //abcd</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>3. array.pop()</strong></p>
+<p>pop和push方法使得数组array可以像堆栈一样工作。pop方法移除array中的最后一个元素并返回该元素。如果该array是empty，它会返回undefined。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var c = a.pop();  //a是[<span class="string">'a'</span>, <span class="string">'b'</span>], c是<span class="string">'c'</span></div></pre></td></tr></table></figure>
+
+
+
+<p><strong>4. array.push(item…)</strong></p>
+<p>push方法把一个或多个参数item追加到一个数组的尾部。和concat方法不同的是，它会修改array，如果item是一个数组，它会把真个数组作为单个元素添加到数组中，并返回这个array的新长度。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var b = [<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>];</div><div class="line">var c = a.push(b, <span class="literal">true</span>);</div><div class="line">a;  //[<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, Array[<span class="number">3</span>], <span class="literal">true</span>]</div><div class="line">c;  //<span class="number">5</span></div></pre></td></tr></table></figure>
+
+
+
+<p><strong>5. array.reverse()</strong></p>
+<p>reverse方法反转array里的元素的顺序，并返回array本身。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var b = a.reverse(); </div><div class="line">//a, [<span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line">//b, [<span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>6. array.shift()</strong></p>
+<p>shift方法移除数组array中的第一个元素并返回该元素。如果这个数组array是空的，它会返回undefined. shift通常比pop慢很多。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var c = a.shift(); </div><div class="line">//a 是 [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]; </div><div class="line">//c 是 <span class="string">'a'</span></div></pre></td></tr></table></figure>
+
+
+
+<p>可以这样实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.method(<span class="string">'shift'</span>, <span class="function"><span class="title">function</span></span>(){</div><div class="line">    <span class="keyword">return</span> this.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</div><div class="line">});</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>7. array.slice(start, end)</strong></p>
+<p>slice方法对数组array中的一段做浅复制。复制array[start]到array[end],end参数可选，默认值是该数组的长度。<br>如果start大于等于array</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</div><div class="line">var b = a.slice(<span class="number">0</span>,<span class="number">1</span>); </div><div class="line">var c = a.slice(<span class="number">1</span>); </div><div class="line">var d = a.slice(<span class="number">1</span>,<span class="number">2</span>); </div><div class="line">var e = a.slice(-<span class="number">1</span>,-<span class="number">2</span>); </div><div class="line">//b 是 [<span class="string">"a"</span>]; </div><div class="line">//c 是 [<span class="string">"b"</span>, <span class="string">"c"</span>]; </div><div class="line">//d 是 [<span class="string">"b"</span>]</div><div class="line">//e 是 []</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>8. array.sort(comparefn)</strong></p>
+<p>sort方法对array中的内容进行排序。它不能正确的给一组数字排序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var n = [<span class="string">'4'</span>, <span class="string">'8'</span>, <span class="string">'15'</span>, <span class="string">'16'</span>, <span class="string">'23'</span>, <span class="string">'42'</span>];</div><div class="line">n.sort(); //n是 [<span class="string">"15"</span>, <span class="string">"16"</span>, <span class="string">"23"</span>, <span class="string">"4"</span>, <span class="string">"42"</span>, <span class="string">"8"</span>]</div></pre></td></tr></table></figure>
+
+
+
+<p>Javascript的默认比较函数把要排序的元素视为字符串。并未在比较这些元素之前先检测他们的类型，所以比较数字时，会将它们转换成字符串，于是得到一个错误的结果。</p>
+<p>幸运的是，可以使用自己的比较函数来替换默认的比较函数。比较函数接收两个参数，如果这两个参数相等则返回0，如果第一个参数应该排在前面，返回一个负数，如果第二个参数排在前面，则返回一个正数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">n.sort(function(a, b){</div><div class="line">    <span class="keyword">return</span> a-b</div><div class="line">});   //[<span class="string">"4"</span>, <span class="string">"8"</span>, <span class="string">"15"</span>, <span class="string">"16"</span>, <span class="string">"23"</span>, <span class="string">"42"</span>]</div><div class="line"></div><div class="line">var m = [<span class="string">'aa'</span>, <span class="string">'bb'</span>, <span class="string">'a'</span>, <span class="string">'4'</span>, <span class="string">'8'</span>, <span class="string">'15'</span>, <span class="string">'16'</span>, <span class="string">'23'</span>, <span class="string">'42'</span>];</div><div class="line">m.sort(function(a, b){</div><div class="line">    <span class="keyword">if</span>(a === b){</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(typeof a === typeof b){</div><div class="line">        <span class="keyword">return</span> a &lt; b ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> typeof a &lt; typeof b ? -<span class="number">1</span>:<span class="number">1</span>;</div><div class="line">});  //[<span class="string">"15"</span>, <span class="string">"16"</span>, <span class="string">"23"</span>, <span class="string">"4"</span>, <span class="string">"42"</span>, <span class="string">"8"</span>, <span class="string">"a"</span>, <span class="string">"aa"</span>, <span class="string">"bb"</span>]</div><div class="line"></div><div class="line">//m = m = [<span class="string">'aa'</span>, <span class="string">'bb'</span>, <span class="string">'aa'</span>, <span class="string">'4'</span>, <span class="string">'8'</span>, <span class="string">'15'</span>, <span class="string">'16'</span>, <span class="string">'23'</span>, <span class="string">'42'</span>];</div><div class="line">//[<span class="string">"15"</span>, <span class="string">"16"</span>, <span class="string">"23"</span>, <span class="string">"4"</span>, <span class="string">"42"</span>, <span class="string">"8"</span>, <span class="string">"aa"</span>, <span class="string">"aa"</span>, <span class="string">"bb"</span>]</div></pre></td></tr></table></figure>
+
+
+
+<p>如果大小写不重要，比较函数应该在比较之前先将两个运算符转换为小写。</p>
+<p>更智能的比较函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">//by函数接受一个成员名字符串作为参数</div><div class="line">//并返回一个可以用来对包含该成员的对象数组进行排序的比较函数。</div><div class="line">var by = function (name) {</div><div class="line">    <span class="keyword">return</span> function (o, p) {</div><div class="line">        var a, b;</div><div class="line">        <span class="keyword">if</span> (typeof o === <span class="string">'object'</span> && typeof p === <span class="string">'object'</span> && o && p) {</div><div class="line">            a = o[name];</div><div class="line">            b = p[name];</div><div class="line">            <span class="keyword">if</span> (a === b) {</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            }</div><div class="line">            <span class="keyword">if</span> (typeof a === typeof b) {</div><div class="line">                <span class="keyword">return</span> a &lt; b ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">            }</div><div class="line"></div><div class="line">            <span class="keyword">return</span> typeof a &lt; typeof b ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">        } <span class="keyword">else</span> {</div><div class="line">            throw {</div><div class="line">                name: <span class="string">'Error'</span>,</div><div class="line">                message: <span class="string">'Expected an object when sorting by '</span> + name</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">var s = [</div><div class="line">    {first: <span class="string">'Joe'</span>, last: <span class="string">'Besser'</span>},</div><div class="line">    {first: <span class="string">'Moe'</span>, last: <span class="string">'Hesser'</span>},</div><div class="line">    {first: <span class="string">'Joe'</span>, last: <span class="string">'Desser'</span>},</div><div class="line">    {first: <span class="string">'Soe'</span>, last: <span class="string">'Hesser'</span>},</div><div class="line">    {first: <span class="string">'Loe'</span>, last: <span class="string">'Fesser'</span>},</div><div class="line">    {first: <span class="string">'Coe'</span>, last: <span class="string">'Hesser'</span>}</div><div class="line">];</div><div class="line"></div><div class="line">console.log(s.sort(by(<span class="string">'first'</span>)));</div><div class="line">//console.log(s.sort(by(<span class="string">'first'</span>)).sort(by(<span class="string">'last'</span>))); 不能保证顺序是对的</div></pre></td></tr></table></figure>
+
+
+
+<p>如果想要基于多个键值进行排序，修改by函数，让其可以接受第二个参数，当主要的键值产生一个匹配的时候，另一个compare方法将被调用已决高下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var by = function (name, minor) {</div><div class="line">    <span class="keyword">return</span> function (o, p) {</div><div class="line">        var a, b;</div><div class="line">        <span class="keyword">if</span> (o && p && typeof o === <span class="string">'object'</span> && typeof p === <span class="string">'object'</span>) {</div><div class="line">            a = o[name];</div><div class="line">            b = p[name];</div><div class="line">            <span class="keyword">if</span> (a === b) {</div><div class="line">                <span class="keyword">return</span> typeof minor === <span class="string">'function'</span> ? minor(o, p) : <span class="number">0</span>;</div><div class="line">            }</div><div class="line">            <span class="keyword">if</span> (typeof a === typeof b) {</div><div class="line">                <span class="keyword">return</span> a &lt; b ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">            }</div><div class="line"></div><div class="line">            <span class="keyword">return</span> typeof a &lt; typeof b ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">        } <span class="keyword">else</span> {</div><div class="line">            throw {</div><div class="line">                name: <span class="string">'Error'</span>,</div><div class="line">                message: <span class="string">'Expected an object when sorting by '</span> + name</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">s.sort(by(<span class="string">'last'</span>, by(<span class="string">'first'</span>)));</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>9. array.splice(start, deleteCount,item…)</strong></p>
+<p>splice方法从array中移除一个或多个元素，并用新的item替换他们。start是从数组array中移除元素的开始位置，deleteCount是要移除的元素个数，item会插入到被移除元素的位置上。返回一个包含被移除元素的数组。</p>
+<p>splice主要的用处是从一个数组中删除元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</div><div class="line">var r = a.splice(<span class="number">1</span>,<span class="number">1</span>,<span class="string">'ache'</span>,<span class="string">'bug'</span>);</div><div class="line">//a, [<span class="string">"a"</span>, <span class="string">"ache"</span>, <span class="string">"bug"</span>, <span class="string">"c"</span>]</div><div class="line">//r, [<span class="string">"b"</span>]</div></pre></td></tr></table></figure>
+
+
+
+<p><strong>10. array.unshift(item…)</strong></p>
+<p>unshift方法像push方法一样，用于把元素添加到数组中，但它是把item插入到array的开始部分而不是尾部。它返回array的新的length。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</div><div class="line">var r = a.unshift(<span class="string">'?'</span>,<span class="string">'@'</span>);</div><div class="line">//a, [<span class="string">"?"</span>, <span class="string">"@"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>]</div><div class="line">//r, <span class="number">5</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/12/essence-5-1-arrays-fn/" data-id="in65pjoccxa7bcbr" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-arrays-fn/">essence-arrays-fn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2015/10/">&laquo; Prev</a><a class="page-number" href="/archives/2015/10/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/http-1-summary/">http-1-summary</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/26/essence-11-regexp/">essence-11-Regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+          <li>
+            <a href="http://selayou9527.github.io" target="_blank">色拉油</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Qianqian Li<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"/css/bdshare.css"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+</div>
+</body>
+</html>
