@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: backboneTrap | qqli的技术博客</title>
+  <title>Tag: http-message | qqli的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="qqli的技术博客">
-<meta property="og:url" content="http://yoursite.com/tags/backboneTrap/">
+<meta property="og:url" content="http://yoursite.com/tags/http-message/">
 <meta property="og:site_name" content="qqli的技术博客">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -70,14 +70,14 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-trap-backbone" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-http-3-message" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/08/26/trap-backbone/" class="article-date">
-  <time datetime="2015-08-26T08:08:36.000Z" itemprop="datePublished">Aug 26 2015</time>
+    <a href="/2015/11/05/http-3-message/" class="article-date">
+  <time datetime="2015-11-05T05:49:20.000Z" itemprop="datePublished">Nov 5 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Js/">Js</a>
+    <a class="article-category-link" href="/categories/Http/">Http</a>
   </div>
 
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/26/trap-backbone/">backbone-trap</a>
+      <a class="article-title" href="/2015/11/05/http-3-message/">http-3-message</a>
     </h1>
   
 
@@ -96,56 +96,108 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、Backbone-Events（事件）;">1、Backbone.Events（事件）;</h4>
-<p>   Events容易被写成event而不能触发事件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var ShiftView = Backbone.View.extend({</div><div class="line">   tagName: <span class="string">"tr"</span>,</div><div class="line">   template: _.template(ShiftTdTpl),</div><div class="line">   events: {</div><div class="line">       <span class="string">"click .modify"</span>: <span class="string">"setModifyModel"</span>,</div><div class="line">       <span class="string">"click .del"</span>: <span class="string">"clear"</span></div><div class="line">   }</div><div class="line">});</div></pre></td></tr></table></figure>
+        <p>3.1 报文流</p>
+<p>HTTP 报文是在HTTP 应用程序之间发送的数据块。这些数据块以一些文本形式的元信息(meta-information) 开头，这些信息描述了报文的内容及含义，后面跟着可选的数据部分。报文在客户端、服务器和代理之间流动。术语”流入”、”流出”、”上游”及”下游”都是用来描述报文方向的。</p>
+<p>3.1.1 报文流入源端服务器</p>
+<p>HTTP 使用术语流入(inbound) 和流出(outbound) 来描述事务处理( transaction)的方向。</p>
+<p>图3-1 报文流入源端服务器并流回到客户端</p>
+<p>3.1.2 报文向下游流动</p>
+<p>HTTP 报文会像河水一样流动。不管是请求报文还是响应报文，所有报文都会向下游(downstream) 流动。所有报文的发送者都在接收者的上游(upstream) 。</p>
+<p>图3-2 所有报文都向下游流动</p>
+<p>3.2 报文的组成部分</p>
+<p>它们由三个部分组成: 对报文进行描述的起始行(start line) 、包含属性的首部(header) 块，以及可选的、包含数据的主体(body) 部分。</p>
+<p>3.2.1 报文的语法</p>
+<p>所有的HTTP 报文都可以分为两类:请求报文(request message) 和响应报文(response rnessage) 。请求和响应报文的基本报文结构相同。</p>
+<p>图3-4 包含请求和响应报文的HTTP 事务</p>
+<p>请求报文的格式:</p>
+<p><method> <request -url=""> <version></version></request></method></p>
+<p><headers></headers></p>
+<entity-body>
 
+<p>响应报文的格式(注意，只有起始行的语能有所不同) ;</p>
+<p><version> <status> <reason-phrase></reason-phrase></status></version></p>
+<p><headers></headers></p>
+<entity-body>
 
-
-<h4 id="2、on_object-on(event,_callback,_[context])别名:_bind">2、on  object.on(event, callback, [context])别名: bind</h4>
-<p>在 object 上绑定一个callback回调函数。 只要event触发，该回调函数就会调用。</p>
-<p>在View 里，当model change 时会调用this.render方法，render方法里面的this.model值是undefined，此时就需要传this作为上下文；  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">model.on(<span class="string">'change'</span>, this.render, this)</div><div class="line"></div><div class="line">render: <span class="function"><span class="title">function</span></span> () {</div><div class="line">    this.<span class="variable">$el</span>.html(this.template(this.model.toJSON()));</div><div class="line">    <span class="keyword">return</span> this;</div><div class="line">},</div></pre></td></tr></table></figure>
-
-<blockquote>
-<p>当回调函数被调用时，通过可选的第三个参数可以为this提供一个context（上下文）值：model.on(‘change’, this.render, this) （愚人码头注：即回调函数中的This，指向传递的第三个参数）。</p>
-</blockquote>
-<h4 id="3、乱码">3、乱码</h4>
-<p>给model设置的defaults参数是中文的，render到页面后就出现乱码了。检查html页面是utf-8，找不出问题在哪里了。</p>
-<p>这时需要看看model文件的编码格式，WebStorm IED右下角可以查看更改编码，结果model文件的编码是GBK···· </p>
-<h4 id="4、给集合添加数据对象时，总是报错：_cannot_read_property_“idAttribute”_of_undefined">4、给集合添加数据对象时，总是报错： cannot read property “idAttribute” of undefined</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">aList.add({</div><div class="line">    title: <span class="string">"title added"</span>,</div><div class="line">    description: <span class="string">"description added"</span></div><div class="line">});</div></pre></td></tr></table></figure>
-
-
-
-<p>帮同事看了半天都没有找到问题在哪里，另一个同事发现问题是： 扩展Backbone.Collection 创建一个 Collection 类时，设置的model属性的值不是Backbone.Model的扩展，而是Backbone.Model的扩展的实例对象;<br>这个实例对象就是一个活生生的model了，类似于使用model的add方法添加一组属性值 model.add({title: “title”}); So， 不能给实例化对象model调用add方法。</p>
-<p>错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testModel = new TestModel();</div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: testModel</div><div class="line">});</div></pre></td></tr></table></figure>
-
-
-
-<p>正确：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var TestModel = Backbone.Model.extend({</div><div class="line">});</div><div class="line"></div><div class="line">var testCollection = Backbone.Collection.extend({</div><div class="line">    model: TestModel</div><div class="line">});</div></pre></td></tr></table></figure>
-
-
-
-<h4 id="5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）">5、列表中某一行（子View）与服务器交互成功后，并没有改变改行model，但需要刷新当前整个列表（父View）</h4>
-<p>解决方法： 在子View中自定义一个事件customEvent，当交互成功后trigger事件customEvent, 父View中listenTo事件customEvent….</p>
-<h4 id="6、视图中查询数据增加条件，url相应改变，并重新加载页面">6、视图中查询数据增加条件，url相应改变，并重新加载页面</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">e.g. http://localhost:<span class="number">63342</span>/backbone/schedulingSystem/src/page/index.html?<span class="comment">#shiftReport/name/9</span></div><div class="line"></div><div class="line"><span class="string">"folder/:name"</span>: <span class="string">"openFolder"</span>,</div><div class="line">app.navigate(<span class="string">"help/troubleshooting"</span>, {trigger: <span class="literal">true</span>});</div></pre></td></tr></table></figure>
-
-
+<p>· 方法(method):  客户端希望服务器对资源执行的动作。比如GET 、HEAD 或POST .<br>· 请求URL (request-URL):<br>· 版本(version): 报文所使用的HTTP 版本，其格式看起来是这样的: HTTP/<major>.<minor>, 其中主要成本号(major) 和次要版本号(minor) 都是整数。<br>· 状态码(status-code): 这三位数字描述了请求过程中所发生的情况。每个状态码的第一位数字都用于描述状态的-般类别(“成功” “出错”等.<br>· 原因短语(reason-phrase): 数字状态码的可读版本，包含行终止序列之前的所有文本。<br>· 首部(header)：可以有零个或多个首都，每个首部都包含一个名字，后面跟着一个冒号(:) ，然后是一个可选的空格，接着是一个值，最后是一个CRLF（Carriage-Return Line-Feed 回车换行就是回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)）.<br>· 实体的主体部分(entity-body)： 实体的主体部分包含一个由任意数据组成的数据块。</minor></major></p>
+<p>3.2.2 起始行</p>
+<p>所有的HTTP 报文都以一个起始行作为开始。请求报文的起始行说明了要做些什么。响应报文的起始行说明发生了什么。</p>
+<ol>
+<li>请求行: 一个方棒和一个请求URL。</li>
+<li>晌应行: HTTP 版本、数字状态码，原因短语。</li>
+<li>方法</li>
+</ol>
+<p>表3-1 常用的HTTP 方法</p>
+<p>并不是所有服务器都实现了表3- 1 列出的所有7 种方法。</p>
+<ol>
+<li>状态码：数字码便于程序进行差错处理，而原因短语则更便于人们理解。</li>
+</ol>
+<p>表3-2 状态码分类</p>
+<p>当前的HTTP 版本只为每类状态定义了几个代码。</p>
+<p>表3-3 常见状态码</p>
+<ol>
+<li><p>原因短语：原因短语和状态码是成对出现的.</p>
+</li>
+<li><p>版本号： 版本号会以HTTP/x.y 的形式出现在请求和响应报文的起始行中.在与使用HTTP 1.1的应用程序进行通信的HTTP 1. 2 应用程序应该知道，它不能使用任何新的1.2 特性，因为使用老版本协议的应用程序很可能无法实现这些特性.</p>
+</li>
+</ol>
+<p>注意，版本号不会被当作分数来处理。版本中的每个数字(比如HTTP/ 1.0 中的1和O )都会被当作一个单独的数字来处理。因此，在比较HTTP 版本时.每个数字都必须单独进行比较，以便确定哪个版本更高.比如• HTTP/2.22 就比HTTP/2.3 的版本要高， 因为22 比3 大。</p>
+<p>3.2.3 首部</p>
+<p>1 . 首部分类</p>
+<p>· 通用首部：既可以出现在请求报文中， 也可以出现在响应报文中。<br>· 请求首部：提供更多有关请求的信息。<br>· 响应首部：提供更多有关响应的信息.<br>· 实休首部：描述主体的长度和内容，或者资源自身。<br>· 扩展首部：规范中没有定义的新首部。</p>
+<p>语法: 名字后面跟着冒号( : )，然后跟上可选的空格，再跟上字段值.最后是一个CRLF。</p>
+<p>表3-4 ，常见的首部实例</p>
+<ol>
+<li>首部延续行</li>
+</ol>
+<p>将长的首部行分为多行可以提高可读性，多出来的每行前面至少要有一个空格或制表符(tab) 。</p>
+<p>3.2.4 实体的主体部分</p>
+<p>HTTP 报文可以承载很多类型的数字数据z 图片、视频、HTML 文档、软件应用程序、信用卡事务、电子邮件等。</p>
+<p>3.2.5 版本0.9的报文</p>
+<p>是当今HTTP 所拥有的请求及响应报文的鼻祖，但其协议要简单得多。</p>
+<p>图3-6 HTIP/O.9 事务</p>
+<p>HTTP/O.9 报文也由请求和响应组成，但请求中只包含方法和请求URL ，晌应中只包含实体。它没有版本信息(它是第一个，而且是当时唯一的版本) ，没有状态码或原因短语。</p>
+<p>3.3 方法</p>
+<p>3.3.1 安全方法</p>
+<p>3.3.2 GET<br>GET 是最常用的方站。通常用于请求服务器发送某个资源。</p>
+<p>3.3.3 HEAD<br>HEAD 方怯与GET 方法的行为很类似， 但服务器在响应中只返回首部。不会返回实体的主体部分。</p>
+<p>. 在不获取资源的情况下了解资源的情况(比如，判断其类型) I<br>. 通过查看响应中的状态码，看看某个对象是否存在，<br>. 通过查看首部，测出资源是否被修改了。</p>
+<p>囡3-8 HEAD 示例</p>
+<p>3.3.4 PUT</p>
+<p>与GET 从服务器读取文档相反， PUT 方能会向服务器写入文挡。</p>
+<p>图3-9 PUT 示例</p>
+<p>因为PUT 允许用户对内容进行修改，所以很多Web 服务器都要求在执行PUT 之前，用密码登录。</p>
+<p>3.3.5 POST<br>POST 方法起初是用来向服务器输入数据的 . 实际上，通常会用它来支持HTML的表单。</p>
+<p>POST用于向服务器发送数据. PUT 用于向服务器上的资源中存储数据.</p>
+<p>图3-10 POST 示例</p>
+<p>CGI(common gateway interface):定义了web服务器与外部内容生成程序之间交互的方法，通常是指CGI程序或者CGI脚本，它是在网站上实现动态页面的最简单和常用的方法。</p>
+<p>3.3.6 TRACE</p>
+<p>TRACE 请求会在目的服务器端发起一个”环回”诊断。行程最后一站的服务器会弹回一条TRACE 响应，并在响应主体中携带它收到的原始请求报文。这样客户端就可以查看在所有中间HTTP 应用程序组成的请求/响应链上，原始报文是否，以及如何被毁坏或修改过。</p>
+<p>图3-11 TRACE 示例</p>
+<p>TRACE 请求中不能带有实体的主体部分。TRACE 响应的实体主体部分包含了响应服务器收到的请求的精确副本.</p>
+<p>TRACE 方法主要用于诊断，也就是说，用于验证请求是否如愿穿过了请求/响应链。但很多Http 应用程序会根据方法的不同做出不同的事情一一比如，代理可能会将POST 请求直接发送给服务器，而将GET 请求发送给另一个HITP 应用程序(比如Web 缓存).</p>
+<p>3.3.7 OPTIONS</p>
+<p>OPTIONS 方法请求Web 服务器告知其支持的各种功能。</p>
+<p>图3-12 OPTIONS 示例</p>
+<p>3.3.8 DELETE</p>
+<p>DELETE 方站所做的事情就是请服务器删除请求URL 所指定的资源。但是，客户端应用程序无法保证删除操作一定会被执行。因为HTTP 规范允许服务器在不通知客户端的情况下撤销请求。</p>
+<p>图3-13 DELETE 示例</p>
+<p>3.3.9 扩展方法</p>
+<p>表3-5 Web发布扩展万法示例</p>
+<p>3.4 状态码</p>
+<p>3.4.1 100 - 199一一信息性状态码</p>
+</entity-body></entity-body>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/08/26/trap-backbone/" data-id="bf7nhfs92ly7mtkm" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://yoursite.com/2015/11/05/http-3-message/" data-id="d6ghu8gqxllb1hqq" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backboneTrap/">backboneTrap</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http-message/">http-message</a></li></ul>
 
     </footer>
   </div>

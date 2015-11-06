@@ -70,6 +70,142 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-http-3-message" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/http-3-message/" class="article-date">
+  <time datetime="2015-11-05T05:49:20.000Z" itemprop="datePublished">Nov 5 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Http/">Http</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/http-3-message/">http-3-message</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>3.1 报文流</p>
+<p>HTTP 报文是在HTTP 应用程序之间发送的数据块。这些数据块以一些文本形式的元信息(meta-information) 开头，这些信息描述了报文的内容及含义，后面跟着可选的数据部分。报文在客户端、服务器和代理之间流动。术语”流入”、”流出”、”上游”及”下游”都是用来描述报文方向的。</p>
+<p>3.1.1 报文流入源端服务器</p>
+<p>HTTP 使用术语流入(inbound) 和流出(outbound) 来描述事务处理( transaction)的方向。</p>
+<p>图3-1 报文流入源端服务器并流回到客户端</p>
+<p>3.1.2 报文向下游流动</p>
+<p>HTTP 报文会像河水一样流动。不管是请求报文还是响应报文，所有报文都会向下游(downstream) 流动。所有报文的发送者都在接收者的上游(upstream) 。</p>
+<p>图3-2 所有报文都向下游流动</p>
+<p>3.2 报文的组成部分</p>
+<p>它们由三个部分组成: 对报文进行描述的起始行(start line) 、包含属性的首部(header) 块，以及可选的、包含数据的主体(body) 部分。</p>
+<p>3.2.1 报文的语法</p>
+<p>所有的HTTP 报文都可以分为两类:请求报文(request message) 和响应报文(response rnessage) 。请求和响应报文的基本报文结构相同。</p>
+<p>图3-4 包含请求和响应报文的HTTP 事务</p>
+<p>请求报文的格式:</p>
+<p><method> <request -url=""> <version></version></request></method></p>
+<p><headers></headers></p>
+<entity-body>
+
+<p>响应报文的格式(注意，只有起始行的语能有所不同) ;</p>
+<p><version> <status> <reason-phrase></reason-phrase></status></version></p>
+<p><headers></headers></p>
+<entity-body>
+
+<p>· 方法(method):  客户端希望服务器对资源执行的动作。比如GET 、HEAD 或POST .<br>· 请求URL (request-URL):<br>· 版本(version): 报文所使用的HTTP 版本，其格式看起来是这样的: HTTP/<major>.<minor>, 其中主要成本号(major) 和次要版本号(minor) 都是整数。<br>· 状态码(status-code): 这三位数字描述了请求过程中所发生的情况。每个状态码的第一位数字都用于描述状态的-般类别(“成功” “出错”等.<br>· 原因短语(reason-phrase): 数字状态码的可读版本，包含行终止序列之前的所有文本。<br>· 首部(header)：可以有零个或多个首都，每个首部都包含一个名字，后面跟着一个冒号(:) ，然后是一个可选的空格，接着是一个值，最后是一个CRLF（Carriage-Return Line-Feed 回车换行就是回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)）.<br>· 实体的主体部分(entity-body)： 实体的主体部分包含一个由任意数据组成的数据块。</minor></major></p>
+<p>3.2.2 起始行</p>
+<p>所有的HTTP 报文都以一个起始行作为开始。请求报文的起始行说明了要做些什么。响应报文的起始行说明发生了什么。</p>
+<ol>
+<li>请求行: 一个方棒和一个请求URL。</li>
+<li>晌应行: HTTP 版本、数字状态码，原因短语。</li>
+<li>方法</li>
+</ol>
+<p>表3-1 常用的HTTP 方法</p>
+<p>并不是所有服务器都实现了表3- 1 列出的所有7 种方法。</p>
+<ol>
+<li>状态码：数字码便于程序进行差错处理，而原因短语则更便于人们理解。</li>
+</ol>
+<p>表3-2 状态码分类</p>
+<p>当前的HTTP 版本只为每类状态定义了几个代码。</p>
+<p>表3-3 常见状态码</p>
+<ol>
+<li><p>原因短语：原因短语和状态码是成对出现的.</p>
+</li>
+<li><p>版本号： 版本号会以HTTP/x.y 的形式出现在请求和响应报文的起始行中.在与使用HTTP 1.1的应用程序进行通信的HTTP 1. 2 应用程序应该知道，它不能使用任何新的1.2 特性，因为使用老版本协议的应用程序很可能无法实现这些特性.</p>
+</li>
+</ol>
+<p>注意，版本号不会被当作分数来处理。版本中的每个数字(比如HTTP/ 1.0 中的1和O )都会被当作一个单独的数字来处理。因此，在比较HTTP 版本时.每个数字都必须单独进行比较，以便确定哪个版本更高.比如• HTTP/2.22 就比HTTP/2.3 的版本要高， 因为22 比3 大。</p>
+<p>3.2.3 首部</p>
+<p>1 . 首部分类</p>
+<p>· 通用首部：既可以出现在请求报文中， 也可以出现在响应报文中。<br>· 请求首部：提供更多有关请求的信息。<br>· 响应首部：提供更多有关响应的信息.<br>· 实休首部：描述主体的长度和内容，或者资源自身。<br>· 扩展首部：规范中没有定义的新首部。</p>
+<p>语法: 名字后面跟着冒号( : )，然后跟上可选的空格，再跟上字段值.最后是一个CRLF。</p>
+<p>表3-4 ，常见的首部实例</p>
+<ol>
+<li>首部延续行</li>
+</ol>
+<p>将长的首部行分为多行可以提高可读性，多出来的每行前面至少要有一个空格或制表符(tab) 。</p>
+<p>3.2.4 实体的主体部分</p>
+<p>HTTP 报文可以承载很多类型的数字数据z 图片、视频、HTML 文档、软件应用程序、信用卡事务、电子邮件等。</p>
+<p>3.2.5 版本0.9的报文</p>
+<p>是当今HTTP 所拥有的请求及响应报文的鼻祖，但其协议要简单得多。</p>
+<p>图3-6 HTIP/O.9 事务</p>
+<p>HTTP/O.9 报文也由请求和响应组成，但请求中只包含方法和请求URL ，晌应中只包含实体。它没有版本信息(它是第一个，而且是当时唯一的版本) ，没有状态码或原因短语。</p>
+<p>3.3 方法</p>
+<p>3.3.1 安全方法</p>
+<p>3.3.2 GET<br>GET 是最常用的方站。通常用于请求服务器发送某个资源。</p>
+<p>3.3.3 HEAD<br>HEAD 方怯与GET 方法的行为很类似， 但服务器在响应中只返回首部。不会返回实体的主体部分。</p>
+<p>. 在不获取资源的情况下了解资源的情况(比如，判断其类型) I<br>. 通过查看响应中的状态码，看看某个对象是否存在，<br>. 通过查看首部，测出资源是否被修改了。</p>
+<p>囡3-8 HEAD 示例</p>
+<p>3.3.4 PUT</p>
+<p>与GET 从服务器读取文档相反， PUT 方能会向服务器写入文挡。</p>
+<p>图3-9 PUT 示例</p>
+<p>因为PUT 允许用户对内容进行修改，所以很多Web 服务器都要求在执行PUT 之前，用密码登录。</p>
+<p>3.3.5 POST<br>POST 方法起初是用来向服务器输入数据的 . 实际上，通常会用它来支持HTML的表单。</p>
+<p>POST用于向服务器发送数据. PUT 用于向服务器上的资源中存储数据.</p>
+<p>图3-10 POST 示例</p>
+<p>CGI(common gateway interface):定义了web服务器与外部内容生成程序之间交互的方法，通常是指CGI程序或者CGI脚本，它是在网站上实现动态页面的最简单和常用的方法。</p>
+<p>3.3.6 TRACE</p>
+<p>TRACE 请求会在目的服务器端发起一个”环回”诊断。行程最后一站的服务器会弹回一条TRACE 响应，并在响应主体中携带它收到的原始请求报文。这样客户端就可以查看在所有中间HTTP 应用程序组成的请求/响应链上，原始报文是否，以及如何被毁坏或修改过。</p>
+<p>图3-11 TRACE 示例</p>
+<p>TRACE 请求中不能带有实体的主体部分。TRACE 响应的实体主体部分包含了响应服务器收到的请求的精确副本.</p>
+<p>TRACE 方法主要用于诊断，也就是说，用于验证请求是否如愿穿过了请求/响应链。但很多Http 应用程序会根据方法的不同做出不同的事情一一比如，代理可能会将POST 请求直接发送给服务器，而将GET 请求发送给另一个HITP 应用程序(比如Web 缓存).</p>
+<p>3.3.7 OPTIONS</p>
+<p>OPTIONS 方法请求Web 服务器告知其支持的各种功能。</p>
+<p>图3-12 OPTIONS 示例</p>
+<p>3.3.8 DELETE</p>
+<p>DELETE 方站所做的事情就是请服务器删除请求URL 所指定的资源。但是，客户端应用程序无法保证删除操作一定会被执行。因为HTTP 规范允许服务器在不通知客户端的情况下撤销请求。</p>
+<p>图3-13 DELETE 示例</p>
+<p>3.3.9 扩展方法</p>
+<p>表3-5 Web发布扩展万法示例</p>
+<p>3.4 状态码</p>
+<p>3.4.1 100 - 199一一信息性状态码</p>
+</entity-body></entity-body>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/05/http-3-message/" data-id="d6ghu8gqxllb1hqq" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http-message/">http-message</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-http-2-url-resource" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/28/http-2-url-resource/" class="article-date">
@@ -121,7 +257,68 @@
 <p>免费开源的FTP解决方案<a href="https://www.filezilla.cn/" target="_blank" rel="external">FileZilla</a></p>
 <p>2.2.4 路径</p>
 <p>URL 的路径组件说明了资源位于服务器的什么地方.路径通常很像一个分级的文件系统路径。字符”/“将HITP URL 的路径组件划分成一些路径段.每个路径段都有自己的参数(param) 组件.</p>
-<p>2.2.5 参数</p>
+<p>2.2.5 参敢</p>
+<p>URL 中有一个参数组件。这个组件就是URL 中的名值对列表，由字符’；‘ 将其与URL的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
+<p>ftp://prep.ai.mi t.edu/pub/gnu;type=d</p>
+<p>在这个例子中，有一个参数type=d ，参数名为type ，值为d。</p>
+<p>HTTP URL的路径组件可以分成若干路径段。每段都可以有自己的参数。比如：</p>
+<p><a href="http://www" target="_blank" rel="external">http://www</a> .joes -hardware .com/hammers;sale=false/index.html;graphics=true</p>
+<p>这个例子就有两个路径段， hammers和index.html. hammers 路径段有参数sale，其值为false. index.html 段有参数graphics ，其值为true.</p>
+<p>2.2.6 查询字符串</p>
+<p>e.g. 通过查询字符串查询数据库中数据</p>
+<p><a href="http://www.joes-hardware.com/inventory-check.cgi?item=" target="_blank" rel="external">http://www.joes-hardware.com/inventory-check.cgi?item=</a> 12731</p>
+<p>?item= 12731 问号后面的内容被称为查询组件。</p>
+<p>图2-2 发送给网关应用程序的URL 查询组件。</p>
+<p>除了有些不合规则的字符需要特别处理之外，对查询组件的格式没什么要求。按照常规，很多网关都希望查询字符串以一系列“名／值”对的形式出现，名值对之间用字符“＆”分隔：</p>
+<p><a href="http://www.joes-hardwar巳.com/inventory-check.cgi?item=" target="_blank" rel="external">http://www.joes-hardwar巳.com/inventory-check.cgi?item=</a> 12731 &amp;color=blue</p>
+<p>在这个例子中，查询组件有两个名／值对： item=12731 和color=blue.</p>
+<p>2.2.7 片段</p>
+<p>有些资源类型，比如HTML，除了资源级之外．还可以做进一步的划分．比如，对一个带有章节的大型文本文档来说，资源的URL 会指向整个文本文挡，但理想的情况是，能够指定资源中的那些章节。</p>
+<p>为了引用部分资源或资源的一个片段， URL 支持使用片段（frag ）组件来表示一个资源内部的片段。比如， U也可以指向HTML 文挡中一个特定的图片或小节。</p>
+<p>片段挂在URL 的右手边，最前面有一个字符“扩．比如：</p>
+<p>http ://www.joes-h缸dware.com/tools.html#drills</p>
+<p>在这个例子中，片段就是 drills.</p>
+<p>HTTP 服务器通常只处理整个对象， 而不是对象的片段，客户端不能将片段传送给服务器（参见图2-3 ）。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+<p>图2-3 服务器处理的是整个对象，因此URL 片段仅由客户端使用</p>
+<p>2.3 URL快捷方式</p>
+<p>2.3.1 相对URL</p>
+<p>URL 有两种方式：绝对的和相对的。</p>
+<p>绝对URL 中包含有访问资源所需的全部信息。</p>
+<p>相对URL是URL 的一种便捷缩略记法，是不完整的，但会便捷很多。要从相对URL 中获取访问资源所需的全部信息，就必须相对于另一个，被称为其基础（ base）的URL 进行解析。</p>
+<p>通过这个基础URL ，可以推导出方案为http。</p>
+<p>图2-4 使用基础URL</p>
+<p>相对url的好处：</p>
+<p>相对URL为保持一组资源（比如一些HTML 页面）的便携性提供了一种便捷方式。如果使用的是相对URL，就可以在搬移一组文档的同时，仍然保持链接的有效性，因为相对URL 都是相对于新基础进行解释的。这样就可以实现在其他服务器上提供镜像内容之类的功能了．</p>
+<ol>
+<li>基础URL<br>转换处理的第一步就是找到基础URL. 基础URL 是作为相对URL 的参考点使用的。可以来自以下几个不同的地方。</li>
+</ol>
+<p>·在资源中显式提供<br>比如， HTML 文档中可能会包含一个定义了基础URL 的HTML 标记<a href="http://www.w3school.com.cn/html5/html5_base.asp" target="_blank" rel="external"><base></a></p>
+<p>·封装资源的基础URL<br>如果在一个没有显式指定基础URL的资源中发现了一个相对URL，可以将它所属资源的URL 作为基础(如例，<a href="http://www.joes-hardware.com/tools.html）" target="_blank" rel="external">http://www.joes-hardware.com/tools.html）</a></p>
+<ol>
+<li>解析相对引用</li>
+</ol>
+<p>圈2-5 将相对URL 转换成绝对URL</p>
+<p>(1)路径为./hammers.html ，基础URL 为<a href="http://www.joes-hardware.comltools.html" target="_blank" rel="external">http://www.joes-hardware.comltools.html</a>.<br>(2) 方案为空，沿着圄袤的左半边向下处理，继承基础URL 方案例πp).<br>(3) 至少一个组件非空，一直处理到底端，继承主机和端口组件。<br>(4) 将来自相对URL (路径: ./hammers .html) 的组件与我们继承来的组件(方案: http ，主机: www.joes-hardware.com ，端曰: 80) 合并起来，得到新的绝对URL: <a href="http://www.joes-hardware.comlhammers.html" target="_blank" rel="external">http://www.joes-hardware.comlhammers.html</a>.</p>
+<p>2.3.2 自动扩展URL</p>
+<p>有些浏览器会在用户提交URL 之后，或者在用户输入的时候尝试着自动扩展URL.这就为用户提供了一条捷径: 用户不需要输入完整的URL ，因为浏览器会自动扩展。</p>
+<p>这些”自动扩展”特性有以下两种方式:</p>
+<p>• 主机名扩展<br>协议的扩展，e.g.yahoo.com 就会变成<a href="http://www.yahoo.com/" target="_blank" rel="external">http://www.yahoo.com/</a><br>直接输入’yahoo’, 则会变成搜索。</p>
+<p>• 历史扩展<br>当你输入URL 时， 它们就可以将你输入的URL 与历史记录中URL 的前缀进行匹配，并提供一些完整的选项供你选择。</p>
+<p>2.4 各种令人头疼的字符</p>
+<p>有一种转义机制，能够将不安全的字符编码为安全字符，再进行传输.</p>
+<p>2.4.1 URL字符集</p>
+<p>通过转义序列，就可以用US-ASCII 字符集的有限子集对任意字符值或数据进行编码了，这样就实现了可移植性和完整性。</p>
+<p>2.4.2 编码机制</p>
+<p>人们设计了一种编码机制，用来在URL 中表示各种不安全的字符。这种编码机制就是通过一种”转义”表示法来表示不安全字符的，这种转义表示法包含一个百分号(%) ， 后面跟着两个表示字符ASCII 码的十六进制数。</p>
+<p>表2-2 -些编码字符示例</p>
+<p>2.4.3 字符限制</p>
+<p>表2.3 保留及受限的字符</p>
+<p>只应该对这些在传输过程中不安全的字符进行编码.</p>
+<p>2.4.4 另外一点说明</p>
+<p>对编码的URL，服务端使用前需要解码，前后端需要配合使用。</p>
+<p>2.5 方案的世界</p>
+<p>大约有90个方案</p>
+<p>Web 常用方案格式： http, https, mailto, ftp, rtsp, telnet, news, file(在文件夹打开一个静态网页)</p>
 
       
     </div>
@@ -272,7 +469,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-message/" style="font-size: 20.00px;">http-message</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a>
     </div>
   </div>
 
@@ -281,7 +478,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -290,7 +487,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -300,6 +497,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/11/05/http-3-message/">http-3-message</a>
+          </li>
         
           <li>
             <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
@@ -315,10 +516,6 @@
         
           <li>
             <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
           </li>
         
       </ul>

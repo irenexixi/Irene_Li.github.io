@@ -70,6 +70,142 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-http-3-message" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/05/http-3-message/" class="article-date">
+  <time datetime="2015-11-05T05:49:20.000Z" itemprop="datePublished">Nov 5 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Http/">Http</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/http-3-message/">http-3-message</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>3.1 报文流</p>
+<p>HTTP 报文是在HTTP 应用程序之间发送的数据块。这些数据块以一些文本形式的元信息(meta-information) 开头，这些信息描述了报文的内容及含义，后面跟着可选的数据部分。报文在客户端、服务器和代理之间流动。术语”流入”、”流出”、”上游”及”下游”都是用来描述报文方向的。</p>
+<p>3.1.1 报文流入源端服务器</p>
+<p>HTTP 使用术语流入(inbound) 和流出(outbound) 来描述事务处理( transaction)的方向。</p>
+<p>图3-1 报文流入源端服务器并流回到客户端</p>
+<p>3.1.2 报文向下游流动</p>
+<p>HTTP 报文会像河水一样流动。不管是请求报文还是响应报文，所有报文都会向下游(downstream) 流动。所有报文的发送者都在接收者的上游(upstream) 。</p>
+<p>图3-2 所有报文都向下游流动</p>
+<p>3.2 报文的组成部分</p>
+<p>它们由三个部分组成: 对报文进行描述的起始行(start line) 、包含属性的首部(header) 块，以及可选的、包含数据的主体(body) 部分。</p>
+<p>3.2.1 报文的语法</p>
+<p>所有的HTTP 报文都可以分为两类:请求报文(request message) 和响应报文(response rnessage) 。请求和响应报文的基本报文结构相同。</p>
+<p>图3-4 包含请求和响应报文的HTTP 事务</p>
+<p>请求报文的格式:</p>
+<p><method> <request -url=""> <version></version></request></method></p>
+<p><headers></headers></p>
+<entity-body>
+
+<p>响应报文的格式(注意，只有起始行的语能有所不同) ;</p>
+<p><version> <status> <reason-phrase></reason-phrase></status></version></p>
+<p><headers></headers></p>
+<entity-body>
+
+<p>· 方法(method):  客户端希望服务器对资源执行的动作。比如GET 、HEAD 或POST .<br>· 请求URL (request-URL):<br>· 版本(version): 报文所使用的HTTP 版本，其格式看起来是这样的: HTTP/<major>.<minor>, 其中主要成本号(major) 和次要版本号(minor) 都是整数。<br>· 状态码(status-code): 这三位数字描述了请求过程中所发生的情况。每个状态码的第一位数字都用于描述状态的-般类别(“成功” “出错”等.<br>· 原因短语(reason-phrase): 数字状态码的可读版本，包含行终止序列之前的所有文本。<br>· 首部(header)：可以有零个或多个首都，每个首部都包含一个名字，后面跟着一个冒号(:) ，然后是一个可选的空格，接着是一个值，最后是一个CRLF（Carriage-Return Line-Feed 回车换行就是回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)）.<br>· 实体的主体部分(entity-body)： 实体的主体部分包含一个由任意数据组成的数据块。</minor></major></p>
+<p>3.2.2 起始行</p>
+<p>所有的HTTP 报文都以一个起始行作为开始。请求报文的起始行说明了要做些什么。响应报文的起始行说明发生了什么。</p>
+<ol>
+<li>请求行: 一个方棒和一个请求URL。</li>
+<li>晌应行: HTTP 版本、数字状态码，原因短语。</li>
+<li>方法</li>
+</ol>
+<p>表3-1 常用的HTTP 方法</p>
+<p>并不是所有服务器都实现了表3- 1 列出的所有7 种方法。</p>
+<ol>
+<li>状态码：数字码便于程序进行差错处理，而原因短语则更便于人们理解。</li>
+</ol>
+<p>表3-2 状态码分类</p>
+<p>当前的HTTP 版本只为每类状态定义了几个代码。</p>
+<p>表3-3 常见状态码</p>
+<ol>
+<li><p>原因短语：原因短语和状态码是成对出现的.</p>
+</li>
+<li><p>版本号： 版本号会以HTTP/x.y 的形式出现在请求和响应报文的起始行中.在与使用HTTP 1.1的应用程序进行通信的HTTP 1. 2 应用程序应该知道，它不能使用任何新的1.2 特性，因为使用老版本协议的应用程序很可能无法实现这些特性.</p>
+</li>
+</ol>
+<p>注意，版本号不会被当作分数来处理。版本中的每个数字(比如HTTP/ 1.0 中的1和O )都会被当作一个单独的数字来处理。因此，在比较HTTP 版本时.每个数字都必须单独进行比较，以便确定哪个版本更高.比如• HTTP/2.22 就比HTTP/2.3 的版本要高， 因为22 比3 大。</p>
+<p>3.2.3 首部</p>
+<p>1 . 首部分类</p>
+<p>· 通用首部：既可以出现在请求报文中， 也可以出现在响应报文中。<br>· 请求首部：提供更多有关请求的信息。<br>· 响应首部：提供更多有关响应的信息.<br>· 实休首部：描述主体的长度和内容，或者资源自身。<br>· 扩展首部：规范中没有定义的新首部。</p>
+<p>语法: 名字后面跟着冒号( : )，然后跟上可选的空格，再跟上字段值.最后是一个CRLF。</p>
+<p>表3-4 ，常见的首部实例</p>
+<ol>
+<li>首部延续行</li>
+</ol>
+<p>将长的首部行分为多行可以提高可读性，多出来的每行前面至少要有一个空格或制表符(tab) 。</p>
+<p>3.2.4 实体的主体部分</p>
+<p>HTTP 报文可以承载很多类型的数字数据z 图片、视频、HTML 文档、软件应用程序、信用卡事务、电子邮件等。</p>
+<p>3.2.5 版本0.9的报文</p>
+<p>是当今HTTP 所拥有的请求及响应报文的鼻祖，但其协议要简单得多。</p>
+<p>图3-6 HTIP/O.9 事务</p>
+<p>HTTP/O.9 报文也由请求和响应组成，但请求中只包含方法和请求URL ，晌应中只包含实体。它没有版本信息(它是第一个，而且是当时唯一的版本) ，没有状态码或原因短语。</p>
+<p>3.3 方法</p>
+<p>3.3.1 安全方法</p>
+<p>3.3.2 GET<br>GET 是最常用的方站。通常用于请求服务器发送某个资源。</p>
+<p>3.3.3 HEAD<br>HEAD 方怯与GET 方法的行为很类似， 但服务器在响应中只返回首部。不会返回实体的主体部分。</p>
+<p>. 在不获取资源的情况下了解资源的情况(比如，判断其类型) I<br>. 通过查看响应中的状态码，看看某个对象是否存在，<br>. 通过查看首部，测出资源是否被修改了。</p>
+<p>囡3-8 HEAD 示例</p>
+<p>3.3.4 PUT</p>
+<p>与GET 从服务器读取文档相反， PUT 方能会向服务器写入文挡。</p>
+<p>图3-9 PUT 示例</p>
+<p>因为PUT 允许用户对内容进行修改，所以很多Web 服务器都要求在执行PUT 之前，用密码登录。</p>
+<p>3.3.5 POST<br>POST 方法起初是用来向服务器输入数据的 . 实际上，通常会用它来支持HTML的表单。</p>
+<p>POST用于向服务器发送数据. PUT 用于向服务器上的资源中存储数据.</p>
+<p>图3-10 POST 示例</p>
+<p>CGI(common gateway interface):定义了web服务器与外部内容生成程序之间交互的方法，通常是指CGI程序或者CGI脚本，它是在网站上实现动态页面的最简单和常用的方法。</p>
+<p>3.3.6 TRACE</p>
+<p>TRACE 请求会在目的服务器端发起一个”环回”诊断。行程最后一站的服务器会弹回一条TRACE 响应，并在响应主体中携带它收到的原始请求报文。这样客户端就可以查看在所有中间HTTP 应用程序组成的请求/响应链上，原始报文是否，以及如何被毁坏或修改过。</p>
+<p>图3-11 TRACE 示例</p>
+<p>TRACE 请求中不能带有实体的主体部分。TRACE 响应的实体主体部分包含了响应服务器收到的请求的精确副本.</p>
+<p>TRACE 方法主要用于诊断，也就是说，用于验证请求是否如愿穿过了请求/响应链。但很多Http 应用程序会根据方法的不同做出不同的事情一一比如，代理可能会将POST 请求直接发送给服务器，而将GET 请求发送给另一个HITP 应用程序(比如Web 缓存).</p>
+<p>3.3.7 OPTIONS</p>
+<p>OPTIONS 方法请求Web 服务器告知其支持的各种功能。</p>
+<p>图3-12 OPTIONS 示例</p>
+<p>3.3.8 DELETE</p>
+<p>DELETE 方站所做的事情就是请服务器删除请求URL 所指定的资源。但是，客户端应用程序无法保证删除操作一定会被执行。因为HTTP 规范允许服务器在不通知客户端的情况下撤销请求。</p>
+<p>图3-13 DELETE 示例</p>
+<p>3.3.9 扩展方法</p>
+<p>表3-5 Web发布扩展万法示例</p>
+<p>3.4 状态码</p>
+<p>3.4.1 100 - 199一一信息性状态码</p>
+</entity-body></entity-body>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/05/http-3-message/" data-id="d6ghu8gqxllb1hqq" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http-message/">http-message</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-http-2-url-resource" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/28/http-2-url-resource/" class="article-date">
@@ -121,7 +257,68 @@
 <p>免费开源的FTP解决方案<a href="https://www.filezilla.cn/" target="_blank" rel="external">FileZilla</a></p>
 <p>2.2.4 路径</p>
 <p>URL 的路径组件说明了资源位于服务器的什么地方.路径通常很像一个分级的文件系统路径。字符”/“将HITP URL 的路径组件划分成一些路径段.每个路径段都有自己的参数(param) 组件.</p>
-<p>2.2.5 参数</p>
+<p>2.2.5 参敢</p>
+<p>URL 中有一个参数组件。这个组件就是URL 中的名值对列表，由字符’；‘ 将其与URL的其余部分（以及各名值对）分隔开来。它们为应用程序提供了访问资源所需的所有附加信息。比如：</p>
+<p>ftp://prep.ai.mi t.edu/pub/gnu;type=d</p>
+<p>在这个例子中，有一个参数type=d ，参数名为type ，值为d。</p>
+<p>HTTP URL的路径组件可以分成若干路径段。每段都可以有自己的参数。比如：</p>
+<p><a href="http://www" target="_blank" rel="external">http://www</a> .joes -hardware .com/hammers;sale=false/index.html;graphics=true</p>
+<p>这个例子就有两个路径段， hammers和index.html. hammers 路径段有参数sale，其值为false. index.html 段有参数graphics ，其值为true.</p>
+<p>2.2.6 查询字符串</p>
+<p>e.g. 通过查询字符串查询数据库中数据</p>
+<p><a href="http://www.joes-hardware.com/inventory-check.cgi?item=" target="_blank" rel="external">http://www.joes-hardware.com/inventory-check.cgi?item=</a> 12731</p>
+<p>?item= 12731 问号后面的内容被称为查询组件。</p>
+<p>图2-2 发送给网关应用程序的URL 查询组件。</p>
+<p>除了有些不合规则的字符需要特别处理之外，对查询组件的格式没什么要求。按照常规，很多网关都希望查询字符串以一系列“名／值”对的形式出现，名值对之间用字符“＆”分隔：</p>
+<p><a href="http://www.joes-hardwar巳.com/inventory-check.cgi?item=" target="_blank" rel="external">http://www.joes-hardwar巳.com/inventory-check.cgi?item=</a> 12731 &amp;color=blue</p>
+<p>在这个例子中，查询组件有两个名／值对： item=12731 和color=blue.</p>
+<p>2.2.7 片段</p>
+<p>有些资源类型，比如HTML，除了资源级之外．还可以做进一步的划分．比如，对一个带有章节的大型文本文档来说，资源的URL 会指向整个文本文挡，但理想的情况是，能够指定资源中的那些章节。</p>
+<p>为了引用部分资源或资源的一个片段， URL 支持使用片段（frag ）组件来表示一个资源内部的片段。比如， U也可以指向HTML 文挡中一个特定的图片或小节。</p>
+<p>片段挂在URL 的右手边，最前面有一个字符“扩．比如：</p>
+<p>http ://www.joes-h缸dware.com/tools.html#drills</p>
+<p>在这个例子中，片段就是 drills.</p>
+<p>HTTP 服务器通常只处理整个对象， 而不是对象的片段，客户端不能将片段传送给服务器（参见图2-3 ）。浏览器从服务器获得了整个资源之后，会根据片段来显示你感兴趣的那部分资源。</p>
+<p>图2-3 服务器处理的是整个对象，因此URL 片段仅由客户端使用</p>
+<p>2.3 URL快捷方式</p>
+<p>2.3.1 相对URL</p>
+<p>URL 有两种方式：绝对的和相对的。</p>
+<p>绝对URL 中包含有访问资源所需的全部信息。</p>
+<p>相对URL是URL 的一种便捷缩略记法，是不完整的，但会便捷很多。要从相对URL 中获取访问资源所需的全部信息，就必须相对于另一个，被称为其基础（ base）的URL 进行解析。</p>
+<p>通过这个基础URL ，可以推导出方案为http。</p>
+<p>图2-4 使用基础URL</p>
+<p>相对url的好处：</p>
+<p>相对URL为保持一组资源（比如一些HTML 页面）的便携性提供了一种便捷方式。如果使用的是相对URL，就可以在搬移一组文档的同时，仍然保持链接的有效性，因为相对URL 都是相对于新基础进行解释的。这样就可以实现在其他服务器上提供镜像内容之类的功能了．</p>
+<ol>
+<li>基础URL<br>转换处理的第一步就是找到基础URL. 基础URL 是作为相对URL 的参考点使用的。可以来自以下几个不同的地方。</li>
+</ol>
+<p>·在资源中显式提供<br>比如， HTML 文档中可能会包含一个定义了基础URL 的HTML 标记<a href="http://www.w3school.com.cn/html5/html5_base.asp" target="_blank" rel="external"><base></a></p>
+<p>·封装资源的基础URL<br>如果在一个没有显式指定基础URL的资源中发现了一个相对URL，可以将它所属资源的URL 作为基础(如例，<a href="http://www.joes-hardware.com/tools.html）" target="_blank" rel="external">http://www.joes-hardware.com/tools.html）</a></p>
+<ol>
+<li>解析相对引用</li>
+</ol>
+<p>圈2-5 将相对URL 转换成绝对URL</p>
+<p>(1)路径为./hammers.html ，基础URL 为<a href="http://www.joes-hardware.comltools.html" target="_blank" rel="external">http://www.joes-hardware.comltools.html</a>.<br>(2) 方案为空，沿着圄袤的左半边向下处理，继承基础URL 方案例πp).<br>(3) 至少一个组件非空，一直处理到底端，继承主机和端口组件。<br>(4) 将来自相对URL (路径: ./hammers .html) 的组件与我们继承来的组件(方案: http ，主机: www.joes-hardware.com ，端曰: 80) 合并起来，得到新的绝对URL: <a href="http://www.joes-hardware.comlhammers.html" target="_blank" rel="external">http://www.joes-hardware.comlhammers.html</a>.</p>
+<p>2.3.2 自动扩展URL</p>
+<p>有些浏览器会在用户提交URL 之后，或者在用户输入的时候尝试着自动扩展URL.这就为用户提供了一条捷径: 用户不需要输入完整的URL ，因为浏览器会自动扩展。</p>
+<p>这些”自动扩展”特性有以下两种方式:</p>
+<p>• 主机名扩展<br>协议的扩展，e.g.yahoo.com 就会变成<a href="http://www.yahoo.com/" target="_blank" rel="external">http://www.yahoo.com/</a><br>直接输入’yahoo’, 则会变成搜索。</p>
+<p>• 历史扩展<br>当你输入URL 时， 它们就可以将你输入的URL 与历史记录中URL 的前缀进行匹配，并提供一些完整的选项供你选择。</p>
+<p>2.4 各种令人头疼的字符</p>
+<p>有一种转义机制，能够将不安全的字符编码为安全字符，再进行传输.</p>
+<p>2.4.1 URL字符集</p>
+<p>通过转义序列，就可以用US-ASCII 字符集的有限子集对任意字符值或数据进行编码了，这样就实现了可移植性和完整性。</p>
+<p>2.4.2 编码机制</p>
+<p>人们设计了一种编码机制，用来在URL 中表示各种不安全的字符。这种编码机制就是通过一种”转义”表示法来表示不安全字符的，这种转义表示法包含一个百分号(%) ， 后面跟着两个表示字符ASCII 码的十六进制数。</p>
+<p>表2-2 -些编码字符示例</p>
+<p>2.4.3 字符限制</p>
+<p>表2.3 保留及受限的字符</p>
+<p>只应该对这些在传输过程中不安全的字符进行编码.</p>
+<p>2.4.4 另外一点说明</p>
+<p>对编码的URL，服务端使用前需要解码，前后端需要配合使用。</p>
+<p>2.5 方案的世界</p>
+<p>大约有90个方案</p>
+<p>Web 常用方案格式： http, https, mailto, ftp, rtsp, telnet, news, file(在文件夹打开一个静态网页)</p>
 
       
     </div>
@@ -379,9 +576,9 @@
 
 
   
-    <article id="post-essence-6-code-style" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-essence-9-chicken-ribs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/10/19/essence-6-code-style/" class="article-date">
+    <a href="/2015/10/19/essence-9-chicken-ribs/" class="article-date">
   <time datetime="2015-10-19T07:14:01.000Z" itemprop="datePublished">Oct 19 2015</time>
 </a>
     
@@ -397,7 +594,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+      <a class="article-title" href="/2015/10/19/essence-9-chicken-ribs/">essence-chicken-ribs</a>
     </h1>
   
 
@@ -405,101 +602,105 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>阅读JavaScript语言精粹一书 —— 代码风格</p>
-<p><strong>1. 为什么要讲代码风格</strong></p>
-<p>优秀的程序拥有一个前瞻性的结构，它会预见到在未来才可能需要的修改，但不会让其成为过度的负担。优秀的程序还会具备一种清晰的表达式，如果一个程序被表达得很好，那么我们就能更加清晰的去理解它，以便成功的修补或改造它。</p>
-<p>上面的观点适合所有的编程语言，而对Javascript来说尤为如此。Javascript的弱类型和过度的容错性导致程序质量无法在编译时获得保障，所以为了弥补，我们更应该按照严格的规范进行编码。</p>
-<p>对于一个组织机构来说，软件的长远价值和代码库质量成正比。在程序的生命周期里，会经过很多人的测试、使用、修改。如果一个程序能很清除的传达它的结构和特性，那么当它在并不遥远的将来被修改时，它被破坏的可能性就小很多。</p>
-<p>如果程序可读性强，它正常运行的可能性，以及是否准确按照我们的意图去工作的可能性也显著增强。它还决定了程序在其生命周期中是否可扩展。</p>
-<p><strong>2. 代码风格</strong></p>
-<p><strong>使用一致的留白来帮助理解程序的逻辑思路</strong></p>
-<p>a. 代码快内容和对象字面量缩进4个空格<br>b. 放1个空格在if和（**, 以致if不会看起来像是函数调用，只有真的是在调用时，才使用（与前面的符号相毗连.<br>c. 在除了。和 [之外的所有运算符的两边都放了空格,他们两无需空格是因为他们有更高的优先级。<br>d. 每个逗号和冒号的后面都使用一个空格。<br>e. 在每行最多放一条语句，在一行里放多条语句可能会被误读。如果一条语句放不完，可以在冒火或二元运算符后拆开它。可以防止自动插入分号的机制掩盖复制/粘贴的错误。给折断后的其余语句多缩进4个空格。<br>f. 在if和while这样的结构化的语句里，始终使用代码块的方式，这样会减少出错的几率。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）</div><div class="line">    b();</div></pre></td></tr></table></figure>
+        <p>阅读JavaScript语言精粹一书 —— 鸡肋</p>
+<p><strong>以下是Javascript中一些有问题的特性，我们能够很容易就避免它们。通过这些简单的做法，就可以使JavaScript成为一门更好的语言，也能让你成为一个更好的程序员</strong></p>
+<p><strong>1. ==</strong></p>
+<p>JavaScript有两组相等运算符：=== &amp; !==，以及他们邪恶的孪生兄弟== &amp; !=.   === &amp; ！== 这一组运算符会按照你期望的方式工作。如果两个运算数类型一致且拥有相同的值，那么===返回true，而!==返回false。</p>
+<p>而==&amp;!=只有在两个运算数类型一致时才会做出正确判断，但如果两个运算数类型不同时，它们试图强制转换其值的类型。转换的规则复杂且难以记忆。e.g.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="string">''</span> == <span class="string">'0'</span>;  //<span class="literal">false</span></div><div class="line"><span class="number">0</span> == <span class="string">''</span>;    //<span class="literal">true</span></div><div class="line"><span class="number">0</span> == <span class="string">'0'</span>;   //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == <span class="string">'false'</span>;  //<span class="literal">false</span></div><div class="line"><span class="literal">false</span> == <span class="string">'0'</span>;      //<span class="literal">true</span></div><div class="line"><span class="literal">false</span> == <span class="number">0</span>;        //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == undefined;  //<span class="literal">false</span></div><div class="line"><span class="literal">false</span> == null;       //<span class="literal">false</span></div><div class="line">undefined == null;   //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="string">'\t\r\n'</span> == <span class="number">0</span>;    //<span class="literal">true</span></div></pre></td></tr></table></figure>
+
+<p>==运算符对传递性的缺乏值得我们警惕。建议不要使用==&amp;!=运算符，如果以上的比较使用===，均返回false。</p>
+<p><strong>2. with语句</strong></p>
+<p>JavaScript提供了一个with语句，本意是想用来快捷的访问对象的属性，不幸的是，它的结果有时是不可预料的，应该避免使用。e.g.</p>
+<p>下面的语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">with(obj){</div><div class="line">    a = b;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>和下面的代码做着同样的事情：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (obj.a === undefined){</div><div class="line">    a = obj.b === undefined ? b : obj.b;</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    obj.a = obj.b === undefined ? b : obj.b;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>所以，它等于这些语句中的任何1条。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a = b;</div><div class="line">a = obj.b;</div><div class="line">obj.a = b;</div><div class="line">obj.a = obj.b;</div></pre></td></tr></table></figure>
+
+<p>通过阅读程序代码，你不可能辨别出你会得到这些语句中的哪一句。它可能随着程序运行到下一步时发生变化。它甚至可能在程序运行过程就发生变化了。</p>
+<p>with语句在该门语言中存在，本身就严重影响了JavaScript处理器的速度，因为它阻止了变量名的词法作用域的绑定。它的本意是好的，但如果没有它，JavaScript会更好一些。</p>
+<p><strong>3. eval</strong></p>
+<p>eval函数传递一个字符串给JavaScript编译器，并且执行其结果。它是被滥用得最多的JavaScript特性，那些对JavaScript一知半解的人们最常用他们。</p>
+<p>e.g. 如果你知道点表示法，不知道下标表示法，就可能会这样写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span>(<span class="string">"myValue = myObject."</span> + myKey + <span class="string">";"</span>);</div></pre></td></tr></table></figure>
+
+<p>而不是这样写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myValue = myObject[myKey];</div></pre></td></tr></table></figure>
+
+<p>使用eval形式的代码会更加难以阅读。这种形式会使得性能显著降低，因为它须运行编译器，但也许是为了执行一个微不足道的赋值语句。它也会让JSLint失效，因此该工具检测问题的能力也会降低。</p>
+<p>eval函数还降低了你应用的安全性，因为它给被求值的语句赋予了太多的能力。</p>
+<p>Function构造函数是eval的另一种形式。所以它也应该避免使用。</p>
+<p>浏览器提供的setInterval &amp; setTimeout函数，它们能接受字符串参数和函数参数。当传递的是字符串参数时，setInterval &amp; setTimeout会像eval那样去处理，字符串参数形式也应该被避免。</p>
+<p><strong>4. continue语句</strong></p>
+<p>continue语句跳到循环的顶部，作者发现一段代码通过重构移除continue语句之后，性能都会得到改善。</p>
+<p><strong>5. switch贯穿（不懂，P125）</strong></p>
+<p>switch语句，除非你明确的中断流程，否则每次条件判断后会贯穿到下一个case条件。</p>
+<p><strong>6. 缺少块的语句</strong></p>
+<p>If、while、do or for语句可以接受一个括在花括号中的代码块，也可以接受单行语句。单行形式的语句是另一种带刺的玫瑰，它带来的好处是可以节约两个字节，但这是不是一个好处值的商榷。它模糊了程序的结构，使得在随后的操作代码中可能很容易插入错误。e.g.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok)</div><div class="line">t = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+
+<p>可能变成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok)</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">    advance();</div></pre></td></tr></table></figure>
+
+<p>它看起来像是要这样: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok) {</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">    advance();</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>但是实际执行是这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok) {</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">}</div><div class="line">advance();</div></pre></td></tr></table></figure>
+
+<p>严格规范并使用代码块会使得代码更容易理解。</p>
+<p><strong>7. ++ &amp; —</strong></p>
+<p>递增和递减运算符使得程序员可以用非常简洁的风格去编码，而事实上，这两种运算符容易促成一种不谨慎的编码风格，大多数的缓冲区溢出错误所造成的安全漏洞，都是由于像这样的编码导致的。</p>
+<p>作者认为使用 ++ &amp; —时，代码往往变得过于紧密，复杂和隐晦。因此，作为一条原则，不再使用它们，那样会让代码风格变得更简洁（<strong>不明白</strong>）。</p>
+<p><strong>8. 位运算符</strong></p>
+<p>JavaScript有着与java相同的一套运算符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&    and 按位与</div><div class="line">|    or  按位或</div><div class="line">^    xor 按位异或</div><div class="line">！   not 按位非</div><div class="line">&gt;&gt;   带符号右移</div><div class="line">&gt;&gt;&gt;  无符号的（用<span class="number">0</span>补足的右移）</div><div class="line">&lt;&lt;   左移</div></pre></td></tr></table></figure>
+
+<p>在java里位运算符处理的是整数。JavaScript没有整数类型，它只有双精度的浮点数，因此，位运算符先将它们的数字运算先转换成整数，接着执行运算，然后再转换回去。</p>
+<p>在大多数语言中，这些位运算符接近于硬件处理而非常快，但在JavaScript中，它们非但不是硬件处理，而且非常慢。JavaScript很少被用来执行位操作。</p>
+<p><strong>9. function语句对比函数表达式</strong></p>
+<p>JavaScript既有function语句，同时也有函数表达式。这是令人困惑的，因为它们看起来好像就是相同的。一个function语句就是其值为一个函数的var语句的速记形式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function <span class="function"><span class="title">foo</span></span>(){}</div></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var foo = <span class="function"><span class="title">function</span></span>(){}</div></pre></td></tr></table></figure>
+
+<p>要学好这门语言，理解函数就是数值是很重要的。</p>
+<p>function语句在解析时会发生被提升的情况。这意味着不管函数放在哪里，它会被移动到被定义时所在作用域的顶层。这放宽了函数必须先声明后使用的要求，而我认为这会导致混乱。</p>
+<p>在 if 语句中使用 function 语句也是被禁止的。结果表明大多数浏览器都允许在 if 语句中使用 function 语句，但它们在解析时的处理上各不相同。这就造成了可移植性的问题。</p>
+<p>一个语句不能以一个函数表达式开头，因为官方的语法假定以单词 function 开头的语句是一个 function 语句。解决办法就是把函数表达式扩在一个圆括号之中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="title">function</span></span>(){</div><div class="line">    var hidden_variable;</div><div class="line">    console.log(hidden_variable); //undefined</div><div class="line">    console.log(this);            //window</div><div class="line">    //这个函数可能对环境有一些影响，但不会引入新的全局变量</div><div class="line">})();</div></pre></td></tr></table></figure>
+
+<p><strong>10. 类型的包装对象</strong></p>
+<p>JavaScript有一套类型的包装对象。e.g.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Boolean(<span class="literal">false</span>)</div></pre></td></tr></table></figure>
 
 
-<p>变成：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）</div><div class="line">    b();</div><div class="line">    c();</div></pre></td></tr></table></figure>
 
-<p>这是一个很难发现的错误，看起来像是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）{</div><div class="line">    b();</div><div class="line">    c();</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>而实际上是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）{</div><div class="line">    b();</div><div class="line">}</div><div class="line"> c();</div></pre></td></tr></table></figure>
-
-<p>这种情况下，很可能会导致bug，一对花括号可以用很低廉的成本去防止那些需要昂贵的代价才能发现的bug。</p>
-<p>g. 把{放在一行的结尾，而不是下一行的开头。这样做可以避免return语句中的一个可怕的设计错误。<br>h. 努力保持注释是最新的，错误的注释甚至可能会使程序更加难以阅读和理解。有时候觉得注释就像时间机器，我用它发送重要的信息给未来的我。（作者的比喻实在是太好）在Js里，我更喜欢用行注释。把块注释用于正式的文档记录和注释。</p>
-<p>尽量不写无用的注释。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">0</span>; //设置i为<span class="number">0</span></div></pre></td></tr></table></figure>
-
-<p>i. Javascript有作用域，但没有块级作用域，所以在函数开头声明所有变量。</p>
-<p>作者： 对于一个脚本应用或工具库，我只用唯一一个全局变量。每个对象都有它自己的命名空间，所以我很容易使用对象去管理代码。使用闭包能提供进一步的信息隐藏，增强我的模块的健壮性。</p>
+<p>会返回一个对象，该对象有一个valueof方法会返回被包装的值。这其实完全没有必要，并且有时还令人困惑。不要使用new Boolean、new Number、new String。也请避免使用new Object、new Array.</p>
+<p><strong>11. new</strong></p>
+<p>JavaScript 的 new 运算符创建一个继承于其运算数的原型的对象，然后调用该运算数，把新创建的对象绑定给this，这给运算数（它应该是一个构造器函数）一个机会在返回在返回给请求者之前去自定义新创建的对象。</p>
+<p>如果忘记使用new运算符，你所得到的就是普通的函数调用，并且this被绑定到全局对象，而不是新创建的对象。那意味着当你的函数尝试去初始化新成员元素时它将会污染全局对象。</p>
+<p>按照惯列，打算与new运算符结合使用的函数应该命名为说字母大写形式，并且首字母大写的形式应该只用来命名那些构造器函数。这个约定给我们提供了一个视觉线索，以帮助我们发现那些JavaScript语言自身经常忽略但却会带来昂贵代价的错误。</p>
+<p>更好的应对策略就是根本不使用new。</p>
+<p><strong>12. void</strong></p>
+<p>在很多语言中，void是一种类型，表示没有值。而在JavaScript里，void是一个运算符，它接受一个运算数并返回undefined, 这并没有什么用，反而让人感到很困惑，应该避免使用。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/10/19/essence-6-code-style/" data-id="uof5eti9wmuktobo" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://yoursite.com/2015/10/19/essence-9-chicken-ribs/" data-id="mxwwwec5spa2gymj" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-code-style/">essence-code-style</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-essence-7-graceful-characteristic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/19/essence-7-graceful-characteristic/" class="article-date">
-  <time datetime="2015-10-19T07:14:01.000Z" itemprop="datePublished">Oct 19 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Essence/">Essence</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/19/essence-7-graceful-characteristic/">essence-graceful-characteristic</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>阅读JavaScript语言精粹一书 —— 优美的特性</p>
-<p><strong>精简的Javascript里都是好东西，包括以下内容：</strong></p>
-<p><strong>1. 函数是顶级对象</strong></p>
-<p>在精简的Javascript中，函数是有词法作用域的闭包。</p>
-<p><strong>2. 基于原型继承的动态对象</strong></p>
-<p>对象是无类别的。我们可以通过普通的赋值给任何对象增加一个新成员属性。一个对象可以从另一个对象继承成员属性。</p>
-<p><strong>3. 对象字面量和数组字面量</strong></p>
-<p>这对创建新的对象和数组来说是一种非常方便的表示法，Javascript字面量是数据交换格式JSON的灵感之源。</p>
-<p><strong>事实证明，做出恰好可以工作的设计比做出集合一大串特性的设计要困难得多</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2015/10/19/essence-7-graceful-characteristic/" data-id="2ost4lapug7crtc6" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-graceful-characteristic/">essence-graceful-characteristic</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-chicken-ribs/">essence-chicken-ribs</a></li></ul>
 
     </footer>
   </div>
@@ -661,9 +862,9 @@
 
 
   
-    <article id="post-essence-9-chicken-ribs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-essence-7-graceful-characteristic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/10/19/essence-9-chicken-ribs/" class="article-date">
+    <a href="/2015/10/19/essence-7-graceful-characteristic/" class="article-date">
   <time datetime="2015-10-19T07:14:01.000Z" itemprop="datePublished">Oct 19 2015</time>
 </a>
     
@@ -679,7 +880,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/19/essence-9-chicken-ribs/">essence-chicken-ribs</a>
+      <a class="article-title" href="/2015/10/19/essence-7-graceful-characteristic/">essence-graceful-characteristic</a>
     </h1>
   
 
@@ -687,105 +888,101 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>阅读JavaScript语言精粹一书 —— 鸡肋</p>
-<p><strong>以下是Javascript中一些有问题的特性，我们能够很容易就避免它们。通过这些简单的做法，就可以使JavaScript成为一门更好的语言，也能让你成为一个更好的程序员</strong></p>
-<p><strong>1. ==</strong></p>
-<p>JavaScript有两组相等运算符：=== &amp; !==，以及他们邪恶的孪生兄弟== &amp; !=.   === &amp; ！== 这一组运算符会按照你期望的方式工作。如果两个运算数类型一致且拥有相同的值，那么===返回true，而!==返回false。</p>
-<p>而==&amp;!=只有在两个运算数类型一致时才会做出正确判断，但如果两个运算数类型不同时，它们试图强制转换其值的类型。转换的规则复杂且难以记忆。e.g.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="string">''</span> == <span class="string">'0'</span>;  //<span class="literal">false</span></div><div class="line"><span class="number">0</span> == <span class="string">''</span>;    //<span class="literal">true</span></div><div class="line"><span class="number">0</span> == <span class="string">'0'</span>;   //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == <span class="string">'false'</span>;  //<span class="literal">false</span></div><div class="line"><span class="literal">false</span> == <span class="string">'0'</span>;      //<span class="literal">true</span></div><div class="line"><span class="literal">false</span> == <span class="number">0</span>;        //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="literal">false</span> == undefined;  //<span class="literal">false</span></div><div class="line"><span class="literal">false</span> == null;       //<span class="literal">false</span></div><div class="line">undefined == null;   //<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="string">'\t\r\n'</span> == <span class="number">0</span>;    //<span class="literal">true</span></div></pre></td></tr></table></figure>
-
-<p>==运算符对传递性的缺乏值得我们警惕。建议不要使用==&amp;!=运算符，如果以上的比较使用===，均返回false。</p>
-<p><strong>2. with语句</strong></p>
-<p>JavaScript提供了一个with语句，本意是想用来快捷的访问对象的属性，不幸的是，它的结果有时是不可预料的，应该避免使用。e.g.</p>
-<p>下面的语句：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">with(obj){</div><div class="line">    a = b;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>和下面的代码做着同样的事情：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (obj.a === undefined){</div><div class="line">    a = obj.b === undefined ? b : obj.b;</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    obj.a = obj.b === undefined ? b : obj.b;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>所以，它等于这些语句中的任何1条。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a = b;</div><div class="line">a = obj.b;</div><div class="line">obj.a = b;</div><div class="line">obj.a = obj.b;</div></pre></td></tr></table></figure>
-
-<p>通过阅读程序代码，你不可能辨别出你会得到这些语句中的哪一句。它可能随着程序运行到下一步时发生变化。它甚至可能在程序运行过程就发生变化了。</p>
-<p>with语句在该门语言中存在，本身就严重影响了JavaScript处理器的速度，因为它阻止了变量名的词法作用域的绑定。它的本意是好的，但如果没有它，JavaScript会更好一些。</p>
-<p><strong>3. eval</strong></p>
-<p>eval函数传递一个字符串给JavaScript编译器，并且执行其结果。它是被滥用得最多的JavaScript特性，那些对JavaScript一知半解的人们最常用他们。</p>
-<p>e.g. 如果你知道点表示法，不知道下标表示法，就可能会这样写：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">eval</span>(<span class="string">"myValue = myObject."</span> + myKey + <span class="string">";"</span>);</div></pre></td></tr></table></figure>
-
-<p>而不是这样写：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myValue = myObject[myKey];</div></pre></td></tr></table></figure>
-
-<p>使用eval形式的代码会更加难以阅读。这种形式会使得性能显著降低，因为它须运行编译器，但也许是为了执行一个微不足道的赋值语句。它也会让JSLint失效，因此该工具检测问题的能力也会降低。</p>
-<p>eval函数还降低了你应用的安全性，因为它给被求值的语句赋予了太多的能力。</p>
-<p>Function构造函数是eval的另一种形式。所以它也应该避免使用。</p>
-<p>浏览器提供的setInterval &amp; setTimeout函数，它们能接受字符串参数和函数参数。当传递的是字符串参数时，setInterval &amp; setTimeout会像eval那样去处理，字符串参数形式也应该被避免。</p>
-<p><strong>4. continue语句</strong></p>
-<p>continue语句跳到循环的顶部，作者发现一段代码通过重构移除continue语句之后，性能都会得到改善。</p>
-<p><strong>5. switch贯穿（不懂，P125）</strong></p>
-<p>switch语句，除非你明确的中断流程，否则每次条件判断后会贯穿到下一个case条件。</p>
-<p><strong>6. 缺少块的语句</strong></p>
-<p>If、while、do or for语句可以接受一个括在花括号中的代码块，也可以接受单行语句。单行形式的语句是另一种带刺的玫瑰，它带来的好处是可以节约两个字节，但这是不是一个好处值的商榷。它模糊了程序的结构，使得在随后的操作代码中可能很容易插入错误。e.g.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok)</div><div class="line">t = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
-
-<p>可能变成：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok)</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">    advance();</div></pre></td></tr></table></figure>
-
-<p>它看起来像是要这样: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok) {</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">    advance();</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>但是实际执行是这样：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ok) {</div><div class="line">    t = <span class="literal">true</span>;</div><div class="line">}</div><div class="line">advance();</div></pre></td></tr></table></figure>
-
-<p>严格规范并使用代码块会使得代码更容易理解。</p>
-<p><strong>7. ++ &amp; —</strong></p>
-<p>递增和递减运算符使得程序员可以用非常简洁的风格去编码，而事实上，这两种运算符容易促成一种不谨慎的编码风格，大多数的缓冲区溢出错误所造成的安全漏洞，都是由于像这样的编码导致的。</p>
-<p>作者认为使用 ++ &amp; —时，代码往往变得过于紧密，复杂和隐晦。因此，作为一条原则，不再使用它们，那样会让代码风格变得更简洁（<strong>不明白</strong>）。</p>
-<p><strong>8. 位运算符</strong></p>
-<p>JavaScript有着与java相同的一套运算符。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&    and 按位与</div><div class="line">|    or  按位或</div><div class="line">^    xor 按位异或</div><div class="line">！   not 按位非</div><div class="line">&gt;&gt;   带符号右移</div><div class="line">&gt;&gt;&gt;  无符号的（用<span class="number">0</span>补足的右移）</div><div class="line">&lt;&lt;   左移</div></pre></td></tr></table></figure>
-
-<p>在java里位运算符处理的是整数。JavaScript没有整数类型，它只有双精度的浮点数，因此，位运算符先将它们的数字运算先转换成整数，接着执行运算，然后再转换回去。</p>
-<p>在大多数语言中，这些位运算符接近于硬件处理而非常快，但在JavaScript中，它们非但不是硬件处理，而且非常慢。JavaScript很少被用来执行位操作。</p>
-<p><strong>9. function语句对比函数表达式</strong></p>
-<p>JavaScript既有function语句，同时也有函数表达式。这是令人困惑的，因为它们看起来好像就是相同的。一个function语句就是其值为一个函数的var语句的速记形式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function <span class="function"><span class="title">foo</span></span>(){}</div></pre></td></tr></table></figure>
-
-<p>相当于</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var foo = <span class="function"><span class="title">function</span></span>(){}</div></pre></td></tr></table></figure>
-
-<p>要学好这门语言，理解函数就是数值是很重要的。</p>
-<p>function语句在解析时会发生被提升的情况。这意味着不管函数放在哪里，它会被移动到被定义时所在作用域的顶层。这放宽了函数必须先声明后使用的要求，而我认为这会导致混乱。</p>
-<p>在 if 语句中使用 function 语句也是被禁止的。结果表明大多数浏览器都允许在 if 语句中使用 function 语句，但它们在解析时的处理上各不相同。这就造成了可移植性的问题。</p>
-<p>一个语句不能以一个函数表达式开头，因为官方的语法假定以单词 function 开头的语句是一个 function 语句。解决办法就是把函数表达式扩在一个圆括号之中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="title">function</span></span>(){</div><div class="line">    var hidden_variable;</div><div class="line">    console.log(hidden_variable); //undefined</div><div class="line">    console.log(this);            //window</div><div class="line">    //这个函数可能对环境有一些影响，但不会引入新的全局变量</div><div class="line">})();</div></pre></td></tr></table></figure>
-
-<p><strong>10. 类型的包装对象</strong></p>
-<p>JavaScript有一套类型的包装对象。e.g.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Boolean(<span class="literal">false</span>)</div></pre></td></tr></table></figure>
-
-
-
-<p>会返回一个对象，该对象有一个valueof方法会返回被包装的值。这其实完全没有必要，并且有时还令人困惑。不要使用new Boolean、new Number、new String。也请避免使用new Object、new Array.</p>
-<p><strong>11. new</strong></p>
-<p>JavaScript 的 new 运算符创建一个继承于其运算数的原型的对象，然后调用该运算数，把新创建的对象绑定给this，这给运算数（它应该是一个构造器函数）一个机会在返回在返回给请求者之前去自定义新创建的对象。</p>
-<p>如果忘记使用new运算符，你所得到的就是普通的函数调用，并且this被绑定到全局对象，而不是新创建的对象。那意味着当你的函数尝试去初始化新成员元素时它将会污染全局对象。</p>
-<p>按照惯列，打算与new运算符结合使用的函数应该命名为说字母大写形式，并且首字母大写的形式应该只用来命名那些构造器函数。这个约定给我们提供了一个视觉线索，以帮助我们发现那些JavaScript语言自身经常忽略但却会带来昂贵代价的错误。</p>
-<p>更好的应对策略就是根本不使用new。</p>
-<p><strong>12. void</strong></p>
-<p>在很多语言中，void是一种类型，表示没有值。而在JavaScript里，void是一个运算符，它接受一个运算数并返回undefined, 这并没有什么用，反而让人感到很困惑，应该避免使用。</p>
+        <p>阅读JavaScript语言精粹一书 —— 优美的特性</p>
+<p><strong>精简的Javascript里都是好东西，包括以下内容：</strong></p>
+<p><strong>1. 函数是顶级对象</strong></p>
+<p>在精简的Javascript中，函数是有词法作用域的闭包。</p>
+<p><strong>2. 基于原型继承的动态对象</strong></p>
+<p>对象是无类别的。我们可以通过普通的赋值给任何对象增加一个新成员属性。一个对象可以从另一个对象继承成员属性。</p>
+<p><strong>3. 对象字面量和数组字面量</strong></p>
+<p>这对创建新的对象和数组来说是一种非常方便的表示法，Javascript字面量是数据交换格式JSON的灵感之源。</p>
+<p><strong>事实证明，做出恰好可以工作的设计比做出集合一大串特性的设计要困难得多</strong></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2015/10/19/essence-9-chicken-ribs/" data-id="mxwwwec5spa2gymj" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://yoursite.com/2015/10/19/essence-7-graceful-characteristic/" data-id="2ost4lapug7crtc6" class="article-share-link" data-share="baidu">Share</a>
       
 
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-chicken-ribs/">essence-chicken-ribs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-graceful-characteristic/">essence-graceful-characteristic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-essence-6-code-style" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/19/essence-6-code-style/" class="article-date">
+  <time datetime="2015-10-19T07:14:01.000Z" itemprop="datePublished">Oct 19 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Essence/">Essence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读JavaScript语言精粹一书 —— 代码风格</p>
+<p><strong>1. 为什么要讲代码风格</strong></p>
+<p>优秀的程序拥有一个前瞻性的结构，它会预见到在未来才可能需要的修改，但不会让其成为过度的负担。优秀的程序还会具备一种清晰的表达式，如果一个程序被表达得很好，那么我们就能更加清晰的去理解它，以便成功的修补或改造它。</p>
+<p>上面的观点适合所有的编程语言，而对Javascript来说尤为如此。Javascript的弱类型和过度的容错性导致程序质量无法在编译时获得保障，所以为了弥补，我们更应该按照严格的规范进行编码。</p>
+<p>对于一个组织机构来说，软件的长远价值和代码库质量成正比。在程序的生命周期里，会经过很多人的测试、使用、修改。如果一个程序能很清除的传达它的结构和特性，那么当它在并不遥远的将来被修改时，它被破坏的可能性就小很多。</p>
+<p>如果程序可读性强，它正常运行的可能性，以及是否准确按照我们的意图去工作的可能性也显著增强。它还决定了程序在其生命周期中是否可扩展。</p>
+<p><strong>2. 代码风格</strong></p>
+<p><strong>使用一致的留白来帮助理解程序的逻辑思路</strong></p>
+<p>a. 代码快内容和对象字面量缩进4个空格<br>b. 放1个空格在if和（**, 以致if不会看起来像是函数调用，只有真的是在调用时，才使用（与前面的符号相毗连.<br>c. 在除了。和 [之外的所有运算符的两边都放了空格,他们两无需空格是因为他们有更高的优先级。<br>d. 每个逗号和冒号的后面都使用一个空格。<br>e. 在每行最多放一条语句，在一行里放多条语句可能会被误读。如果一条语句放不完，可以在冒火或二元运算符后拆开它。可以防止自动插入分号的机制掩盖复制/粘贴的错误。给折断后的其余语句多缩进4个空格。<br>f. 在if和while这样的结构化的语句里，始终使用代码块的方式，这样会减少出错的几率。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）</div><div class="line">    b();</div></pre></td></tr></table></figure>
+
+
+<p>变成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）</div><div class="line">    b();</div><div class="line">    c();</div></pre></td></tr></table></figure>
+
+<p>这是一个很难发现的错误，看起来像是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）{</div><div class="line">    b();</div><div class="line">    c();</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>而实际上是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> （a）{</div><div class="line">    b();</div><div class="line">}</div><div class="line"> c();</div></pre></td></tr></table></figure>
+
+<p>这种情况下，很可能会导致bug，一对花括号可以用很低廉的成本去防止那些需要昂贵的代价才能发现的bug。</p>
+<p>g. 把{放在一行的结尾，而不是下一行的开头。这样做可以避免return语句中的一个可怕的设计错误。<br>h. 努力保持注释是最新的，错误的注释甚至可能会使程序更加难以阅读和理解。有时候觉得注释就像时间机器，我用它发送重要的信息给未来的我。（作者的比喻实在是太好）在Js里，我更喜欢用行注释。把块注释用于正式的文档记录和注释。</p>
+<p>尽量不写无用的注释。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">0</span>; //设置i为<span class="number">0</span></div></pre></td></tr></table></figure>
+
+<p>i. Javascript有作用域，但没有块级作用域，所以在函数开头声明所有变量。</p>
+<p>作者： 对于一个脚本应用或工具库，我只用唯一一个全局变量。每个对象都有它自己的命名空间，所以我很容易使用对象去管理代码。使用闭包能提供进一步的信息隐藏，增强我的模块的健壮性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/19/essence-6-code-style/" data-id="uof5eti9wmuktobo" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-code-style/">essence-code-style</a></li></ul>
 
     </footer>
   </div>
@@ -939,58 +1136,6 @@
 
 
   
-    <article id="post-essence-5-4-object-fn" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/16/essence-5-4-object-fn/" class="article-date">
-  <time datetime="2015-10-16T03:03:57.000Z" itemprop="datePublished">Oct 16 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Essence/">Essence</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/16/essence-5-4-object-fn/">essence-object-fn</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>阅读JavaScript语言精粹一书 ——函数方法。</p>
-<p>Javascript包含了一套小型的可用在标准类型上的标准方法集。</p>
-<p><strong>1. object.hasOwnProperty(name)</strong></p>
-<p>如果这个对象包含一个名为name的属性，那么hasOwnProperty方法返回true。原型链中的同名属性是不会被检查的。这个方法对name是’hasOwnProperty’时不起作用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = {member: <span class="literal">true</span>};</div><div class="line">var b = Object.create(a);</div><div class="line">var t = a.hasOwnProperty(<span class="string">'member'</span>);  //<span class="literal">true</span></div><div class="line">var u = b.hasOwnProperty(<span class="string">'member'</span>);  //<span class="literal">false</span></div><div class="line">var v = b.member;                    //<span class="literal">true</span></div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2015/10/16/essence-5-4-object-fn/" data-id="s1ylm4skl1xw70l1" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essence-object-fn/">essence-object-fn</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
@@ -1004,7 +1149,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a><a href="/tags/重绘-重排/" style="font-size: 20.00px;">重绘, 重排</a>
+      <a href="/tags/Html5-form-attr/" style="font-size: 20.00px;">Html5 form attr</a><a href="/tags/Ubuntu常用命令/" style="font-size: 20.00px;">Ubuntu常用命令</a><a href="/tags/app-market-cms-总结/" style="font-size: 20.00px;">app-market-cms 总结</a><a href="/tags/app-market-csm-总结/" style="font-size: 10.00px;">app-market-csm 总结</a><a href="/tags/arguments/" style="font-size: 20.00px;">arguments</a><a href="/tags/backboneTrap/" style="font-size: 20.00px;">backboneTrap</a><a href="/tags/call/" style="font-size: 20.00px;">call()</a><a href="/tags/commonly-used-in-work-javascript/" style="font-size: 20.00px;">commonly-used-in-work-javascript</a><a href="/tags/essence-arrays/" style="font-size: 20.00px;">essence-arrays</a><a href="/tags/essence-arrays-fn/" style="font-size: 20.00px;">essence-arrays-fn</a><a href="/tags/essence-chicken-ribs/" style="font-size: 20.00px;">essence-chicken-ribs</a><a href="/tags/essence-code-style/" style="font-size: 20.00px;">essence-code-style</a><a href="/tags/essence-function/" style="font-size: 20.00px;">essence-function</a><a href="/tags/essence-function-fn/" style="font-size: 20.00px;">essence-function-fn</a><a href="/tags/essence-graceful-characteristic/" style="font-size: 20.00px;">essence-graceful-characteristic</a><a href="/tags/essence-inheritance/" style="font-size: 20.00px;">essence-inheritance</a><a href="/tags/essence-loose/" style="font-size: 20.00px;">essence-loose</a><a href="/tags/essence-number-fn/" style="font-size: 20.00px;">essence-number-fn</a><a href="/tags/essence-object/" style="font-size: 20.00px;">essence-object</a><a href="/tags/essence-object-fn/" style="font-size: 20.00px;">essence-object-fn</a><a href="/tags/essence-string-fn/" style="font-size: 20.00px;">essence-string-fn</a><a href="/tags/event/" style="font-size: 20.00px;">event</a><a href="/tags/gitTrap/" style="font-size: 20.00px;">gitTrap</a><a href="/tags/hexo/" style="font-size: 20.00px;">hexo</a><a href="/tags/html5属性/" style="font-size: 20.00px;">html5属性</a><a href="/tags/http-message/" style="font-size: 20.00px;">http-message</a><a href="/tags/http-summary/" style="font-size: 20.00px;">http-summary</a><a href="/tags/http-url-resource/" style="font-size: 20.00px;">http-url&resource</a><a href="/tags/js元素操作/" style="font-size: 20.00px;">js元素操作</a><a href="/tags/publickey-ssh/" style="font-size: 10.00px;">publickey, ssh</a><a href="/tags/requireJsTrap/" style="font-size: 20.00px;">requireJsTrap</a><a href="/tags/safePhone-总结/" style="font-size: 20.00px;">safePhone 总结</a><a href="/tags/setTimeout-setInterval/" style="font-size: 20.00px;">setTimeout(), setInterval()</a><a href="/tags/the-essence-of-the-JavaScript/" style="font-size: 10.00px;">the-essence-of-the-JavaScript</a><a href="/tags/top命令/" style="font-size: 20.00px;">top命令</a><a href="/tags/webstorm快捷键/" style="font-size: 20.00px;">webstorm快捷键</a><a href="/tags/函数节流/" style="font-size: 20.00px;">函数节流</a><a href="/tags/常用regExp/" style="font-size: 20.00px;">常用regExp</a><a href="/tags/开发中的坑洼沟/" style="font-size: 10.00px;">开发中的坑洼沟</a><a href="/tags/日记2015-09-15/" style="font-size: 10.00px;">日记2015-09-15</a>
     </div>
   </div>
 
@@ -1013,7 +1158,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Css/">Css</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Essence/">Essence</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Html5/">Html5</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Http/">Http</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Js/">Js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Liunx/">Liunx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tool/">Tool</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1022,7 +1167,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1032,6 +1177,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/11/05/http-3-message/">http-3-message</a>
+          </li>
         
           <li>
             <a href="/2015/10/28/http-2-url-resource/">http-2-url&amp;resource</a>
@@ -1047,10 +1196,6 @@
         
           <li>
             <a href="/2015/10/21/essence-10-JSON/">essence-10-JSON</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/19/essence-6-code-style/">essence-code-style</a>
           </li>
         
       </ul>
